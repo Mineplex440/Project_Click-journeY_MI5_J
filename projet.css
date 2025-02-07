@@ -1,0 +1,17 @@
+body{background-color: #DAF5F6;}
+
+legend{background-color: #458022;}
+
+fieldset{
+    background-color: #458022;
+    border-color: #010718;
+    grid-template-columns: 200px 1px;
+}
+
+label{
+    grid-column: 1;
+}
+
+input{
+    grid-column: 2;
+}
