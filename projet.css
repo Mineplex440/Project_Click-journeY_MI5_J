@@ -1,17 +1,37 @@
-body{background-color: #DAF5F6;}
+body{
+    background-color: #DAF5F6;
+    padding-top: 100px;
+    padding-left: 40%;
+    font-size: 20px;
+}
 
-legend{background-color: #458022;}
+legend{
+    background-color: #458022;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
 
 fieldset{
     background-color: #458022;
     border-color: #010718;
-    grid-template-columns: 200px 1px;
+    display: grid;
+    grid-template-columns: fit-content(80%);
+    column-gap: 10px;
+    row-gap: 5px;
+    border-radius: 30px;
+    padding-inline: 30px;
+    padding-block: 25px;
+
 }
 
-label{
+div.div1{
+    text-align: right;
     grid-column: 1;
 }
 
-input{
+div.div2{
+    
     grid-column: 2;
 }
