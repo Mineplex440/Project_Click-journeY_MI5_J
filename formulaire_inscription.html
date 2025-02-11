@@ -9,38 +9,60 @@
             
             <form action="" method="get" target="_top">
                 <fieldset style="width: fit-content;">
-                    <legend>Formulaire</legend>
+                    <legend>Inscription</legend>
+
                     <div class="div1">
-                        Prénom :
+                        <label for="prenomm"> Prénom : </label> 
                     </div>
 
                     <div class="div2">
-                        <input type="text" id="pre" name="prenom" maxlength="50" required/>
+                        <input type="text" id="prenomm" name="prenom" placeholder="Prénom" maxlength="50" required/>
                     </div>
 
                     <div class="div1" >
-                        Nom :
+                        <label for="nomm"> Nom : </label> 
                     </div>
 
                     <div class="div2">
-                            <input type="text" name="nom" maxlength="50" required/>
+                            <input type="text" id="nomm"name="nom" placeholder="Nom" maxlength="50" required/>
                     </div>
 
                     <div class="div1">
-                        Adresse Email :
+                        <label for="emaill"> Adresse Email : </label>
                     </div>
                     <div class="div2">
-                        <input type="email" id="email1" name="email"/>
+                        <input type="email" id="emaill" name="email" placeholder="exemple@gmail.com" required/>
                     </div>
 
                     <div class="div1">
-                        Age : 
+                        <label for="agee"> Age : </label> 
                     </div>
 
                     <div class="div2">
-                        <input type="date" id="age" name="Age"/>
+                        <input type="date" id="agee" name="Age" required/>
+                    </div>
+                    
+                    <div class="div1">
+                        <label for="sexee">Choississez votre sexe : </label>
                     </div>
 
+                    <div class="div2">
+                            <input type="radio" id="sexee" name="Sexe" value="H"/>Homme
+                            <input type="radio" id="sexee" name="Sexe"value="F"/>Femme
+                            <input type="radio" id="sexee" name="Sexe" value="A"/>Autre
+                    </div>
+                    
+                    <div class="div3">
+                        *Facultatif
+                    </div>
+
+                    <div class="div1">
+                        <label for="codee"> Code : </label>
+                    </div>
+
+                    <div class="div2">
+                        <input type="password" id="codee" name="Code" placeholder="jAkL_65" maxlength="15" required/>
+                    </div>
                 </fieldset>
             </form> 
             
