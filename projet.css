@@ -44,6 +44,12 @@ div.div3{
     padding-top: 13px;
 }
 
+div.div4{
+    grid-column: 2;
+    padding-top: 15px;
+}
+
+
 input{
     padding-inline: 5px;
     background-color: #DAF5F6;
@@ -51,4 +57,13 @@ input{
     border-radius: 3px;
     font-size: 15px;
     height: 25px;
+}
+
+input[type="submit"]{
+    background-color: #70AA2A;
+    font-size: 30px;
+    border: solid #010718;
+    height: fit-content;
+    padding-inline: 8px;
+    border-radius: 20px;
 }
