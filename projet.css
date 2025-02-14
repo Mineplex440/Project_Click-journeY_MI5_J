@@ -45,7 +45,9 @@ div.div3{
 }
 
 div.div4{
-    grid-column: 2;
+    grid-column: 1;
+    column-span: 2;
+    padding-inline: 100%;
     padding-top: 15px;
 }
 
@@ -65,5 +67,13 @@ input[type="submit"]{
     border: solid #010718;
     height: fit-content;
     padding-inline: 8px;
+    padding-block: 5px;
     border-radius: 20px;
+}
+
+input[type="submit"]:hover{
+    font-size: 150%;
+    color: #DAF5F6;
+    background-color: #7F670A;
+    border: solid #DAF5F6;
 }
