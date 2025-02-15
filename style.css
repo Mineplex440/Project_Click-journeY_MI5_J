@@ -1,0 +1,24 @@
+h1.titre{
+    text-align: center;
+}
+
+div{
+    position:fixed;
+    right: 0;
+    padding: 10px;
+}
+
+button.menu{
+    border-width: 0px;
+    background-color:transparent;
+    transition: 0.3s ease;
+}
+.menu:hover{
+    background-color:rgba(154, 104, 104, 0.422);
+}
+
+img{
+    width: 70px;
+    height: 70px;
+    border-radius: 150px;
+}
