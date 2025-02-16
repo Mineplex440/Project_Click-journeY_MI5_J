@@ -261,5 +261,69 @@ div.box-voy a:hover{
 
 
 
+/* CSS PROFIL*/
+
+body.profil{
+    background-color: #DAF5F6;
+    color: #010718;
+}
+
+th[colspan="3"].th-profil{
+    color: #010718;
+    font-size: 40px;
+    font-style: italic ;
+    text-align: center;
+    border: unset;
+}
+
+img.img-profil{
+    width: 102px;
+    height: 102px;
+    border: #010718 5px solid;
+    border-radius: 50% 50% 50% 50%;
+    margin-inline: 0px;
+}
+
+tr.tr-profil>*:nth-child(2){
+    text-align: center;
+}
+
+table.t-profil{
+    text-align: left;
+    margin-top: 170px;
+    margin-left: 30px;
+    background-color: #70AA2A;
+    border: #458022 3px solid;
+    border-radius: 15px;
+    padding-inline: 30px;
+    padding-block: 15px;
+}
 
 
+/* CSS A Propos*/
+
+body.apropos{
+    background-color: #DAF5F6;
+    color: #010718;
+}
+
+fieldset.fieldset-apropos{
+    margin-top: 170px;
+    background-color: #70AA2A;
+    width: 600px;
+    margin: auto;
+    border: 3px solid #458022;
+    border-radius: 25px;
+    margin-top: 150px;
+}
+
+p.titre{
+    margin-top: 8px;
+    font-family: cursive;
+    font-size: 30px;
+    text-decoration: underline ;
+}
+
+p.para{
+    font-family: initial;
+}
