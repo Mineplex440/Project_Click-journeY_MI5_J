@@ -5,7 +5,7 @@ h1{
 .titre{
     margin: 0%;
     font-family:cursive;
-    color: #70AA2A;
+    color: #010718aa;
     text-align: center;
 
 }
@@ -23,7 +23,7 @@ h1{
 
 
 div.menu-top{
-    background-color: #458022;
+    background-color: #458022ee;
     position: fixed;
     top: 10;
     width: 99%;
@@ -83,9 +83,19 @@ nav.menu-nv{
     
 }
 
+div.recherche{
+    background-color: #8bbd5da3;
+    box-shadow: 10px 15px 10px -8px #516e84db;
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
 ul.menu-ul{
     display: inline;
     list-style-type: none;
+    align-content: center;
 }
 
 li.menu-li{
@@ -105,15 +115,53 @@ img.img-menu:hover{
     transform: translateX(0);
 }
 
-li.recherche-li{
+.recherche-ul{
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+li.recherche-li, li.recherche-li-loca{
     display: inline-block;
     padding: 10px;
 }
 
-li.recherche-li input{
+li.recherche-li input, li.recherche-li-loca input, li.recherche-li select {
     width: 170px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+li.recherche-li-loca input{
+    width: 230px;
+}
+
+li.recherche-li input[value=Rechercher]{
+    background-color: #70AA2A;
+    transition: 0.5s ease;
+}
+
+li.recherche-li input[value=Rechercher]:hover{
+    background-color: #607F65;
 }
 
 form{
     align-items: center;
+}
+
+.cc1{
+    width: 500px;
+    height: 350px;
+    margin: 50px;
+    box-shadow: 0px 15px 10px -5px #777;
+    background-color: #EDEDED;
+    background-size: contain;
+    animation: fondu 15s ease-in-out infinite both;
+}
+
+@keyframes fondu{
+    0%{background-image: url("environement_aquatique.jpeg");}
+    33%{background-image: url("environement-montagne.jpg");}
+    66%{background-image: url("environement-jungle.jpg");}
+    100%{background-image: url("environement-special.jpg");}
 }
