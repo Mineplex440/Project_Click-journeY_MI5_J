@@ -1,0 +1,31 @@
+body{
+    background-color: #DAF5F6;
+    color: #010718;
+    font-size: 25px;
+    font-family: cursive;
+}
+
+a{
+    font-size: 28px;
+    color: #70AA2A;
+}
+
+fieldset{
+    background-color: #70AA2A;
+    width: 600px;
+    margin: auto;
+    border: 3px solid #458022;
+    border-radius: 25px;
+    margin-top: 150px;
+}
+
+p.titre{
+    margin-top: 8px;
+    font-family: cursive;
+    font-size: 30px;
+    text-decoration: underline ;
+}
+
+p.para{
+    font-family: initial;
+}
