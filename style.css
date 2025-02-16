@@ -1,24 +1,119 @@
-h1.titre{
-    text-align: center;
+h1{
+    padding-top: 30px;
 }
 
-div{
+.titre{
+    margin: 0%;
+    font-family:cursive;
+    color: #70AA2A;
+    text-align: center;
+
+}
+
+.suivant{
+    padding-top: 170px ;
+}
+
+.a-utilisateur{
+    position:absolute;
+    left: 0;
+    margin-top: -30px;
+    z-index: 3;
+}
+
+
+div.menu-top{
+    background-color: #458022;
+    position: fixed;
+    top: 10;
+    width: 99%;
+    height: 135px;
+}
+
+div.deroule{
     position:fixed;
+    top: 0;
     right: 0;
+    padding: 10px;
+    z-index: 5;
+}
+
+ 
+.menu-cb{
+    appearance: none;
+    position: fixed;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    right: 30px;
+}
+
+img.logo{
+    float: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 130px;
+    transform: translateY(-40px) translateX(20px);
+    margin-top: 35px; 
+    
+}
+
+img.img-menu{
+    width:130px;
+    margin-top: 7px;
+    border-radius: 100px;
+    transform: scale(0.8);
+    transition: 0.5s ease;
+}
+
+nav.menu-nv{
+    position: fixed;
+    top : 0;
+    right: 0;
+    height: 100%;
+    width: 80%;
+    max-width: 300px;
+    background-color: #daf5f67e;
+    text-align: center;
+    padding-top: 100px;
+    transform: translateX(100%);
+    z-index: 4;
+    transition: transform 0.5s ease;
+    
+}
+
+ul.menu-ul{
+    display: inline;
+    list-style-type: none;
+}
+
+li.menu-li{
+    padding-top: 50px;
+}
+
+li.menu-li a{
+    text-decoration: none;
+}
+
+img.img-menu:hover{
+    background-color:#01071871;
+    cursor: pointer;
+}
+
+.menu-cb:checked + .menu-nv{
+    transform: translateX(0);
+}
+
+li.recherche-li{
+    display: inline-block;
     padding: 10px;
 }
 
-button.menu{
-    border-width: 0px;
-    background-color:transparent;
-    transition: 0.3s ease;
-}
-.menu:hover{
-    background-color:rgba(154, 104, 104, 0.422);
+li.recherche-li input{
+    width: 170px;
 }
 
-img{
-    width: 70px;
-    height: 70px;
-    border-radius: 150px;
+form{
+    align-items: center;
 }
