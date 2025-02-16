@@ -1,0 +1,258 @@
+h1{
+    padding-top: 30px;
+}
+
+.titre{
+    margin: 0%;
+    font-family:cursive;
+    color: #010718aa;
+    text-align: center;
+
+}
+
+.suivant{
+    padding-top: 170px ;
+    padding-left: 50px;
+}
+
+.a-utilisateur{
+    position:absolute;
+    left: 0;
+    margin-top: -30px;
+    z-index: 3;
+}
+
+
+div.menu-top{
+    background-color: #458022ee;
+    position: fixed;
+    top: 10;
+    width: 99%;
+    height: 135px;
+    z-index: 5;
+}
+
+div.deroule{
+    position:fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 5;
+}
+
+ 
+.menu-cb{
+    appearance: none;
+    position: fixed;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    right: 30px;
+}
+
+img.logo{
+    float: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 130px;
+    transform: translateY(-40px) translateX(20px);
+    margin-top: 35px; 
+    
+}
+
+img.img-menu{
+    width:130px;
+    margin-top: 7px;
+    border-radius: 100px;
+    transform: scale(0.8);
+    transition: 0.5s ease;
+}
+
+nav.menu-nv{
+    position: fixed;
+    top : 0;
+    right: 0;
+    height: 100%;
+    width: 80%;
+    max-width: 300px;
+    background-color: #daf5f67e;
+    text-align: center;
+    padding-top: 100px;
+    transform: translateX(100%);
+    z-index: 4;
+    transition: transform 0.5s ease;
+    
+}
+
+div.recherche{
+    background-color: #8bbd5da3;
+    box-shadow: 10px 15px 10px -8px #516e84db;
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+ul.menu-ul{
+    display: inline;
+    list-style-type: none;
+    align-content: center;
+}
+
+li.menu-li{
+    padding-top: 50px;
+}
+
+li.menu-li a{
+    text-decoration: none;
+    color: inherit;
+}
+li.menu-li a:visited{
+    color: inherit;
+}
+
+img.img-menu:hover{
+    background-color:#01071871;
+    cursor: pointer;
+}
+
+.menu-cb:checked + .menu-nv{
+    transform: translateX(0);
+}
+
+.recherche-ul{
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+li.recherche-li, li.recherche-li-loca{
+    display: inline-block;
+    padding: 10px;
+}
+
+li.recherche-li input, li.recherche-li-loca input, li.recherche-li select {
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+li.recherche-li-loca input{
+    width: 230px;
+}
+
+li.recherche-li input[value=Rechercher]{
+    background-color: #70AA2A;
+    transition: 0.5s ease;
+}
+
+li.recherche-li input[value=Rechercher]:hover{
+    background-color: #607F65;
+}
+
+form{
+    align-items: center;
+}
+
+.cc1{
+    width: 600px;
+    height: 400px;
+    margin: auto 50px;
+    box-shadow: 10px 15px 10px -5px #777;
+    background-color: #EDEDED;
+    background-size: contain;
+    border-radius: 10px;
+    animation: fondu 15s ease-in-out infinite both;
+}
+
+hr{
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+@keyframes fondu{
+    0%{background-image: url("img/environement_aquatique.jpg");}
+    33%{background-image: url("img/environement-montagne.jpg");}
+    66%{background-image: url("img/environement-jungle.jpg");}
+    100%{background-image: url("img/environement-special.jpg");}
+}
+
+.h1-cc1{
+    padding-left: 50px;
+}
+
+.coups-de-coeur{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 30px auto;
+    width: 1250px;
+    background-color: #010717c1;
+    border-radius: 5px;
+}
+
+.coups-de-coeur ul{
+    padding: 20px;
+    width: 500px;
+    color: #458022ee;
+}
+
+div.boitedel{
+    width: 1400px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 5;
+    background-color: #70AA2A;
+    border-radius: 10% 5%;
+    z-index: 1;
+
+}
+
+div.box-voy{
+    position: relative;
+    margin: 30px auto;
+    width: 300px;
+    height: 450px;
+    background-color: #DAF5F6;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+div.box-voy img{
+    width:100%;
+    height: 30%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+div.box-voy ul li{
+    padding: 3px 10px;
+}
+
+div.box-voy a{
+    text-align: center;
+    padding-top: 10px;
+    background-color: #918237;
+    width: 100px;
+    height: 30px;
+    position:absolute;
+    right: 10px;
+    bottom: 0;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #3e3b3b;
+    transition: 0.3s ease;
+}
+
+div.box-voy a:hover{
+    background-color: #aaa06f;
+}
+
+
+
+
+
