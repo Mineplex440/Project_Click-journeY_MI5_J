@@ -2,6 +2,13 @@ h1{
     padding-top: 30px;
 }
 
+h1.ensemble-titre{
+
+    text-align: center;
+    padding-top: 170px;
+
+}
+
 .titre{
     margin: 0%;
     font-family:cursive;
