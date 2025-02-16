@@ -1,0 +1,42 @@
+body{
+    background-color: #DAF5F6;
+    color: #010718;
+    font-size: 32px;
+    font-family:cursive;
+}
+
+a{
+    font-size: 28px;
+    color: #70AA2A;
+}
+
+th[colspan="3"]{
+    color: #010718;
+    font-size: 40px;
+    font-style: italic ;
+    text-align: center;
+    border: unset;
+}
+
+img{
+    width: 102px;
+    height: 102px;
+    max-width: 100%;
+    border: #010718 5px solid;
+    border-radius: 50% 50% 50% 50%;
+    margin-inline: 0px;
+}
+
+tr>*:nth-child(2){
+    text-align: center;
+}
+
+table{
+    text-align: left;
+    margin-top: 3%;
+    background-color: #70AA2A;
+    border: #458022 3px solid;
+    border-radius: 15px;
+    padding-inline: 30px;
+    padding-block: 15px;
+}
