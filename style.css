@@ -2,6 +2,14 @@ h1{
     padding-top: 30px;
 }
 
+body.Accueil{
+    background-color: #DAF5F6;
+}
+
+body.tout-voy{
+    background-color: #DAF5F6;
+}
+
 h1.ensemble-titre{
 
     text-align: center;
@@ -350,4 +358,100 @@ p.titre{
 
 p.para{
     font-family: initial;
+}
+
+
+/* CSS Admin*/
+
+
+body.admin{
+    background-color:#DAF5F6 ;
+    background-image: url('—Pngtree—hand drawn flock of birds_5439984.png');
+    background-size: 500px 500px;
+}
+
+.titre_admin{
+    margin-top: 150px;
+    text-align: center;
+    color: black;
+}
+
+.title_liste_user{
+    color: #70AA2A;
+    -webkit-text-stroke: 1px #7F670A;
+
+}
+
+table.table-admin{
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 2px solid black;
+    background-color: #458022;
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease-in-out;
+}
+table.table-admin:hover {
+    transform: translateY(-5px);
+}
+
+
+td#td-admin, th#th-admin {
+    border: 1px solid black;
+    padding: 12px;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    vertical-align: middle;
+    min-height: 150px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.user_name_l, .user_first_name_l, .email_user_l {
+    width: 20%;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    color: black;
+    
+}
+
+.button_choix_l button {
+    width: 80px; 
+    height: 50px;
+    text-align: center;
+    font-size: 14px; 
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #70AA2A;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button_choix_l button:hover{
+    opacity: 0.8;
+    transform: scale(1.05);
+    background-color:#7F670A ;
+    transition: all 0.3s ease-in-out;
+}
+
+td.button_choix_l{
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+td.button_choix_l tr{
+    height: 55px;
+}
+td.button_choix_l tr:hover {
+    background-color: rgba(112, 170, 42, 0.2);
+    transition: background-color 0.5s ease-in-out;
+}
+
+.title_name,.title_first_name,.title_mail,.title_action{
+    columns: #DAF5F6;
+    -webkit-text-stroke: 0.3px black;
+    text-align: center;
 }
