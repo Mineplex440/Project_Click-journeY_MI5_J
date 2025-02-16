@@ -44,13 +44,19 @@ div.div3{
     padding-top: 13px;
 }
 
-div.div4{
+div.submit{
     grid-column: 1;
     column-span: 2;
     padding-inline: 100%;
     padding-top: 15px;
+    padding-bottom: 8px;
 }
 
+div.link{
+    grid-column: 1;
+    text-align: left;
+    padding-bottom: 18px;
+}
 
 input{
     padding-inline: 5px;
@@ -72,8 +78,10 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    font-size: 150%;
+    font-weight: bold;
     color: #DAF5F6;
     background-color: #7F670A;
-    border: solid #DAF5F6;
+    border: solid 2px #DAF5F6;
+    padding-inline: 5px;
+    padding-block: 6px;
 }

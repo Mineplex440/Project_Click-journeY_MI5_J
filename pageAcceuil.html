@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Exotic Birder</title>
+</head>
+<body>
+
+    <div class="menu-top">
+
+        <img class="logo" src="logo.png" alt="logo">
+        
+        <div class="deroule">
+            <label for="menucheck" class="menu-lb">
+                <img class="img-menu" src="menu_deroulant.png" alt="bird" />
+            </label>
+        </div>
+        
+        <h1 class="titre">Exotic Birder</h1>
+        <h6 class="titre">Les plus beaux parcours d'observation d'oiseaux exotiques</h6>
+
+        <div class = a-utilisateur>
+            <ul>
+                <li><a href="formulaire_connexion.html">Se connecter</a></li>
+                <li><a href="formulaire_inscription.html">S'inscrire</a></li>
+            </ul>
+        </div>
+
+        <input id="menucheck" type="checkbox" class="menu-cb">
+
+        <nav class="menu-nv">
+            <ul class="menu-ul">
+                <li class="menu-li"><a href="page1.html">Mon profil</a></li>
+                <li class="menu-li"><a href="page2.html">L'ensemble de nos voyages</a></li>
+                <li class="menu-li"><a href="page3.html">A propos de nous</a></li>
+                <li class="menu-li"><a href="page4.html">page administateur</a></li>
+            </ul class="menu-ul">
+        </nav>
+
+    </div>
+    
+    
+
+   
+
+    <p class="suivant">Exotic Birder est un site spécialisé dans les voyages et les expéditions dédiées à l'observation des oiseaux éxotiques</p>
+
+    <div class="recherche">
+        <form action="p.php" method="get">
+
+            <ul class="recherche-ul">
+
+                <li class="recherche-li-loca">
+                    <input type="text" name="localisation" id="localisation" maxlength="30" placeholder="Pays, région, ville, nom d'oiseaux, ..." />
+                </li>
+                <li class="recherche-li">
+                    <input type="date" name="date" />
+                </li>
+                <li class="recherche-li">
+
+                    <select name="type_sejour" id="type_sejour">
+                        <option value="tout-endroit">l'ensemble des parcours</option>
+                        <option value="foret">Principalement en forêt</option>
+                        <option value="aquatique">Principalement en zone aquatique</option>
+                        <option value="montagne">Principalement en montagne</option>
+                        <option value="special">Parcours spécial de l'aventurier</option>
+                    </select>
+
+                </li>
+                <li class="recherche-li">
+                    <select name="duree" id="duree">
+                        <option value="toute-duree">Peux importe la durée</option>
+                        <option value="moins-une-semaine">Moins d'une semaine</option>
+                        <option value="une-semaine">Une semaine (7 à 12 jours)</option>
+                        <option value="deux-semaine">Deux semaine (14 à 19 jours)</option>
+                        <option value="plus-long">Plus de deux semaine (plus de 20 jours)</option>
+                    </select>
+                </li>
+                <li class="recherche-li">
+                    <input type="submit" value="Rechercher" name="send" id="send" />
+                </li>
+            </ul>
+
+        </form>
+    </div>
+
+    <h3>Nos voyages coups de coeurs :</h3>
+
+    <div class="cc1"></div>
+
+    <hr>
+        
+
+    
+
+    
+</body>
+</html>
