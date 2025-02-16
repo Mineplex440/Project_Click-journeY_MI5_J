@@ -11,7 +11,7 @@ legend{
     border-radius: 15px;
     text-align: center;
     padding-inline: 5px;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
 }
 
@@ -56,6 +56,14 @@ div.link{
     grid-column: 1;
     text-align: left;
     padding-bottom: 18px;
+}
+
+a{
+    color: #70AA2A;
+}
+
+a:hover{
+    color: #DAF5F6;
 }
 
 input{

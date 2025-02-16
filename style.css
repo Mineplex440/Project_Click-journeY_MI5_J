@@ -2,6 +2,17 @@ body{
     background-color: #DAF5F6;
 }
 
+a{
+    color: #70AA2A;
+}
+
+a:hover{
+    color: #DAF5F6;
+}
+
+li>a:hover{
+    color: #7F670A ;
+}
 
 h1{
     padding-top: 30px;

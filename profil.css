@@ -10,6 +10,10 @@ a{
     color: #70AA2A;
 }
 
+a:hover{
+    color: #7F670A ;
+}
+
 th[colspan="3"]{
     color: #010718;
     font-size: 40px;
@@ -29,6 +33,7 @@ img{
 
 tr>*:nth-child(2){
     text-align: center;
+    padding-left: 30px;
 }
 
 table{

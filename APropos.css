@@ -10,6 +10,10 @@ a{
     color: #70AA2A;
 }
 
+a:hover{
+    color: #7F670A ;
+}
+
 fieldset{
     background-color: #70AA2A;
     width: 600px;
