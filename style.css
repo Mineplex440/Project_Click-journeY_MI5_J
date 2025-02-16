@@ -168,10 +168,10 @@ hr{
 }
 
 @keyframes fondu{
-    0%{background-image: url("environement_aquatique.jpg");}
-    33%{background-image: url("environement-montagne.jpg");}
-    66%{background-image: url("environement-jungle.jpg");}
-    100%{background-image: url("environement-special.jpg");}
+    0%{background-image: url("img/environement_aquatique.jpg");}
+    33%{background-image: url("img/environement-montagne.jpg");}
+    66%{background-image: url("img/environement-jungle.jpg");}
+    100%{background-image: url("img/environement-special.jpg");}
 }
 
 .h1-cc1{
