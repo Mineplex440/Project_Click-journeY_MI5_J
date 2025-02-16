@@ -153,10 +153,11 @@ form{
 .cc1{
     width: 600px;
     height: 400px;
-    margin: 50px;
-    box-shadow: 0px 15px 10px -5px #777;
+    margin: auto 50px;
+    box-shadow: 10px 15px 10px -5px #777;
     background-color: #EDEDED;
     background-size: contain;
+    border-radius: 10px;
     animation: fondu 15s ease-in-out infinite both;
 }
 
@@ -182,7 +183,7 @@ hr{
     grid-template-columns: auto 1fr;
     margin: 30px auto;
     width: 1250px;
-    background-color: #010717af;
+    background-color: #010717c1;
     border-radius: 5px;
 }
 
