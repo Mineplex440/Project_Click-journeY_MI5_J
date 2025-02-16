@@ -4,10 +4,11 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="profil.css">
-        <title>Exotic-Birder profil</title>
+        <title>Exotic-Birder_profil</title>
 	</head>
     <body>
         <a href="pageAcceuil.html">Page d'acceuil</a>
+        <form method="post" target="_self">
         <table>
             <tr> 
                 <th colspan="3"> Profil : </th>
@@ -15,35 +16,48 @@
             <tr>
                 <th> photo de profil : </th>
                 <td> <img src="logo.png" /> </td>
+                <th></th>
             </tr>
             <tr>
                 <th> Prenom : </th>
                 <th> votre prenom </th>
+                <th> <input type="text" id="prenomm" name="prenom" placeholder="Prénom" maxlength="50" /> </th>
             </tr>
             <tr>
                 <th> Nom : </th>
                 <th> votre nom </th>
+                <th> <input type="text" id="nomm"name="nom" placeholder="Nom" maxlength="50" /> </th>
             </tr>
             <tr>
                 <th> Adresse Email : </th>
                 <th> adresse@gmail.com</th>
+                <th> <input type="email" id="emaill" name="email" placeholder="exemple@gmail.com" /> </th>
             </tr>
             <tr>
                 <th> Date de naissance : </th>
                 <th>01-01-2000</th>
+                <th> <input type="date" id="agee" name="Age" /> </th>
             </tr>
             <tr>
                 <th> Sexe : </th>
                 <th> non renseigné </th>
+                <th>
+                    <input type="radio" id="sexee" name="Sexe" value="H"/>Homme
+                    <input type="radio" id="sexee" name="Sexe"value="F"/>Femme
+                    <input type="radio" id="sexee" name="Sexe" value="A"/>Autre
+                </th>
             </tr>
             <tr>
                 <th> Code : </th>
                 <th> ******** </th>
+                <th> <input type="password" id="codee" name="Code" placeholder="jAkL_65" minlength="4" maxlength="15" /> </th>
+            </tr>
+            <tr>
+                <th colspan="3"> <input type="submit" value="envoyer"/> </th>
             </tr>
 
         </table>
+        </form>
     </body>
-
-
 
 </html>

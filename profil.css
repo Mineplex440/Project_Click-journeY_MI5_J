@@ -36,12 +36,46 @@ tr>*:nth-child(2){
     padding-left: 30px;
 }
 
+tr>*:nth-child(3){
+    text-align: right;
+}
+
 table{
-    text-align: left;
+    margin: auto;
+    width: 1200px;
+    text-align: right;
     margin-top: 3%;
     background-color: #70AA2A;
     border: #458022 3px solid;
     border-radius: 15px;
     padding-inline: 30px;
     padding-block: 15px;
+}
+
+input{
+    padding-inline: 5px;
+    background-color: #DAF5F6;
+    border : solid 1px #010718;
+    border-radius: 3px;
+    font-size: 15px;
+    height: 30px;
+}
+
+input[type="submit"]{
+    background-color: #70AA2A;
+    font-size: 35px;
+    border: solid #010718;
+    height: fit-content;
+    padding-inline: 8px;
+    padding-block: 5px;
+    border-radius: 20px;
+}
+
+input[type="submit"]:hover{
+    font-weight: bold;
+    color: #DAF5F6;
+    background-color: #7F670A;
+    border: solid 2px #DAF5F6;
+    padding-inline: 5px;
+    padding-block: 6px;
 }
