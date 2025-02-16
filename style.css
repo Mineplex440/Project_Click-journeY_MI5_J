@@ -29,6 +29,7 @@ div.menu-top{
     top: 10;
     width: 99%;
     height: 135px;
+    z-index: 5;
 }
 
 div.deroule{
@@ -105,6 +106,10 @@ li.menu-li{
 
 li.menu-li a{
     text-decoration: none;
+    color: inherit;
+}
+li.menu-li a:visited{
+    color: inherit;
 }
 
 img.img-menu:hover{
@@ -201,15 +206,18 @@ div.boitedel{
     gap: 5;
     background-color: #70AA2A;
     border-radius: 10% 5%;
+    z-index: 1;
 
 }
 
 div.box-voy{
+    position: relative;
     margin: 30px auto;
     width: 300px;
     height: 450px;
     background-color: #DAF5F6;
     border-radius: 30px;
+    z-index: 1;
 }
 
 div.box-voy img{
@@ -219,8 +227,8 @@ div.box-voy img{
     border-top-right-radius: 30px;
 }
 
-div.box-voy p{
-    padding: 10px;
+div.box-voy ul li{
+    padding: 3px 10px;
 }
 
 div.box-voy a{
@@ -229,8 +237,11 @@ div.box-voy a{
     background-color: #918237;
     width: 100px;
     height: 30px;
-    float: right;
+    position:absolute;
+    right: 10px;
+    bottom: 0;
     margin-right: 10%;
+    margin-bottom: 10%;
     border-radius: 20px;
     text-decoration: none;
     color: #3e3b3b;
@@ -240,6 +251,8 @@ div.box-voy a{
 div.box-voy a:hover{
     background-color: #aaa06f;
 }
+
+
 
 
 
