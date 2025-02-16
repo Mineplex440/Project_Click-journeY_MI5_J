@@ -150,8 +150,8 @@ form{
 }
 
 .cc1{
-    width: 500px;
-    height: 350px;
+    width: 600px;
+    height: 400px;
     margin: 50px;
     box-shadow: 0px 15px 10px -5px #777;
     background-color: #EDEDED;
@@ -159,9 +159,59 @@ form{
     animation: fondu 15s ease-in-out infinite both;
 }
 
+hr{
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+}
+
 @keyframes fondu{
-    0%{background-image: url("environement_aquatique.jpeg");}
+    0%{background-image: url("environement_aquatique.jpg");}
     33%{background-image: url("environement-montagne.jpg");}
     66%{background-image: url("environement-jungle.jpg");}
     100%{background-image: url("environement-special.jpg");}
 }
+
+.coups-de-coeur{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 10px auto;
+    width: fit-content;
+    max-width: 85%;
+    background-color: #010717af;
+}
+
+.coups-de-coeur ul{
+    width: 500px;
+    color: #458022ee;
+}
+
+div.boitedel{
+    width: 95%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(100%, 1fr));
+    background-color: rebeccapurple;
+
+}
+
+div.box-voy{
+    margin: 30px;
+    width: 20%;
+    height: 300px;
+    background-color: red;
+}
+
+div.box-voy img{
+    width:100%;
+    height: 30%;
+}
+
+div.box-voy p{
+    padding: 10px;
+}
+
+div.box-voy a{
+    text-align: right;
+}
+
