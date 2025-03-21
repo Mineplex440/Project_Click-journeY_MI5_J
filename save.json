@@ -1,0 +1,20 @@
+[
+    {
+        "prenom": "louis",
+        "nom": "Nardou",
+        "email": "moi@gmail.com",
+        "password": "1234"
+    },
+    {
+        "prenom": "louis",
+        "nom": "Nardou",
+        "email": "moi@gmail.com",
+        "password": "1234"
+    },
+    {
+        "prenom": "themis",
+        "nom": "trantuthien",
+        "email": "toi@gmail.com",
+        "password": "mdpsecure"
+    }
+]
