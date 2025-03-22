@@ -1,23 +1,22 @@
 <?php
-    session_start();
-    /*$prenom=$_POST["prenom"];
+    /*session_start();
+    $prenom=$_POST["prenom"];
     $nom=$_POST["nom"];
     $email=$_POST["email"];
     $date_of_birth=$_POST["Age"];
     $password=$_POST["Code"];
     echo "Bonjour ".$prenom." ".$nom." née le ".$date_of_birth;
-    if(filesize("save.json")===0){
+    /*if(filesize("save.json")===0){
         file_put_contents("save.json","[\n",FILE_APPEND);
-    }
-    $save=array("prenom"=>$prenom,"nom"=> $nom,"email"=> $email,"password"=> $password);
-    */
+    }*/
+    //$save=array("prenom"=>$prenom,"nom"=> $nom,"email"=> $email,"password"=> $password);
+    
     function searchjson($email){
         /*Take an email and return an array with the jinformation from that email adress*/
         if(file_exists("save.json")){   //check if the file exist to not try to open a non-existing file
             $data=json_decode(file_get_contents("save.json"),true);
             foreach($data as $file){
                 if($file["email"]==$email){
-                    echo"trouvé";
                     return $file;
                 }
             }
@@ -59,8 +58,20 @@
     echo $impri["nom"];
     }*/
 
-    $save=array("prenom"=>"themis","nom"=> "trantuthien","email"=> "toi@gmail.com","password"=> "mdpsecure");
+    //$save=array("prenom"=>"themis","nom"=> "trantuthien","email"=> "toi@gmail.com","password"=> "mdpsecure");
     //addnewjson($save);
-    new_account($save);
+    //new_account($save);
+    /*if(session_status()==PHP_SESSION_NONE){
+        session_start();
+        $array=array("prenom","nom","email","Age","Code") ;
+        foreach($array as $value){
+        $_SESSION[$value]=$_POST[$value] ;
+        echo $_SESSION[$value]." <br>" ;
+        
+        }
+        echo "<a href='pageAcceuil.php'>Page d'acceuil</a><br>";
+        echo"<a href='admin.php'>Page d'admin</a>";
+    }*/
+
     
 ?>

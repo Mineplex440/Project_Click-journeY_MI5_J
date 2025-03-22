@@ -7,15 +7,16 @@
     <title>Exotic Birder</title>
 </head>
     <?php
+        $connected=0;   //a variable that will be equal to 1 if the users is succsfully connected
+        include"page1.php";
         if(session_status()==PHP_SESSION_NONE){
             session_start();
-            echo"ouep1".$_POST["email"];
-            if(isset($_POST["email"])&&isset($_POST["Code"])){
-                echo"ouep2";
-                include"page1.php";
+            if(isset($_POST["email"])&&isset($_POST["Code"])){  //if you just connected
                 $table=searchjson($_POST["email"]);
-                if($table["password"]==$_POST["Code"]){
-                        echo"ouep3";
+                if($table["password"]==$_POST["Code"]){ //check if the password is correct
+                        $connected=1;
+                        $_SESSION["email"]=$_POST["email"];
+                        $_SESSION["password"]=$_POST["Code"];
             
                     /*$array=array("prenom","nom","email","age","code") ;
                     foreach($array as $value){
@@ -24,44 +25,52 @@
                     }*/
                 }
             }
-            echo"ouep4";
+            elseif(isset($_SESSION["email"])&&isset($_SESSION["password"])){    //if you changed page before
+                $table=searchjson($_SESSION["email"]);
+                if($table["password"]==$_SESSION["password"]){
+                    $connected= 1;
+                }
+            }
         }
         
 
 
-    ?>
-<body class="Accueil">
+    
+    echo "<body class='Accueil'>
 
-    <div class="menu-top">
+    <div class='menu-top'>
 
-        <img class="logo" src="img/logo.png" alt="logo">
+        <img class='logo' src='img/logo.png' alt='logo'>
         
-        <div class="deroule">
-            <label for="menucheck" class="menu-lb">
-                <img class="img-menu" src="img/menu_deroulant.png" alt="bird" />
+        <div class='deroule'>
+            <label for='menucheck' class='menu-lb'>
+                <img class='img-menu' src='img/menu_deroulant.png' alt='bird' />
             </label>
         </div>
         
-        <h1 class="titre">Exotic Birder</h1>
-        <h6 class="titre">Les plus beaux parcours d'observation d'oiseaux exotiques</h6>
+        <h1 class='titre'>Exotic Birder</h1>
+        <h6 class='titre'>Les plus beaux parcours d'observation d'oiseaux exotiques</h6>";
 
-        <div class = a-utilisateur>
+        if($connected==0){
+            echo "
+            <div class = a-utilisateur>
             <ul>
-                <li><a href="formulaire_connexion.html">Se connecter</a></li>
-                <li><a href="formulaire_inscription.html">S'inscrire</a></li>
+                <li><a href='formulaire_connexion.html'>Se connecter</a></li>
+                <li><a href='formulaire_inscription.html'>S'inscrire</a></li>
             </ul>
-        </div>
+        </div>";
+        };
+?>
+        <input id='menucheck' type='checkbox' class='menu-cb'>
 
-        <input id="menucheck" type="checkbox" class="menu-cb">
-
-        <nav class="menu-nv">
-            <ul class="menu-ul">
-                <li class="menu-li"><a href="pageAcceuil.php">Page d'acceuil</a></li>
-                <li class="menu-li"><a href="profil.html">Mon profil</a></li>
-                <li class="menu-li"><a href="L'ensemble_des_voyages.html">L'ensemble de nos voyages</a></li>
-                <li class="menu-li"><a href="Apropos.html">A propos de nous</a></li>
-                <li class="menu-li"><a href="admin.php">page administateur</a></li>
-            </ul class="menu-ul">
+        <nav class='menu-nv'>
+            <ul class='menu-ul'>
+                <li class='menu-li'><a href='pageAcceuil.php'>Page d'acceuil</a></li>
+                <li class='menu-li'><a href='profil.html'>Mon profil</a></li>
+                <li class='menu-li'><a href='L'ensemble_des_voyages.html'>L'ensemble de nos voyages</a></li>
+                <li class='menu-li'><a href='Apropos.html'>A propos de nous</a></li>
+                <li class='menu-li'><a href='admin.php'>page administateur</a></li>
+            </ul class='menu-ul'>
         </nav>
 
     </div>
@@ -70,18 +79,18 @@
 
    
 
-    <p class="suivant"><u>Exotic Birder est un site spécialisé dans les voyages et les expéditions dédiées à l'observation des oiseaux éxotiques</u></p>
+    <p class='suivant'><u>Exotic Birder est un site spécialisé dans les voyages et les expéditions dédiées à l'observation des oiseaux éxotiques</u></p>
 
-    <div class="recherche">
-        <form action="p.php" method="get">
+    <div class='recherche'>
+        <form action='p.php' method='get'>
 
-            <ul class="recherche-ul">
+            <ul class='recherche-ul'>
 
-                <li class="recherche-li-loca">
-                    <input type="text" name="localisation" id="localisation" maxlength="30" placeholder="Pays, région, ville, nom d'oiseaux, ..." />
+                <li class='recherche-li-loca'>
+                    <input type='text' name='localisation' id='localisation' maxlength='30' placeholder='Pays, région, ville, nom d'oiseaux, ...' />
                 </li>
-                <li class="recherche-li">
-                    <input type="date" name="date" />
+                <li class='recherche-li'>
+                    <input type='date' name='date' />
                 </li>
                 <li class="recherche-li">
 
