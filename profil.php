@@ -35,6 +35,7 @@
             if(isset($_POST["change_email"])){
                 $save["email"]=$_POST["change_email"];
                 change_account($save);
+                $_SESSION["email"]=$_POST["change_email"];
             }
             if(isset($_POST["change_sexe"])){
                 $save["sex"]=$_POST["change_sexe"];
@@ -47,6 +48,7 @@
             if(isset($_POST["change_password"])){
                 $save["password"]=$_POST["change_password"];
                 change_account($save);
+                $_SESSION["password"]=$_POST["change_password"];
             }
         
         echo"
