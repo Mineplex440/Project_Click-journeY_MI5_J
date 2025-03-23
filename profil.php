@@ -20,7 +20,28 @@
                         $connected= 1;
                     }
                 }
-            } 
+            }
+            if(isset($_POST["change_image"])){
+                
+            }
+            if(isset($_POST["change_prenom"])){
+
+            }
+            if(isset($_POST["change_nom"])){
+
+            }
+            if(isset($_POST["change_email"])){
+
+            }
+            if(isset($_POST["change_sexe"])){
+
+            }
+            if(isset($_POST["change_birth"])){
+
+            }
+            if(isset($_POST["change_code"])){
+
+            }
         
         echo"
         <div class='menu-top'>
@@ -74,40 +95,141 @@
             <tr class='tr-profil'> 
                 <th colspan='3'> Profil : </th>
             </tr>
+            
             <tr class='tr-profil'>
                 <th class='th-profil'> Photo de profil : </th>
                 <td> <img class='img-profil' src='img/logo.png' alt='logo'/> </td>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["image"])){
+                    echo"<form action='profil.php' method='post'>
+                        <input name='change_image' type='file'/>
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='image' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+                    
+            
+
+        echo"
+                </th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Prenom : </th>
                 <th class='th-profil'> ".$save["prenom"]."</th>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["prenom"])){
+                    echo"<form action='profil.php' method='post'>
+                        <input name='change_prenom' type='text'placeholder='Prénom' maxlength='50'/>
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='prenom' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+            echo"
+                </th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Nom : </th>
                 <th class='th-profil'> ".$save["nom"]." </th>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["nom"])){
+                    echo"<form action='profil.php' method='post'>
+                        <input name='change_nom' type='text'placeholder='Nom' maxlength='50'/>
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='nom' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+            echo"
+                </th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Adresse Email : </th>
                 <th class='th-profil'> ".$save["email"]." </th>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["email"])){
+                    echo"<form action='profil.php' method='post'>
+                        <input name='change_email' type='email'placeholder='adresse@gmail.com' maxlength='50'/>
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='email' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+
+            echo"
+                </th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Date de naissance : </th>
                 <th class='th-profil'> ".$save["date_of_birth"]." </th>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["birth"])){
+                    echo"<form action='profil.php' method='post'>
+                        <input name='change_birth' type='date'/>
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='birth' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+
+
+            echo "
+                
+                </th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Sexe : </th>
                 <th class='th-profil'> ".$save["sex"]." </th>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["sexe"])){
+                    echo"<form action='profil.php' method='post'>
+                            <input type='radio' id='sexee' name='Sexe' value='H'/>Homme
+                            <input type='radio' id='sexee' name='Sexe'value='F'/>Femme
+                            <input type='radio' id='sexee' name='Sexe' value='A'/>Autre
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='sexe' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+            echo "    
+                </th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Code : </th>
                 <th class='th-profil'> ".$save["password"]." </th>
-                <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
+                <th>";
+                if(isset($_POST["password"])){
+                    echo"<form action='profil.php' method='post'>
+                        <input name='change_password' type='password'/>
+                        <input type='submit'/>
+                    </form>";
+                }
+                else{
+                    echo"<form action='profil.php' method='post'>
+                        <button class='button-profil' name='password' > <img src='img/modif.png' alt='modifier'> </button>
+                    </form>";
+                }
+            echo"
+                </th>
             </tr>
 
         </table>";
