@@ -13,7 +13,7 @@
             session_start();
             if(isset($_POST["email"])&&isset($_POST["Code"])&&isset($_POST["prenom"])&&isset($_POST["nom"])&&isset($_POST["Age"])){ //check if it is an inscription
                 $connected=1;
-                $save=array("prenom"=>$post["prenom"],"nom"=> $_POST["nom"],"email"=> $_POST["email"],"password"=> $_POST["Code"]);
+                $save=array("prenom"=>$_POST["prenom"],"nom"=> $_POST["nom"],"email"=> $_POST["email"],"password"=> $_POST["Code"],"date_of_birth"=>$_POST["Age"],"sex"=>$_POST["Sexe"]);
                 new_account($save);
                 $_SESSION["email"]=$_POST["email"];
                 $_SESSION["password"]=$_POST["Code"];
@@ -81,7 +81,7 @@
         <nav class='menu-nv'>
             <ul class='menu-ul'>
                 <li class='menu-li'><a href='pageAcceuil.php'>Page d'acceuil</a></li>
-                <li class='menu-li'><a href='profil.html'>Mon profil</a></li>
+                <li class='menu-li'><a href='profil.php'>Mon profil</a></li>
                 <li class='menu-li'><a href='L'ensemble_des_voyages.html'>L'ensemble de nos voyages</a></li>
                 <li class='menu-li'><a href='Apropos.html'>A propos de nous</a></li>
                 <li class='menu-li'><a href='admin.php'>page administateur</a></li>

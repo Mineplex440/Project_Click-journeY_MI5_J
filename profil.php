@@ -96,12 +96,12 @@
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Date de naissance : </th>
-                <th class='th-profil'>01-01-2000</th>
+                <th class='th-profil'> ".$save["date_of_birth"]." </th>
                 <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
             </tr>
             <tr class='tr-profil'>
                 <th class='th-profil'> Sexe : </th>
-                <th class='th-profil'> non renseigné </th>
+                <th class='th-profil'> ".$save["sex"]." </th>
                 <th><button class='button-profil'><img src='img/modif.png' alt='modifier'></button></th>
             </tr>
             <tr class='tr-profil'>
