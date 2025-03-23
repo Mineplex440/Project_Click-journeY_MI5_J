@@ -1,5 +1,5 @@
 <?php
     session_start();
     session_unset();
-    header("location: pageAcceuil.php")    
+    header("location: pageAcceuil.php");  
 ?>
