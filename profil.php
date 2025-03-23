@@ -18,29 +18,35 @@
                     $table=searchjson($_SESSION["email"]);
                     if($table["password"]==$_SESSION["password"]){
                         $connected= 1;
+                        $save=searchjson($_SESSION["email"]);
                     }
                 }
             }
             if(isset($_POST["change_image"])){
-                
             }
             if(isset($_POST["change_prenom"])){
-
+                $save["prenom"]=$_POST["change_prenom"];
+                change_account($save);
             }
             if(isset($_POST["change_nom"])){
-
+                $save["nom"]=$_POST["change_nom"];
+                change_account($save);
             }
             if(isset($_POST["change_email"])){
-
+                $save["email"]=$_POST["change_email"];
+                change_account($save);
             }
             if(isset($_POST["change_sexe"])){
-
+                $save["sex"]=$_POST["change_sexe"];
+                change_account($save);
             }
             if(isset($_POST["change_birth"])){
-
+                $save["date_of_birth"]=$_POST["change_birth"];
+                change_account($save);
             }
-            if(isset($_POST["change_code"])){
-
+            if(isset($_POST["change_password"])){
+                $save["password"]=$_POST["change_password"];
+                change_account($save);
             }
         
         echo"
@@ -199,9 +205,9 @@
                 <th>";
                 if(isset($_POST["sexe"])){
                     echo"<form action='profil.php' method='post'>
-                            <input type='radio' id='sexee' name='Sexe' value='H'/>Homme
-                            <input type='radio' id='sexee' name='Sexe'value='F'/>Femme
-                            <input type='radio' id='sexee' name='Sexe' value='A'/>Autre
+                            <input type='radio' id='sexee' name='change_sexe' value='H'/>Homme
+                            <input type='radio' id='sexee' name='change_sexe'value='F'/>Femme
+                            <input type='radio' id='sexee' name='change_sexe' value='A'/>Autre
                         <input type='submit'/>
                     </form>";
                 }

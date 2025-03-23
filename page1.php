@@ -47,6 +47,27 @@
         }
     }
 
+    function change_account($array){
+        $save=searchjson(($array["email"]));
+        if(empty($save)){   //check if the file with this email exist
+            return 0;
+        }
+        else{
+                $json_old_save=json_decode(file_get_contents("save.json"), true);
+                $file=[];
+                foreach($json_old_save as $data){
+                    if(!    ($data["email"]===$array["email"])  ){
+                        $file[]=$data;
+                    }
+                }
+                $file[]=$array;
+                $json_new_save=json_encode($file, JSON_PRETTY_PRINT);
+                file_put_contents("save.json", $json_new_save);
+                return 1;
+        }
+        return 0;   //in case there was a problem
+    }
+
 
     //file_put_contents("save.json","[\n",FILE_APPEND);
     /*$test="moi@gmail.com";
