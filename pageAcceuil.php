@@ -11,7 +11,14 @@
         include"page1.php";
         if(session_status()==PHP_SESSION_NONE){
             session_start();
-            if(isset($_POST["email"])&&isset($_POST["Code"])){  //if you just connected
+            if(isset($_POST["email"])&&isset($_POST["Code"])&&isset($_POST["prenom"])&&isset($_POST["nom"])&&isset($_POST["Age"])){
+                $connected=1;
+                $save=array("prenom"=>$post["prenom"],"nom"=> $_POST["nom"],"email"=> $_POST["email"],"password"=> $_POST["Code"]);
+                new_account($save);
+                $_SESSION["email"]=$_POST["email"];
+                $_SESSION["password"]=$_POST["Code"];
+            }
+            elseif(isset($_POST["email"])&&isset($_POST["Code"])){  //if you just connected
                 $table=searchjson($_POST["email"]);
                 if($table["password"]==$_POST["Code"]){ //check if the password is correct
                         $connected=1;
@@ -52,14 +59,20 @@
         <h6 class='titre'>Les plus beaux parcours d'observation d'oiseaux exotiques</h6>";
 
         if($connected==0){
-            echo "
-            <div class = a-utilisateur>
+            echo "<div class = a-utilisateur>
             <ul>
                 <li><a href='formulaire_connexion.html'>Se connecter</a></li>
                 <li><a href='formulaire_inscription.html'>S'inscrire</a></li>
             </ul>
         </div>";
-        };
+        }
+        else{
+            echo "<div class = a-utilisateur>
+            <ul>
+                <li><a href='formulaire_connexion.html'>Se deconnecter</a></li>
+            </ul>
+        </div>";   
+        }
 ?>
         <input id='menucheck' type='checkbox' class='menu-cb'>
 
@@ -92,39 +105,39 @@
                 <li class='recherche-li'>
                     <input type='date' name='date' />
                 </li>
-                <li class="recherche-li">
+                <li class='recherche-li'>
 
-                    <select name="type_sejour" id="type_sejour">
-                        <option value="tout-endroit">l'ensemble des parcours</option>
-                        <option value="foret">Principalement en forêt</option>
-                        <option value="aquatique">Principalement en zone aquatique</option>
-                        <option value="montagne">Principalement en montagne</option>
-                        <option value="special">Parcours spécial de l'aventurier</option>
+                    <select name='type_sejour' id='type_sejour'>
+                        <option value='tout-endroit'>l'ensemble des parcours</option>
+                        <option value='foret'>Principalement en forêt</option>
+                        <option value='aquatique'>Principalement en zone aquatique</option>
+                        <option value='montagne'>Principalement en montagne</option>
+                        <option value='special'>Parcours spécial de l'aventurier</option>
                     </select>
 
                 </li>
-                <li class="recherche-li">
-                    <select name="duree" id="duree">
-                        <option value="toute-duree">Peux importe la durée</option>
-                        <option value="moins-une-semaine">Moins d'une semaine</option>
-                        <option value="une-semaine">Une semaine (7 à 12 jours)</option>
-                        <option value="deux-semaine">Deux semaine (14 à 19 jours)</option>
-                        <option value="plus-long">Plus de deux semaine (plus de 20 jours)</option>
+                <li class='recherche-li'>
+                    <select name='duree' id='duree'>
+                        <option value='toute-duree'>Peux importe la durée</option>
+                        <option value='moins-une-semaine'>Moins d'une semaine</option>
+                        <option value='une-semaine'>Une semaine (7 à 12 jours)</option>
+                        <option value='deux-semaine'>Deux semaine (14 à 19 jours)</option>
+                        <option value='plus-long'>Plus de deux semaine (plus de 20 jours)</option>
                     </select>
                 </li>
-                <li class="recherche-li">
-                    <input type="submit" value="Rechercher" name="send" id="send" />
+                <li class='recherche-li'>
+                    <input type='submit' value='Rechercher' name='send' id='send' />
                 </li>
             </ul>
 
         </form>
     </div>
 
-    <h1 class="h1-cc1"><u>Nos voyages coups de coeurs :</u></h1>
+    <h1 class='h1-cc1'><u>Nos voyages coups de coeurs :</u></h1>
     
-    <div class="coups-de-coeur">
+    <div class='coups-de-coeur'>
 
-        <div class="cc1"></div>
+        <div class='cc1'></div>
 
         <ul>
             <li><u>Au coeur de la nature, Panama</u></li>
@@ -162,9 +175,9 @@
 
     <hr>
 
-    <div class="boitedel">
-            <div class="box-voy">
-                <img src="img/Deux_oiseaux_bleu.jpeg" alt="voyage1">
+    <div class='boitedel'>
+            <div class='box-voy'>
+                <img src='img/Deux_oiseaux_bleu.jpeg' alt='voyage1'>
                 <ul>
                     <li><u>Au coeur de la nature, Panama</u></li>
                     <ul>
@@ -173,11 +186,11 @@
                         <li>Hébergement en pension complète</li>
                     </ul>
                 </ul>
-                <a href="environement-jungle.html">Je reserve</a>
+                <a href='environement-jungle.html'>Je reserve</a>
             </div>
 
-            <div class="box-voy">
-                <img src="img/Quetzal.jpg" alt="voyage2">
+            <div class='box-voy'>
+                <img src='img/Quetzal.jpg' alt='voyage2'>
                 <ul>
                     <li><u>Parque das Aves (Foz do Iguaçu), Bresil</u></li>
                     <ul>
@@ -186,12 +199,12 @@
                         <li>Expérience immersive dans un cadre protégé</li>
                     </ul>
                 </ul>
-                <a href="environement-jungle.html">Je reserve</a>
+                <a href='environement-jungle.html'>Je reserve</a>
 
             </div>
 
-            <div class="box-voy">
-                <img src="img/Terra-oiseau.jpeg" alt="voyage3">
+            <div class='box-voy'>
+                <img src='img/Terra-oiseau.jpeg' alt='voyage3'>
                 <ul>
                     <li><u>La forêt des rêves, Île Maurice</u></li>
                     <ul>
@@ -200,12 +213,12 @@
                         <li>Hotel Paradis (comprend 9 restaurants, une vue sur la mer...)</li>
                     </ul>
                 </ul>
-                <a href="environement-jungle.html">Je reserve</a>
+                <a href='environement-jungle.html'>Je reserve</a>
 
             </div>
 
-            <div class="box-voy">
-                <img src="img/petit-oiseau-rouge.avif" alt="voyage3">
+            <div class='box-voy'>
+                <img src='img/petit-oiseau-rouge.avif' alt='voyage3'>
                 <ul>
                     <li><u>Réserve Naturelle de Montezuma, Colombie</u></li>
                     <ul>
@@ -214,12 +227,12 @@
                         <li>Logement en lodges immersifs dans la nature</li>
                     </ul>
                 </ul>
-                <a href="environement-jungle.html">Je reserve</a>
+                <a href='environement-jungle.html'>Je reserve</a>
 
             </div>
 
-            <div class="box-voy">
-                <img src="img/Oiseau_multicolor_jungle.jpg.avif" alt="voyage3">
+            <div class='box-voy'>
+                <img src='img/Oiseau_multicolor_jungle.jpg.avif' alt='voyage3'>
                 <ul>
                     <li><u>Parc National d’Anavilhanas, Amazonie</u></li>
                     <ul>
@@ -228,12 +241,12 @@
                         <li>Exploration de l’un des plus grands archipels fluviaux du monde</li>
                     </ul>
                 </ul>
-                <a href="environement-jungle.html">Je reserve</a>
+                <a href='environement-jungle.html'>Je reserve</a>
 
             </div>
 
-            <div class="box-voy">
-                <img src="img/environement-special.jpg" alt="voyage3">
+            <div class='box-voy'>
+                <img src='img/environement-special.jpg' alt='voyage3'>
                 <ul>
                     <li><u>Parc National Sierra de Bahoruco, République Dominicaine</u></li>
                     <ul>
@@ -242,7 +255,7 @@
                         <li>Hébergement disponible dans les villes voisines</li>
                     </ul>
                 </ul>
-                <a href="environement-jungle.html">Je reserve</a>
+                <a href='environement-jungle.html'>Je reserve</a>
 
             </div>
     </div>
