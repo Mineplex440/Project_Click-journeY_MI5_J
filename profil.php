@@ -19,10 +19,6 @@
                     if($table["password"]==$_SESSION["password"]){
                         $connected= 1;
                     }
-                    else{
-                        header("location: pageAcceuil.php");    //if you are not connected redirect to the homepage
-
-                    }
                 }
             } 
         
@@ -41,12 +37,7 @@
             <h6 class='titre'>Les plus beaux parcours d'observation d'oiseaux exotiques</h6>";
     
             if($connected==0){
-            echo "<div class = a-utilisateur>
-            <ul>
-                <li><a href='formulaire_connexion.html'>Se connecter</a></li>
-                <li><a href='formulaire_inscription.html'>S'inscrire</a></li>
-            </ul>
-        </div>";
+                header("location: pageAcceuil.php");    //if you are not connected redirect to the homepage
         }
         else{
             echo "<div class = a-utilisateur>
@@ -62,11 +53,11 @@
     
             <nav class='menu-nv'>
                 <ul class='menu-ul'>
-                    <li class='menu-li'><a href='pageAcceuil.html'>Page d'acceuil</a></li>
+                    <li class='menu-li'><a href='pageAcceuil.php'>Page d'acceuil</a></li>
                     <li class='menu-li'><a href='profil.html'>Mon profil</a></li>
                     <li class='menu-li'><a href='L'ensemble_des_voyages.html'>L'ensemble de nos voyages</a></li>
                     <li class='menu-li'><a href='Apropos.html'>A propos de nous</a></li>
-                    <li class='menu-li'><a href='admin.html'>page administateur</a></li>
+                    <li class='menu-li'><a href='admin.php'>page administateur</a></li>
                 </ul class='menu-ul'>
             </nav>
     
