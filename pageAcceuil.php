@@ -11,7 +11,7 @@
         include"page1.php";
         if(session_status()==PHP_SESSION_NONE){
             session_start();
-            if(isset($_POST["email"])&&isset($_POST["Code"])&&isset($_POST["prenom"])&&isset($_POST["nom"])&&isset($_POST["Age"])){
+            if(isset($_POST["email"])&&isset($_POST["Code"])&&isset($_POST["prenom"])&&isset($_POST["nom"])&&isset($_POST["Age"])){ //check if it is an inscription
                 $connected=1;
                 $save=array("prenom"=>$post["prenom"],"nom"=> $_POST["nom"],"email"=> $_POST["email"],"password"=> $_POST["Code"]);
                 new_account($save);
@@ -69,7 +69,9 @@
         else{
             echo "<div class = a-utilisateur>
             <ul>
-                <li><a href='formulaire_connexion.html'>Se deconnecter</a></li>
+                <li>
+                    <a href='disconnect.php'>Se deconnecter</a>
+                </li>
             </ul>
         </div>";   
         }
