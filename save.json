@@ -1,0 +1,29 @@
+[
+    {
+        "prenom": "louis",
+        "nom": "Nardou",
+        "email": "moi@gmail.com",
+        "password": "1234"
+    },
+    {
+        "prenom": "louis",
+        "nom": "Nardou",
+        "email": "moi@gmail.com",
+        "password": "1234"
+    },
+    {
+        "prenom": "themis",
+        "nom": "trantuthien",
+        "email": "toi@gmail.com",
+        "password": "mdpsecure"
+    },
+    {
+        "prenom": "e",
+        "nom": "p",
+        "email": "ethann.pencole29@gmail.com",
+        "password": "Salut",
+        "date_of_birth": "2025-03-05",
+        "sex": "F",
+        "Admin": "1"
+    }
+]

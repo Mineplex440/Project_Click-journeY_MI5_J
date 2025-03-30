@@ -28,7 +28,7 @@ body.tout-voy{
 h1.ensemble-titre{
 
     text-align: center;
-    padding-top: 170px;
+    padding-top: 130px;
 
 }
 
@@ -294,9 +294,8 @@ div.box-voy ul li{
     padding: 3px 10px;
 }
 
-div.box-voy a{
+div.box-voy input{
     text-align: center;
-    padding-top: 10px;
     background-color: #918237;
     width: 100px;
     height: 30px;
@@ -311,7 +310,7 @@ div.box-voy a{
     transition: 0.3s ease;
 }
 
-div.box-voy a:hover{
+div.box-voy input:hover{
     background-color: #928d73;
 }
 
