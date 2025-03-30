@@ -1,0 +1,78 @@
+body{
+    background-color: #DAF5F6;
+    font-size: 20px;
+}
+
+legend{
+    background-color: #458022;
+    border: solid 1px #010718;
+    border-radius: 15px;
+    text-align: center;
+    padding-inline: 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+fieldset{
+    padding: 10px 200px;
+    height: 400px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #458022;
+    border-color: #010718;
+    border-radius: 30px;
+
+}
+
+div.div1{
+    display: grid;
+    grid-template-columns: 150px 200px;
+}
+
+
+div.div2{
+    display: grid;
+    grid-template-columns: 175px 200px;
+}
+
+div.submit{
+    grid-column: 1;
+    column-span: 2;
+    padding-inline: 100%;
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
+div.link{
+    grid-column: 1;
+    text-align: left;
+    padding-bottom: 18px;
+}
+
+input{
+    padding-inline: 5px;
+    background-color: #DAF5F6;
+    border : solid 1px #010718;
+    border-radius: 3px;
+    font-size: 15px;
+    height: 25px;
+}
+
+input[type="submit"]{
+    background-color: #70AA2A;
+    font-size: 30px;
+    border: solid #010718;
+    height: fit-content;
+    padding-inline: 8px;
+    padding-block: 5px;
+    border-radius: 20px;
+}
+
+input[type="submit"]:hover{
+    font-weight: bold;
+    color: #DAF5F6;
+    background-color: #7F670A;
+    border: solid 2px #DAF5F6;
+    padding-inline: 5px;
+    padding-block: 6px;
+}

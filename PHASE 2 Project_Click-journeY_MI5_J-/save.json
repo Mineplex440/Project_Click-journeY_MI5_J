@@ -1,0 +1,47 @@
+[
+    {
+        "prenom": "Louis",
+        "nom": "Nardou",
+        "email": "louis.nardou@gmail.com",
+        "password": "1234",
+        "date_of_birth": "2005-01-22",
+        "sex": "H",
+        "Admin": "1"
+    },
+    {
+        "prenom": "Me",
+        "nom": "Jho",
+        "email": "email@gmail.com",
+        "password": "FztbHu",
+        "date_of_birth": "2005-03-05",
+        "sex": "H",
+        "Admin": "0"
+    },
+    {
+        "prenom": "Sonia",
+        "nom": "Gu",
+        "email": "Sonia.gu@gmail.com",
+        "password": "password",
+        "date_of_birth": "2004-11-11",
+        "sex": "F",
+        "Admin": "0"
+    },
+    {
+        "prenom": "Ethann",
+        "nom": "Pencole",
+        "email": "ethann.pencole29@gmail.com",
+        "password": "Salut",
+        "date_of_birth": "2005-03-05",
+        "sex": "H",
+        "Admin": "1"
+    },
+    {
+        "prenom": "Joshua",
+        "nom": "Garcia",
+        "email": "joshua.garcia@gmail.com",
+        "password": "H25T2",
+        "date_of_birth": "2005-12-05",
+        "sex": "H",
+        "Admin": "0"
+    }
+]
