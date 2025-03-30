@@ -10,14 +10,18 @@
     <fieldset>
     <legend>Panier</legend>
 <?php
-    
+    session_start();
+    include"page1.php";
     $status=$_GET["status"];
     if(isset(($status))){
         if($status== "denied"){
-
+            
         }
         elseif($status== "accepted"){
-
+            foreach($travels as $_SESSION["panier"]){
+                add_travel($_SESSION["email"],$travels["titre"]);
+            }
+            
         }
 
     }
