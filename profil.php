@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Exotic Birder profil</title>
 	</head>
-    
+
     <body class="profil">
 
         <?php
@@ -119,6 +119,9 @@
                     <?php
                         if($_SESSION["admin"] == 1){
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
+                        }
+                        if(isset($_SESSION["panier"])){
+                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
                         }
                     ?>
                 </ul class="menu-ul">

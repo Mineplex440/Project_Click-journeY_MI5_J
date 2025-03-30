@@ -7,6 +7,10 @@ h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+h1.Voyageh1{
+    margin-top: 100px;
+}
+
 
 html, body{
     width: 100%;
@@ -39,6 +43,10 @@ div.titre{
     transform: translate( -50%, -50%);
     width: fit-content;
     margin: auto 0;
+}
+
+.imgVoyage{
+    width: 400px;
 }
 
 .titre .titr{

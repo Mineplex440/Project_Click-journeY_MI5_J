@@ -1,7 +1,8 @@
 [
       {
+        "id" : 1,
         "titre": "Expédition en Amazonie",
-        "image": "img/Deux_oiseaux_bleu.jpeg",
+        "image": "img/hotel-Amazonie.jpg",
         "dates": {
           "début": "2025-07-10",
           "fin": "2025-07-25",
@@ -13,6 +14,7 @@
         "prix_total": 3200
       },
       {
+        "id" : 2,
         "titre": "Safari ornithologique en Papouasie-Nouvelle-Guinée Amazonie",
         "image": "img/Quetzal.jpg",
         "dates": {
@@ -26,6 +28,7 @@
         "prix_total": 4500
       },
       {
+        "id" : 3,
         "titre": "Voyage ornithologique au Costa Rica",
         "image": "img/Terra-oiseau.jpeg",
         "dates": {
@@ -39,6 +42,7 @@
         "prix_total": 4800
       },
       {
+        "id" : 4,
         "titre": "Exploration des îles Galápagos",
         "image": "img/petit-oiseau-rouge.avif",
         "dates": {
@@ -52,6 +56,7 @@
         "prix_total": 7200
       },
       {
+        "id" : 5,
         "titre": "Découverte des oiseaux endémiques de Madagascar",
         "image": "img/Oiseau_multicolor_jungle.jpg.avif",
         "dates": {
@@ -65,6 +70,7 @@
         "prix_total": 8900
       },
       {
+        "id" : 6,
         "titre": "Exploration des oiseaux rares d'Australie",
         "image": "img/environement-special.jpg",
         "dates": {
@@ -78,6 +84,7 @@
         "prix_total": 5100
       },
       {
+        "id" : 7,
         "titre": "Voyage ornithologique en Afrique du Sud",
         "image": "img/Deux_oiseaux_bleu.jpeg",
         "dates": {
@@ -89,5 +96,61 @@
         "spécificités": ["Observation des rolliers et calaos", "Safari photo", "Séjour en lodge"],
         "participants": [],
         "prix_total": 6200
+      },
+      {
+        "id" : 8,
+        "titre": "Oiseaux rares de Malaisie",
+        "image": "img/environement_aquatique.jpg",
+        "dates": {
+          "début": "2025-04-10",
+          "fin": "2025-04-25",
+          "durée": "15 jours"
+        },
+        "étapes": ["Parc national de Taman Negara", "Cameron Highlands", "Île de Langkawi"],
+        "spécificités": ["Observation des calaos rhinocéros", "Exploration de mangroves", "Randonnée en jungle"],
+        "participants": [],
+        "prix_total": 4700
+      },
+      {
+        "id" : 9,
+        "titre": "Observation des oiseaux en Nouvelle-Zélande",
+        "image": "img/environement-montagne.jpg",
+        "dates": {
+          "début": "2025-03-05",
+          "fin": "2025-03-20",
+          "durée": "15 jours"
+        },
+        "étapes": ["Île du Sud", "Fiordland National Park", "Île de Stewart"],
+        "spécificités": ["Observation des Kiwis", "Randonnée côtière", "Séjour en refuges naturels"],
+        "participants": [],
+        "prix_total": 5200
+      },
+      {
+        "id" : 10,
+        "titre": "Expédition ornithologique en Équateur",
+        "image": "img/foret.jpeg",
+        "dates": {
+          "début": "2025-02-15",
+          "fin": "2025-03-05",
+          "durée": "18 jours"
+        },
+        "étapes": ["Forêt de Mindo", "Réserve de Cuyabeno", "Vallée de Tandayapa"],
+        "spécificités": ["Observation des colibris et tangaras", "Randonnée en forêt de nuages", "Lodges écologiques"],
+        "participants": [],
+        "prix_total": 6300
+      },
+      {
+        "id" : 11,
+        "titre": "Aventure ornithologique en Indonésie",
+        "image": "img/oiseau-aquatique.webp",
+        "dates": {
+          "début": "2025-09-10",
+          "fin": "2025-09-25",
+          "durée": "15 jours"
+        },
+        "étapes": ["Sulawesi", "Papouasie", "Îles Komodo"],
+        "spécificités": ["Observation des paradisiers et cacatoès", "Exploration en pirogue", "Séjour en pleine nature"],
+        "participants": [],
+        "prix_total": 7000
       }
 ]

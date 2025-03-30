@@ -73,7 +73,11 @@
                         if($_SESSION["admin"] == 1){
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
                         }
+                        if(isset($_SESSION["panier"])){
+                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
+                        }
                     ?>
+                    
                 </ul class="menu-ul">
             </nav>
 
@@ -196,7 +200,7 @@
                         echo        "</ul>
                             </ul>
                             <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$voyage["titre"]." id='Voyage".$nb."'>
+                                <input type='submit' value='Je réserve' name=".$voyage["id"]." id='Voyage".$nb."'>
                             </form>
                             </div>
                             ";
@@ -220,7 +224,7 @@
                         echo        "</ul>
                             </ul>
                             <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$array[$i]["titre"]." id='Voyage".($i+1)."'>
+                                <input type='submit' value='Je réserve' name=".$array[$i]["id"]." id='Voyage".($i+1)."'>
                             </form>
                             </div>
                             ";

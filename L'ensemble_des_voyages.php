@@ -74,6 +74,9 @@
                     if($_SESSION["admin"] == 1){
                         echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
                     }
+                    if(isset($_SESSION["panier"])){
+                        echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
+                    }
                 ?>
             </ul class="menu-ul">
         </nav>
@@ -148,7 +151,7 @@
                         echo        "</ul>
                             </ul>
                             <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$voyage["titre"]." id='Voyage".$nb."'>
+                                <input type='submit' value='Je réserve' name=".$voyage["id"]." id='Voyage".$nb."'>
                             </form>
                             </div>
                             ";
@@ -156,7 +159,7 @@
                     }
                 }
 
-                elseif (isset($_GET["localisation"]) && isset($_GET["date"]) && isset($_GET["type_sejour"]) && isset($_GET["duree"])) {
+                elseif (!empty($_GET["localisation"]) || !empty($_GET["date"]) || $_GET["type_sejour"]!="tout-endroit"  || $_GET["duree"]!="toute-duree") {
                     $valid1 = [];
                     $valid2 = [];
                     $valid3 = [];
@@ -201,8 +204,8 @@
                         
                         
 
-                        if(!empty($_GET["duree"])){
-                            if ($_GET["duree"] == "Moins d'une semaine"){
+                        if(!empty($_GET["duree"]) && $_GET != "toute-duree"){
+                            if ($_GET["duree"] == "moins-une-semaine"){
                                 if($array[$i]["dates"]["durée"] <= 6){
 
                                     if(!in_array($i, $valid4)){
@@ -210,7 +213,7 @@
                                     }
                                 }
                             }
-                            elseif($_GET["duree"] == "Une semaine (7 à 12 jours)"){
+                            elseif($_GET["duree"] == "une-semaine"){
                                 if($array[$i]["dates"]["durée"] > 6 && $array[$i]["dates"]["durée"] <= 12){
                                     if(!in_array($i, $valid4)){
                                         $valid4[] = $i;
@@ -218,7 +221,7 @@
                                 }
                             }
 
-                            elseif($_GET["duree"] == "Deux semaine (14 à 19 jours)"){
+                            elseif($_GET["duree"] == "deux-semaine"){
                                 if($array[$i]["dates"]["durée"] > 12 && $array[$i]["dates"]["durée"] <= 19){
                                     if(!in_array($i, $valid4)){
                                         $valid4[] = $i;
@@ -226,7 +229,7 @@
                                 }
                             }
 
-                            elseif($_GET["duree"] == "Plus de deux semaine (plus de 20 jours)"){
+                            elseif($_GET["duree"] == "plus-long"){
                                 if($array[$i]["dates"]["durée"] >= 20){
                                     if(!in_array($i, $valid4)){
                                         $valid4[] = $i;
@@ -361,7 +364,7 @@
                         echo        "</ul>
                             </ul>
                             <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$array[$validbis[$i]]["titre"]." id='Voyage".$nb."'>
+                                <input type='submit' value='Je réserve' name=".$array[$validbis[$i]]["id"]." id='Voyage".$nb."'>
                             </form>
                             </div>
                             ";
@@ -369,7 +372,30 @@
 
                     }
 
-                    echo $_GET["duree"];
+                }
+
+                else{
+                    foreach ($array as $voyage) {
+                        
+                        echo "<div class='box-voy'>
+                            <img src=".$voyage["image"]." alt='voyage1'>
+                            <ul>
+                                <li><u>".$voyage["titre"]."</u></li>
+                                <ul>";
+
+                                foreach($voyage["spécificités"] as $ch){
+                                    echo "<li>".$ch."</li>";
+                                }
+                                    
+                        echo        "</ul>
+                            </ul>
+                            <form action='Voyage.php'>
+                                <input type='submit' value='Je réserve' name=".$voyage["id"]." id='Voyage".$nb."'>
+                            </form>
+                            </div>
+                            ";
+                        $nb++;
+                    }
                 }
                     
                 

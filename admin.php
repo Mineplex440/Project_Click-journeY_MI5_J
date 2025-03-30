@@ -13,7 +13,7 @@
 <?php 
         $connected=0;   //a variable that will be equal to 1 if the users is succsfully connected
         include"page1.php";
-        
+
         if(session_status()==PHP_SESSION_NONE){
             session_start();
         }
@@ -95,6 +95,9 @@
                     <?php
                         if($_SESSION["admin"] == 1){
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
+                        }
+                        if(isset($_SESSION["panier"])){
+                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
                         }
                     ?>
                 </ul class="menu-ul">
