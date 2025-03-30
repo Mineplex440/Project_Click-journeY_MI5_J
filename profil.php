@@ -14,15 +14,15 @@
 
                 session_start();
                 if(isset($_SESSION["email"])&&isset($_SESSION["password"])){    //if you changed page before
-
-                    $table=searchjson($_SESSION["email"]);
-                    if($table["password"]==$_SESSION["password"]){
-                        $connected= 1;
-                        $save=searchjson($_SESSION["email"]);
-                    }
+                $table=searchjson($_SESSION["email"]);
+                if($table["password"]==$_SESSION["password"]){
+                    $connected= 1;
+                    $admin=$table["admin"];
                 }
             }
+            }
             if(isset($_POST["change_image"])){
+                move_uploaded_file($_POST["change_image"], "/images/profil".$_SESSION["email"]);
             }
             if(isset($_POST["change_prenom"])){
                 $save["prenom"]=$_POST["change_prenom"];
@@ -77,24 +77,25 @@
             </ul>
         </div>";   
         }
-    
-        echo"    <input id='menucheck' type='checkbox' class='menu-cb'>
-    
+        echo"
+            <input id='menucheck' type='checkbox' class='menu-cb'>
             <nav class='menu-nv'>
                 <ul class='menu-ul'>
-                    <li class='menu-li'><a href='pageAcceuil.php'>Page d'acceuil</a></li>
-                    <li class='menu-li'><a href='profil.html'>Mon profil</a></li>
+                    <li class='menu-li'><a href='pageAcceuil.php'>Page d'acceuil</a></li>";
+                    if($connected==1){
+                        echo "<li class='menu-li'><a href='profil.php'>Mon profil</a></li>";
+                    }
+                    echo"
                     <li class='menu-li'><a href='L'ensemble_des_voyages.html'>L'ensemble de nos voyages</a></li>
-                    <li class='menu-li'><a href='Apropos.html'>A propos de nous</a></li>
-                    <li class='menu-li'><a href='admin.php'>page administateur</a></li>
+                    <li class='menu-li'><a href='Apropos.html'>A propos de nous</a></li>";
+                    if($admin==1){
+                        echo "<li class='menu-li'><a href='admin.php'>page administateur</a></li>";
+                    }
+                echo" 
                 </ul class='menu-ul'>
             </nav>
-    
         </div>
-
-        <br>
-
-        ";
+        <br>";
         if($connected== 1){
             $save=searchjson($_SESSION["email"]);
         }
@@ -106,7 +107,7 @@
             
             <tr class='tr-profil'>
                 <th class='th-profil'> Photo de profil : </th>
-                <td> <img class='img-profil' src='img/logo.png' alt='logo'/> </td>
+                <td> <img class='img-profil' src=/images/profil".$_SESSION["email"]." alt='logo'/> </td>
                 <th>";
                 if(isset($_POST["image"])){
                     echo"<form action='profil.php' method='post'>
