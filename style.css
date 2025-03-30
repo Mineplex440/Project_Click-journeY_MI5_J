@@ -2,6 +2,17 @@ h1{
     padding-top: 30px;
 }
 
+*{
+    z-index: 1;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
 body{
     margin: 0px;
 }
@@ -33,17 +44,23 @@ div.titre{
 .titre .titr{
     margin: 0%;
     padding: 0px;
-    font-family:cursive;
     color: #010718aa;
     text-align:center;
 }
 
 .suivant{
-    padding-left: 50px ;
-    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    font-size: xx-large;
+    font-weight: 300;
+    position:relative;
+    z-index: 1;
+    text-align: center;
 }
 
 .a-utilisateur{
+    margin-left: 20px;
     z-index: 3;
 }
 
@@ -52,7 +69,7 @@ div.titre{
 div.menu-top{
     position: fixed;
     top: 0;
-    background-color: #458022;
+    background-color: #45802200;
     width: 100%;
     height: 100px;
     z-index: 5;
@@ -104,7 +121,8 @@ nav.menu-nv{
     height: 100%;
     width: 80%;
     max-width: 300px;
-    background-color: #daf5f67e;
+    border: 1px solid #010718;
+    background-color: #b5e3e4;
     text-align: center;
     padding-top: 100px;
     transform: translateX(100%);
@@ -113,7 +131,18 @@ nav.menu-nv{
     
 }
 
+div.first{
+    position:relative;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+}
+
 div.recherche{
+    position:relative;
+    z-index: 2;
     background-color: #8bbd5da3;
     box-shadow: 10px 15px 10px -8px #516e84db;
     width:fit-content;
@@ -133,7 +162,7 @@ li.menu-li{
 }
 
 li.menu-li a{
-    text-decoration: none;
+    text-decoration: underline;
     color: inherit;
 }
 li.menu-li a:visited{
@@ -208,16 +237,21 @@ hr{
 }
 
 .h1-cc1{
+    position: absolute;
+    color: #DAF5F6;
+    margin: 0;
     padding-left: 50px;
 }
 
 .coups-de-coeur{
+    position:relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: auto 1fr;
     margin: 30px auto;
-    width: 1250px;
+    width: fit-content;
     background-color: #010717c1;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .coups-de-coeur ul{
@@ -227,14 +261,15 @@ hr{
 }
 
 div.boitedel{
+    position:relative;
+    z-index: 1;
     width: 1400px;
     margin: 30px auto;
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     gap: 5;
-    background-color: #70AA2A;
+    background-color: #82b14879;
     border-radius: 10% 5%;
-    z-index: 1;
 
 }
 
@@ -281,6 +316,8 @@ div.box-voy a:hover{
 }
 
 footer.foot{
+    position:relative;
+    z-index: 1;
     margin: 0px;
     background-color: #010718;
     height: 250px;
@@ -291,6 +328,18 @@ p.copyright{
     color: #DAF5F6;
 }
 
+
+div.imgbox{
+    position: fixed;
+    float: left;
+    z-index: 1;
+    height: inherit;
+}
+
+img.background_image{
+    width: 100%;
+    height: 100%;
+}
 
 /* CSS PROFIL*/
 
