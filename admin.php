@@ -67,16 +67,20 @@
 
 
         <tr class="tr-admin">
-            <th id="th-admin" class="title_name"> Nom </th>
-            <th id="th-admin" class="title_first_name"> Prenom </th>
+            <th id="th-admin" class="title_name"> Prenom </th>
+            <th id="th-admin" class="title_first_name"> Nom </th>
             <th id="th-admin" class="title_mail"> Mail </th>
             <th id="th-admin" class="title_action"> Action </th>
         </tr>
 
         <?php
-        $data=json_decode(file_get_contents("save.json"),true);
-        foreach($data as $file){
-            echo "<tr class='tr-admin'>
+                if(session_status()==PHP_SESSION_NONE){
+                    session_start();
+                    }
+                    
+        $data=json_decode(file_get_contents("account.json"),true);
+        foreach($data as $file){    //browse throught the file 
+            echo "<tr class='tr-admin'>         
             <td id='td-admin' class='title_name'>".$file["prenom"].
             "</td><td id='td-admin' class='title_first_name'>".$file["nom"].
             " </td><td id='td-admin' class='title_mail'> ".$file["email"].
@@ -86,6 +90,11 @@
                 <button class='standard'>Standard</button>
             </td>
         </tr>";
+        }
+
+        
+        if(isset($_SESSION["email"])){
+            echo$_SESSION["email"]; 
         }
         ?> 
     </table>

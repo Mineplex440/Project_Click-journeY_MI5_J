@@ -13,7 +13,7 @@
             session_start();
             if(isset($_POST["email"])&&isset($_POST["Code"])&&isset($_POST["prenom"])&&isset($_POST["nom"])&&isset($_POST["Age"])){ //check if it is an inscription
                 $connected=1;
-                $save=array("prenom"=>$_POST["prenom"],"nom"=> $_POST["nom"],"email"=> $_POST["email"],"password"=> $_POST["Code"],"date_of_birth"=>$_POST["Age"],"sex"=>$_POST["Sexe"]);
+                $save=array("prenom"=>$_POST["prenom"],"nom"=> $_POST["nom"],"email"=> $_POST["email"],"password"=> $_POST["Code"],"date_of_birth"=>$_POST["Age"],"sex"=>$_POST["Sexe"],"travel"=>[],"admin"=>0);
                 new_account($save);
                 $_SESSION["email"]=$_POST["email"];
                 $_SESSION["password"]=$_POST["Code"];
