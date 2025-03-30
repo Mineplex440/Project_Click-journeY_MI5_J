@@ -73,7 +73,7 @@
                 $file=[];   //init the array file
             }
         }
-        $file[]=$travel;
+        $file[travel][]=$travel;
         $save=json_encode($file,JSON_PRETTY_PRINT);
         file_put_contents("travel.json",json_encode($file));
         return 1;
@@ -103,21 +103,17 @@
     function add_travel($account_email,$travel_title){
         $save=searchjson(($account_email));
         $travel=searchtravel($travel_title);
-        if(empty($save)||emmpty($travel)){
+        if(empty($save)||empty($travel)){
             return 0;
         }
-        else{
-            $json_old_save=json_decode(file_get_contents("account.json"), true);
-            $file=[];
-            foreach($json_old_save as $data){
-                if( !($data["email"]==$account_email) ){
-                    $file[]=$data;
-                }
-            }
-            $file["travel"][]=$travel;
-        }
+        $save["travel"]=$travel;
+        change_account($save);
     }
     
+    function create_admin(){
+        $save=array("prenom"=>"admin","nom"=> "admin","email"=> "admin@gmail.com","password"=> "1234","date_of_birth"=>date("Y-m-d"),"sex"=>"A","travel"=>[],"admin"=>1);
+        new_account($save);
+    }
 
     //file_put_contents("account.json","[\n",FILE_APPEND);
     /*$test="moi@gmail.com";
@@ -148,4 +144,7 @@
     $new=array("titre"=>"autrepart","date_debut"=>"5 avril","date_fin"=>"6 avril","etapes"=>$etape,"prix"=>150);
     
     create_voyage($new);*/
+    //add_travel("admin@gmail.com","autrepart");
+    add_travel("admin@gmail.com","autrepart" );
+    //create_admin();
 ?>
