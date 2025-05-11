@@ -96,3 +96,156 @@ function cpt_letter(id,size){
     elem.lastChild.textContent=elem.childNodes[1].value.length+"/"+size;
                 
 }   
+
+function submit_button(id){
+    if( (id.hasAttribute('name'))&&id.parentNode.lastChild.textContent!='submit' ){
+        new_button=document.createElement('button');
+        id.parentNode.appendChild(new_button);
+        new_button.textContent='submit';    
+    }
+}
+
+function back(id,text){
+    let elem;
+    let new_text= document.createElement("th");
+    new_text.setAttribute("class","th-profil");
+
+    let new_button=document.createElement("button");
+    new_button.setAttribute("class","button-profil");
+    new_button.setAttribute("type","button");
+    new_button.innerHTML="<img src='img/modif.png' alt='modifier'>";
+
+    let new_button_th=document.createElement("th");
+    new_button_th.appendChild(new_button);
+
+    switch (id.parentNode.id){
+        case "prenom_change":
+            elem=document.getElementById("prenom_change");
+            new_button.setAttribute("onclick",'change(\'prenom\')');
+            new_text.setAttribute("id","prenom_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
+
+        case "nom_change":
+            elem=document.getElementById("nom_change");
+            new_button.setAttribute("onclick",'change(\'nom\')');
+            new_text.setAttribute("id","nom_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
+        case "email_change":
+            elem=document.getElementById("email_change");
+            new_button.setAttribute("onclick",'change(\'email\')');
+            new_text.setAttribute("id","email_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
+        case "date_change":
+            elem=document.getElementById("date_change");
+            new_button.setAttribute("onclick",'change(\'date\')');
+            new_text.setAttribute("id","date_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
+        case "password_change":
+            elem=document.getElementById("password_change");
+            new_button.setAttribute("onclick",'change(\'password\')');
+            new_text.setAttribute("id","password_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
+
+    }
+
+    let parc=document.getElementsByClassName("button-profil");
+    for(let index in parc){
+        parc[index].toggleAttribute("disabled",false);
+    }
+
+}
+
+function change(str){
+    let elem=document.getElementById(str+"_change");
+    let information=document.getElementById(str+"_information");
+    //delete 
+    document.querySelector("#"+str+"_change"+" button.button-profil").parentNode.remove();   
+    document.querySelector("#"+str+"_change #"+str+"_information").remove();
+    //create
+    let new_input=document.createElement('input');
+    let back_button=document.createElement("button");
+    new_input.value=information.textContent;
+    
+    elem.appendChild(new_input);
+    new_input.setAttribute('oninput','submit_button('+str+"_change"+')');
+    new_input.setAttribute('name',str+"_change");
+
+    elem.appendChild(back_button);
+    back_button.textContent="back";
+    back_button.setAttribute("type","button");
+    back_button.setAttribute("onclick",'back('+str+"_change"+',\"'+information.textContent+'\")');
+    back_button.setAttribute("id","back_button");
+
+    switch(str){
+        case "email":
+            new_input.setAttribute("type","text");
+            break;
+        case "password":
+            new_input.setAttribute("type","password");
+            break;
+        case "date":
+            new_input.setAttribute("type","date");
+            break;
+    }
+    
+    let parc=document.getElementsByClassName("button-profil");
+    for(let index in parc){
+        parc[index].toggleAttribute("disabled",true);
+    }
+}
+
+function change_photo(){
+    console.log("photo");
+}
+
+function change_sex(){
+    console.log("sex");
+    let elem=document.getElementById("sex_change");
+    let information=document.getElementById("sex_information");
+    //deleting the old element
+    document.querySelector("#sex_change button.button-profil").parentNode.remove();   
+    document.querySelector("#sex_change #sex_information").remove();
+
+    //creating the new element 
+    let submit_button=document.createElement("button");
+    let new_th=document.createElement("th");
+
+
+    new_th.innerHTML="<input type='radio' id='Homme' name='sex_change' value='H'/>Homme<input type='radio' id='Femme' name='sex_change' value='F'/>Femme<input type='radio' id='Autre' name='sex_change' value='A'/>Autre";
+    elem.appendChild(new_th);
+    elem.appendChild(submit_button);
+    submit_button.textContent="submit";
+    submit_button.setAttribute("id","submit_button");
+
+    let parc=document.getElementsByClassName("button-profil");
+    for(let index in parc){
+        parc[index].toggleAttribute("disabled",true);
+    }
+    
+}
+
