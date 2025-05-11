@@ -7,6 +7,11 @@
     <title>Exotic Birder</title>
 </head>
 <body class='Accueil'>
+    
+    <div class="imgbox">
+        <img class="background_image" src="img/forte.jpeg" alt="foret">
+    </div>
+
     <?php
 
         if(session_status()==PHP_SESSION_NONE){
@@ -50,6 +55,7 @@
             </div>
             
             
+
             <div class="deroule">
                 <label for="menucheck" class="menu-lb">
                     <img class="img-menu" src="img/menu_deroulant.png" alt="bird" />
@@ -74,7 +80,7 @@
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
                         }
                         if(isset($_SESSION["panier"])){
-                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
+                            echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
                     
@@ -82,11 +88,15 @@
             </nav>
 
         </div>
+        
+        <script>
+            
+            var x = 6;
+            var div = document.getElementById("date");
+           
+        </script>
 
-
-        <div class="imgbox">
-            <img class="background_image" src="img/forte.jpeg" alt="foret">
-        </div>
+        
     
     
 
@@ -187,6 +197,7 @@
                 if(count($array) < 6){
                     foreach ($array as $voyage) {
                         
+                        echo "<label for='Voyage".$nb."'>";
                         echo "<div class='box-voy'>
                             <img src=".$voyage["image"]." alt='voyage1'>
                             <ul>
@@ -204,6 +215,7 @@
                             </form>
                             </div>
                             ";
+                        echo"</label>";
                         $nb++;
                     }
                     
@@ -211,6 +223,7 @@
                 else{
                     for($i=0; $i<6; $i++) {
                         
+                        echo "<label for='Voyage".($i+1)."'>";
                         echo "<div class='box-voy'>
                             <img src=".$array[$i]["image"]." alt='voyage1'>
                             <ul>
@@ -228,6 +241,7 @@
                             </form>
                             </div>
                             ";
+                        echo"</label>";
                     }
                     
                 }

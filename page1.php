@@ -23,6 +23,18 @@
         }
     }
 
+    function searchtravel($title){
+        if(file_exists("Voyage.json")){
+            $data=json_decode(file_get_contents("Voyage.json"),true);
+            foreach($data as $file){
+                if($file["titre"]==$title){
+                    return $file;
+                }
+            }
+        }
+    }
+
+
     function new_account($array){
         /*create a new account contained in the array $array in the file save.json  create a file if it doesn't exist or add $array at the end of the file return 1 if succsesful o else */
         if(!empty(searchjson(($array["email"])))){
@@ -47,6 +59,27 @@
         }
     }
 
+    function create_voyage($travel){
+        if(!empty(searchtravel(($travel["titre"])))){
+            return 0;
+        }
+        else{
+            if(file_exists("Voyage.json")){
+                $file=json_decode(file_get_contents("Voyage.json"),true);
+                if($file==null){   //the file is empty
+                    $file=[];
+                }
+            }
+            else{
+                $file=[];   //init the array file
+            }
+        }
+        $file[$travel][]=$travel;
+        $save=json_encode($file,JSON_PRETTY_PRINT);
+        file_put_contents("Voyage.json",json_encode($file));
+        return 1;
+    }
+
     function change_account($array){
         $save=searchjson(($array["email"]));
         if(empty($save)){   //check if the file with this email exist
@@ -66,6 +99,21 @@
                 return 1;
         }
         return 0;   //in case there was a problem
+    }
+
+    function add_travel($account_email, $travel_title){
+        $save=searchjson(($account_email));
+        $travel=searchtravel($travel_title);
+        if(empty($save)||empty($travel)){
+            return 0;
+        }
+        $save["Voyages_reserve"]=$travel;
+        change_account($save);
+    }
+
+    function create_admin(){
+        $save=array("prenom"=>"admin","nom"=> "admin","email"=> "admin@gmail.com","password"=> "1234","date_of_birth"=>date("Y-m-d"),"sex"=>"A","travel"=>[],"admin"=>1);
+        new_account($save);
     }
 
 

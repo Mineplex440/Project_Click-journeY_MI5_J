@@ -169,12 +169,13 @@
 
                     for($i=0; $i<count($array); $i++){
                         if(!empty($_GET["localisation"])){
+                            
                             if (in_array($_GET["localisation"], explode(" ",$array[$i]["titre"]))){
 
                                 $valid1[] = $i;
 
                             }
-
+                    
                             foreach($array[$i]["étapes"] as $etapes){
                                 if(in_array($_GET["localisation"], explode(" ",$etapes))){
                                     if(!in_array($i, $valid1)){
@@ -191,6 +192,9 @@
                                 }
                             }
                         }
+                        else{
+                            $valid1[] = $i;
+                        }
 
                         if(!empty($_GET["date"])){
                             if ($_GET["date"] == $array[$i]["dates"]["début"]){
@@ -199,12 +203,21 @@
                                 }
                             }
                         }
+                        else{
+                            $valid2[] = $i;
+                        }
 
 
+                        if(!empty($_GET["type_sejour"])){
+                            if($_GET["type_sejour"] == "tout-endroit"){
+                                if(!in_array($i,$valid3)){
+                                    $valid3[] = $i;
+                                }
+                            }
+                        }
                         
-                        
 
-                        if(!empty($_GET["duree"]) && $_GET != "toute-duree"){
+                        if(!empty($_GET["duree"])){
                             if ($_GET["duree"] == "moins-une-semaine"){
                                 if($array[$i]["dates"]["durée"] <= 6){
 
@@ -213,6 +226,13 @@
                                     }
                                 }
                             }
+
+                            elseif($_GET["duree"] == "toute-duree"){
+                                    if(!in_array($i, $valid4)){
+                                        $valid4[] = $i;
+                                }
+                            }
+
                             elseif($_GET["duree"] == "une-semaine"){
                                 if($array[$i]["dates"]["durée"] > 6 && $array[$i]["dates"]["durée"] <= 12){
                                     if(!in_array($i, $valid4)){
@@ -242,112 +262,71 @@
 
                     }
 
-                    /*
-
-                    $bigger = [];
-
-                    if(count($valid1) >= count($valid2)){
+                   
                         
-                        if(count($valid1) >= count($valid3)){
-
-                            if(count($valid1) >= count($valid4)){
-                                $bigger = $valid1;
-
-                            }
-                            else{
-                                $bigger = $valid4;
-                            }
+                        if(empty($valid1) || empty($valid2) || empty($valid3) || empty($valid4)){
+                            $validbis = [];
                         }
-
                         else{
-
-                            if(count($valid3) >= count($valid4)){
-                                $bigger = $valid3;
+                            if(!empty($valid1) && !empty($valid2)){
+                                if(count($valid1) >= count($valid2)){
+                                    foreach($valid1 as $elm){
+                                        if(in_array($elm, $valid2)){
+                                            $valid[] = $elm;
+                                        }
+                                    }
+                                }
+                                else{
+                                    foreach($valid2 as $elm){
+                                        if(in_array($elm, $valid1)){
+                                            $valid[] = $elm;
+                                        }
+                                    }
+                                }
                             }
-                            else{
-                                $bigger = $valid4;
+    
+                        $validbisbis = [];
+    
+                            if(!empty($valid) && !empty($valid4)){
+                                if(count($valid) >= count($valid4)){
+                                    foreach($valid as $elm){
+                                        if(in_array($elm, $valid4)){
+                                            $validbisbis[] = $elm;
+                                        }
+                                    }
+                                }
+                                else{
+                                    foreach($valid4 as $elm){
+                                        if(in_array($elm, $valid)){
+                                            $validbisbis[] = $elm;
+                                        }
+                                    }
+                                }
                             }
                             
+                            $validbis = [];
+
+                            if(!empty($validbisbis) && !empty($valid3)){
+                                if(count($validbisbis) >= count($valid3)){
+                                    foreach($validbisbis as $elm){
+                                        if(in_array($elm, $valid3)){
+                                            $validbis[] = $elm;
+                                        }
+                                    }
+                                }
+                                else{
+                                    foreach($valid3 as $elm){
+                                        if(in_array($elm, $validbisbis)){
+                                            $validbis[] = $elm;
+                                        }
+                                    }
+                                }
+                            }
                         }
 
-                    }
-                    else{
-
-                        if(count($valid2) >= count($valid3)){
-                            if(count($valid2) >= count($valid4)){
-                                $bigger = $valid2;
-                            }
-                            else{
-                                $bigger = $valid4;
-                            }
-                        }
-                        else{
-                            if(count($valid3) >= count($valid4)){
-                                $bigger = $valid3;
-                            }
-                            else{
-                                $bigger = $valid4;
-                            }
-                        }
                         
-                    }
-
-                    $valid = [];
-
-                    foreach($bigger as $elm){
-                        if()
-                    }
                     
-                    */
-                    
-                        if(!empty($valid1) && !empty($valid2)){
-                            if(count($valid1) >= count($valid2)){
-                                foreach($valid1 as $elm){
-                                    if(in_array($elm, $valid2)){
-                                        $valid[] = $elm;
-                                    }
-                                }
-                            }
-                            else{
-                                foreach($valid2 as $elm){
-                                    if(in_array($elm, $valid2)){
-                                        $valid[] = $elm;
-                                    }
-                                }
-                            }
-                        }
-                        elseif(empty($valid1) && !empty($valid2)){
-                            $valid = $valid2;
-                        }
-                        else{
-                            $valid = $valid1;
-                        }
-
-                    $validbis = [];
-
-                        if(!empty($valid) && !empty($valid4)){
-                            if(count($valid) >= count($valid4)){
-                                foreach($valid as $elm){
-                                    if(in_array($elm, $valid4)){
-                                        $validbis[] = $elm;
-                                    }
-                                }
-                            }
-                            else{
-                                foreach($valid4 as $elm){
-                                    if(in_array($elm, $valid)){
-                                        $validbis[] = $elm;
-                                    }
-                                }
-                            }
-                        }
-                        elseif(empty($valid) && !empty($valid4)){
-                            $validbis = $valid4;
-                        }
-                        else{
-                            $validbis = $valid;
-                        }
-
+                        
 
                     for($i=0; $i<count($validbis); $i++){
 
