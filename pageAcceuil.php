@@ -73,7 +73,7 @@
                         }
                     ?>
                     <li class="menu-li"><a href="L'ensemble_des_voyages.php">L'ensemble de nos voyages</a></li>
-                    <li class="menu-li"><a href="Apropos.html">A propos de nous</a></li>
+                    <li class="menu-li"><a href="Apropos.php">A propos de nous</a></li>
                     
                     <?php
                         if($_SESSION["admin"] == 1){

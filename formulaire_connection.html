@@ -19,9 +19,9 @@
                     <div class="div1">
 
                         <label for="emaill"> Adresse Email : </label>
-                        <input type="email" id="emaill" name="Email" placeholder="exemple@gmail.com" required/>
-                        <label for="codee"> Code : </label>
-                        <input type="password" id="codee" name="Code" placeholder="jAkL_65" minlength="4" maxlength="15" required/>
+                        <input type="email" id="emaill" name="email" placeholder="exemple@gmail.com" maxlength="320" oninput="cpt_letter('email_div',320)"/> 0/320
+                        <label for="code_n1"> Code : </label>
+                        <input type="password" id="code_n1" name="Code" placeholder="jAkL_65" minlength="4" maxlength="15" required oninput="check_condition_connexion();cpt_letter('password_div',15)"/> <img id="lock1" onclick="change_mdp('1')" src="/img/hide_eye.png" width="25" height="25" />0/15
 
                         <div class="submit">
                             <input type="submit" value="envoyer"/>
@@ -37,5 +37,8 @@
                 </fieldset>
             </form> 
             
+            <script src="/fonction.js"></script>
+
         </body>
+    
 </html>

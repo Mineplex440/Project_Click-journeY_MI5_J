@@ -68,7 +68,7 @@ echo "</div>"
                 }
             ?>
             <li class="menu-li"><a href="L'ensemble_des_voyages.php">L'ensemble de nos voyages</a></li>
-            <li class="menu-li"><a href="Apropos.html">A propos de nous</a></li>
+            <li class="menu-li"><a href="Apropos.php">A propos de nous</a></li>
             
             <?php
                 if($_SESSION["admin"] == 1){
@@ -127,8 +127,8 @@ echo "</div>"
 
     if(isset($_SESSION["Voyages_reserve"])){
         foreach($_SESSION["Voyages_reserve"] as $travels){
-            if(file_exists("Voyage.json")){
-                $voy = json_decode(file_get_contents("Voyage.json"), true);
+            if(file_exists("voyage.json")){
+                $voy = json_decode(file_get_contents("voyage.json"), true);
                 echo"<div class='payement'><p>".$voy[$travels]["titre"]."</p>";
             }
             

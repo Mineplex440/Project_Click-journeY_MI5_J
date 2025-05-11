@@ -66,7 +66,9 @@
                 $_SESSION["password"]=$_POST["change_password"];
             }
         
-         echo   "<div class='menu-top'>
+
+
+            echo "<div class='menu-top'>
 
             <div class='lo'>
                 <img class='logo' src='img/logo.png' alt='logo'>";
@@ -97,6 +99,7 @@
             </div>
             
             
+
             <div class="deroule">
                 <label for="menucheck" class="menu-lb">
                     <img class="img-menu" src="img/menu_deroulant.png" alt="bird" />
@@ -114,16 +117,17 @@
                         }
                     ?>
                     <li class="menu-li"><a href="L'ensemble_des_voyages.php">L'ensemble de nos voyages</a></li>
-                    <li class="menu-li"><a href="Apropos.html">A propos de nous</a></li>
+                    <li class="menu-li"><a href="Apropos.php">A propos de nous</a></li>
                     
                     <?php
                         if($_SESSION["admin"] == 1){
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
                         }
                         if(isset($_SESSION["panier"])){
-                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
+                            echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
+                    
                 </ul class="menu-ul">
             </nav>
 

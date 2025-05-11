@@ -24,8 +24,8 @@
     }
 
     function searchtravel($title){
-        if(file_exists("Voyage.json")){
-            $data=json_decode(file_get_contents("Voyage.json"),true);
+        if(file_exists("voyage.json")){
+            $data=json_decode(file_get_contents("voyage.json"),true);
             foreach($data as $file){
                 if($file["titre"]==$title){
                     return $file;
@@ -64,8 +64,8 @@
             return 0;
         }
         else{
-            if(file_exists("Voyage.json")){
-                $file=json_decode(file_get_contents("Voyage.json"),true);
+            if(file_exists("voyage.json")){
+                $file=json_decode(file_get_contents("voyage.json"),true);
                 if($file==null){   //the file is empty
                     $file=[];
                 }
@@ -76,7 +76,7 @@
         }
         $file[$travel][]=$travel;
         $save=json_encode($file,JSON_PRETTY_PRINT);
-        file_put_contents("Voyage.json",json_encode($file));
+        file_put_contents("voyage.json",json_encode($file));
         return 1;
     }
 

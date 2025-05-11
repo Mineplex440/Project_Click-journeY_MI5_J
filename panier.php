@@ -68,7 +68,7 @@
                         }
                     ?>
                     <li class="menu-li"><a href="L'ensemble_des_voyages.php">L'ensemble de nos voyages</a></li>
-                    <li class="menu-li"><a href="Apropos.html">A propos de nous</a></li>
+                    <li class="menu-li"><a href="Apropos.php">A propos de nous</a></li>
                     
                     <?php
                         if($_SESSION["admin"] == 1){
@@ -91,15 +91,15 @@
 
             if(isset($_SESSION["Voyages_reserve"])){
 
-                if(file_exists("Voyage.json")){
-                    $voy = json_decode(file_get_contents("Voyage.json"), true);
+                if(file_exists("voyage.json")){
+                    $voy = json_decode(file_get_contents("voyage.json"), true);
 
                     foreach($_SESSION["Voyages_reserve"] as $voyage){
                         
                         echo "<div class='panier-d1'>
 
                                 <div class='panier-d2'>
-                                    <img class='panier_img' src=".$voy[$voyage]["image"]." alt='oiseau'>
+                                    <img class='panier_img' src=".$voy[$voyage]["image"]." alt='image voyage numéro ".$voyage."'>
                                     <p class='panier_p'>".$voy[$voyage]["titre"]."</p>
                                     <p class='panier_p'>cout = ".$voy[$voyage]["prix_total"]."€</p>
                                 </div>
