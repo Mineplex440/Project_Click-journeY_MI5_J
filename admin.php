@@ -154,17 +154,7 @@
     </body>
     </html>";
 ?>
-<script>
-    function modif(bool,email){
-        let vip= document.getElementById(email+"_vip");
-        let banni= document.getElementById(email+"_banni");
-        let standard= document.getElementById(email+"_standard");
-        vip.toggleAttribute("disabled",bool);
-        banni.toggleAttribute("disabled",bool);
-        standard.toggleAttribute("disabled",bool);
-        if(bool===true){
-        setTimeout(modif,1000,false,email);
-        }
-    }
+<script src="/fonction.js">
+    
 
 </script>
