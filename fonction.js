@@ -107,10 +107,10 @@ function change_mdp(id){
     }
 }
 
-function check_condition_connexion(){
+async function check_condition_connexion(){
     //elem=document.getElementsByTagNameNS("input");
     var submit=document.getElementById("submit_button");
-    if(rightmdp(document.getElementById("code_n1").value)){
+    if(await rightmdp(document.getElementById("code_n1").value)){
         submit.toggleAttribute("disabled");
     }
     
