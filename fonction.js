@@ -101,7 +101,8 @@ function submit_button(id){
     if( (id.hasAttribute('name'))&&id.parentNode.lastChild.textContent!='submit' ){
         new_button=document.createElement('button');
         id.parentNode.appendChild(new_button);
-        new_button.textContent='submit';    
+        new_button.textContent='submit';
+        new_button.setAttribute("id","submit_button");    
     }
 }
 
@@ -172,7 +173,12 @@ function back(id,text){
             break;
 
     }
-
+    //remove the submit button if there is one 
+    let submit=document.getElementById("submit_button");
+    if(isNaN(submit)){
+        submit.remove();
+    }
+    //enable the button for the modification on the page
     let parc=document.getElementsByClassName("button-profil");
     for(let index in parc){
         parc[index].toggleAttribute("disabled",false);
