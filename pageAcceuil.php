@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" id="theme-style" href="style-light.css">
     <title>Exotic Birder</title>
 </head>
-<body class='Accueil'>
+
+<body class="Accueil">
+
+        
     
     <div class="imgbox">
         <img class="background_image" src="img/forte.jpeg" alt="foret">
@@ -23,6 +26,10 @@
         if(!isset($_SESSION["admin"])){
                 $_SESSION["admin"] = 0;
         }
+
+
+    
+        
     
     echo "<div class='menu-top'>
 
@@ -83,6 +90,12 @@
                             echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
+                    <li class="menu-li" id="status">
+                        <select onchange="changerStyle(this.value)">
+                            <option value="style-light.css">Clair</option>
+                            <option value="style-dark.css">Sombre</option>
+                        </select>
+                    </li>
                     
                 </ul class="menu-ul">
             </nav>
@@ -247,6 +260,8 @@
                 }
             }
         ?>
+
+        <script src="fonction.js"></script>
 
         </div>
                

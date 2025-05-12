@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style-light.css" id="theme-style">
         <title>Exotic Birder profil</title>
 	</head>
 
@@ -36,36 +36,39 @@
             if($_SESSION["connected"] == 0){
                 header("location:pageAcceuil.php");
             }
+            if($_SESSION["connected"]== 1){
+                $save=searchjson($_SESSION["email"]);
+            }
 
             if(isset($_POST["change_image"])){
                 move_uploaded_file($_POST["change_image"], "/images/profil".$_SESSION["email"]);
             }
-            if(isset($_POST["change_prenom"])){
-                $save["prenom"]=$_POST["change_prenom"];
+            if(isset($_POST["prenom_change"])){
+                $save["prenom"]=$_POST["prenom_change"];
                 echo $save["prenom"];
                 change_account($save);
             }
-            if(isset($_POST["change_nom"])){
-                $save["nom"]=$_POST["change_nom"];
+            if(isset($_POST["nom_change"])){
+                $save["nom"]=$_POST["nom_change"];
                 change_account($save);
             }
-            if(isset($_POST["change_email"])){
-                $save["email"]=$_POST["change_email"];
+            if(isset($_POST["email_change"])){
+                $save["email"]=$_POST["email_change"];
                 change_account($save);
-                $_SESSION["email"]=$_POST["change_email"];
+                $_SESSION["email"]=$_POST["email_change"];
             }
-            if(isset($_POST["change_sexe"])){
-                $save["sex"]=$_POST["change_sexe"];
-                change_account($save);
-            }
-            if(isset($_POST["change_birth"])){
-                $save["date_of_birth"]=$_POST["change_birth"];
+            if(isset($_POST["sex_change"])){
+                $save["sex"]=$_POST["sex_change"];
                 change_account($save);
             }
-            if(isset($_POST["change_password"])){
-                $save["password"]=$_POST["change_password"];
+            if(isset($_POST["date_change"])){
+                $save["date_of_birth"]=$_POST["date_change"];
                 change_account($save);
-                $_SESSION["password"]=$_POST["change_password"];
+            }
+            if(isset($_POST["password_change"])){
+                $save["password"]=$_POST["password_change"];
+                change_account($save);
+                $_SESSION["password"]=$_POST["password_change"];
             }
         
             echo "<div class='menu-top'>
@@ -127,6 +130,13 @@
                             echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
+
+                    <li class="menu-li" id="status">
+                        <select onchange="changerStyle(this.value)">
+                                    <option value="style-light.css">Clair</option>
+                                    <option value="style-dark.css">Sombre</option>
+                        </select>
+                    </li>
                     
                 </ul class="menu-ul">
             </nav>

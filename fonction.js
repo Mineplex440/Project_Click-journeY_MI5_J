@@ -325,3 +325,21 @@ function modif(bool,email){
     setTimeout(modif,1000,false,email);
     }
 }
+
+
+function changerStyle(feuille) {
+    document.getElementById("theme-style").href = feuille;
+    document.cookie = `theme=${feuille}; path=/; max-age=31536000`; // 1 an
+}
+
+function lireCookie(nom) {
+    const match = document.cookie.match(new RegExp('(^| )' + nom + '=([^;]+)'));
+    return match ? match[2] : null;
+}
+
+window.onload = function () {
+    const theme = lireCookie("theme");
+    if (theme) {
+        document.getElementById("theme-style").href = theme;
+    }
+};

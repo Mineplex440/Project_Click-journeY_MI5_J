@@ -4,7 +4,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' type='text/css' href='style.css'>
+    <link rel='stylesheet' type='text/css' href='style-light.css' id="theme-style">
 </head>
 <body>
 <?php
@@ -78,6 +78,12 @@ echo "</div>"
                     echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                 }
             ?>
+            <li class="menu-li" id="status">
+                <select onchange="changerStyle(this.value)">
+                            <option value="style-light.css">Clair</option>
+                            <option value="style-dark.css">Sombre</option>
+                </select>
+            </li>
             
         </ul class="menu-ul">
     </nav>
@@ -154,5 +160,9 @@ echo"<form action='coordonne_banque.php' method='POST'>
 ?>
 
 </fieldset>
+
+<script src="fonction.js"></script>
+
+
 </body>
 </html>

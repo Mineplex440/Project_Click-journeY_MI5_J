@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style-light.css" id="theme-style">
         <title>Exotic Birder A propos</title>
 	</head>
 
@@ -79,6 +79,13 @@
                     echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                 }
             ?>
+
+            <li class="menu-li" id="status">
+                <select onchange="changerStyle(this.value)">
+                            <option value="style-light.css">Clair</option>
+                            <option value="style-dark.css">Sombre</option>
+                </select>
+            </li>
             
         </ul class="menu-ul">
     </nav>
@@ -96,7 +103,7 @@
             </fieldset>
         </div>
 
-
+    <script src="fonction.js"></script>
 
     </body>
 

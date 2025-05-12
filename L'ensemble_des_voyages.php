@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style-light.css" id="theme-style">
     <title>Exotic Birder</title>
 </head>
 <body class="tout-voy">
@@ -79,6 +79,13 @@
                             echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
+
+                    <li class="menu-li" id="status">
+                        <select onchange="changerStyle(this.value)">
+                                    <option value="style-light.css">Clair</option>
+                                    <option value="style-dark.css">Sombre</option>
+                        </select>
+                    </li>
                     
                 </ul class="menu-ul">
             </nav>
@@ -89,7 +96,7 @@
     <h1 class="ensemble-titre"><u>Rechercher parmis toutes nos offres</u></h1>
 
     <div class="recherche">
-        <form action="L'ensemble_des_voyages.php" method="get">
+        <form action="L'ensemble_des_voyages.php" method="get" id="rechercheForm">
 
             <ul class="recherche-ul">
 
@@ -100,7 +107,7 @@
                     <input type="text" name="prix" id="prix" maxlength="6" placeholder="Prix max en euros">
                 </li>
                 <li class="recherche-li">
-                    <input type="date" name="date" />
+                    <input type="date" name="date" id="date" />
                 </li>
                 <li class="recherche-li">
 
@@ -116,10 +123,10 @@
                 <li class="recherche-li">
                     <select name="duree" id="duree">
                         <option value="toute-duree">Peux importe la durée</option>
-                        <option value="moins-une-semaine">Moins d'une semaine</option>
-                        <option value="une-semaine">Une semaine (7 à 12 jours)</option>
-                        <option value="deux-semaine">Deux semaine (14 à 19 jours)</option>
-                        <option value="plus-long">Plus de deux semaine (plus de 20 jours)</option>
+                        <option value="7">Moins d'une semaine</option>
+                        <option value="12">Une semaine (7 à 12 jours)</option>
+                        <option value="17">Deux semaine (14 à 19 jours)</option>
+                        <option value="20">Plus de deux semaine (plus de 20 jours)</option>
                     </select>
                 </li>
                 <li class="recherche-li">
@@ -391,5 +398,6 @@
 
 
     <script src="Ensemble_voyage.js"></script>
+    <script src="fonction.js"></script>
 </body>
 </html>
