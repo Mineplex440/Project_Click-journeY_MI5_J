@@ -17,7 +17,7 @@ legend{
 
 fieldset{
     padding: 10px 200px;
-    height: 400px;
+    height: fit-content;
     width: 80%;
     margin: auto;
     margin-top: 100px;
@@ -29,7 +29,7 @@ fieldset{
 
 div.div1{
     display: grid;
-    grid-template-columns: 150px 200px;
+    grid-template-rows: auto auto;
 }
 
 
@@ -41,7 +41,6 @@ div.div2{
 div.submit{
     grid-column: 1;
     column-span: 2;
-    padding-inline: 100%;
     padding-top: 15px;
     padding-bottom: 8px;
 }
@@ -58,12 +57,12 @@ input{
     border : solid 1px #010718;
     border-radius: 3px;
     font-size: 15px;
-    height: 25px;
 }
 
 input[type="submit"]{
     background-color: #70AA2A;
     font-size: 30px;
+    height: 25px;
     border: solid #010718;
     height: fit-content;
     padding-inline: 8px;
@@ -75,7 +74,5 @@ input[type="submit"]:hover{
     font-weight: bold;
     color: #DAF5F6;
     background-color: #7F670A;
-    border: solid 2px #DAF5F6;
-    padding-inline: 5px;
-    padding-block: 6px;
+    border: solid #DAF5F6;
 }

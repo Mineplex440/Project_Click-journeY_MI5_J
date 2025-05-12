@@ -15,23 +15,48 @@
                         <a href="pageAcceuil.php">Page d'accueil</a>
                     </div>
 
-                    <div class="div2">
+                    <div>
                         
                         <label for="prenomm"> Prénom : </label> 
                         
+                        <div id="prenom_div">
 
-                        <input type="text" id="prenomm" name="prenom" placeholder="Prénom" maxlength="50" required/>
+                            <input type="text" id="prenomm" name="prenom" placeholder="Prénom" maxlength="50" required oninput="cpt_letter('prenom_div',50)"/> 0/50
 
+                        </div>
+                    </div>
+
+
+                    <div>
                         <label for="nomm"> Nom : </label> 
+                        
 
-                        <input type="text" id="nomm"name="nom" placeholder="Nom" maxlength="50" required/>
 
+                        <div id="nom_div">
+                            <input type="text" id="nomm"name="nom" placeholder="Nom" maxlength="50" required oninput="cpt_letter('nom_div',50)"/> 0/50
+                        </div>
+                    </div>
+
+                    <div>
                         <label for="emaill"> Adresse Email : </label>
-                        <input type="email" id="emaill" name="email" placeholder="exemple@gmail.com" required/>
 
+                        <div id="email_div">
+
+                            <input type="email" id="emaill" name="email" placeholder="exemple@gmail.com" requiredmaxlength="320" oninput="cpt_letter('email_div',320)"/> 0/320
+
+                        </div>
+                    
+
+                        <div id="mail_error">
+                        </div>
+                    </div>
+
+
+                    <div>
                         <label for="agee"> Age : </label> 
 
                         <input type="date" id="agee" name="Age" required/>
+
                     </div>
 
                     <div>
@@ -44,17 +69,27 @@
                         *Facultatif
                     </div>
 
-                    <div class="div2">
+                    <div>
                         <label for="codee"> Code : </label>
 
-                        <input type="password" id="codee" name="Code" placeholder="jAkL_65" minlength="4" maxlength="15" required/>
+                        <div id="password_div1">
+                            <input type="password" id="code_n1" name="Code" placeholder="jAkL_65" minlength="4" maxlength="15" required oninput="check_condition_inscription();cpt_letter('password_div1',15)"/><img id="lock1" onclick="change_mdp('1')" src="img/hide_eye.png" width="25" height="25" />0/15
+                        </div>
 
+                        <div id="password_error">
+                        </div>
+                    </div>
+                    <div>
                         <label for="codeee"> Confirmation code : </label>
 
-                        <input type="password" id="codeee" name="Code2" placeholder="jAkL_65" minlength="4" maxlength="15" required/>
+                        <div id="password_div2">
+                            <input type="password" id="code_n2" name="Code2" placeholder="jAkL_65" minlength="4" maxlength="15" required oninput="check_condition_inscription();cpt_letter('password_div2',15)"/><img id="lock2" onclick="change_mdp('2')" src="img/hide_eye.png" width="25" height="25" />0/15
+                        </div>
+                        <div id="password_error2">
+                        </div>
 
                         <div class="submit">
-                            <input type="submit" value="envoyer"/>
+                            <input id="submit_button" type="submit" value="envoyer"/>
                         </div>
                     </div>
                         
@@ -66,7 +101,7 @@
                 </fieldset>
             </form> 
             
-            <script src="/fonction.js"></script>
+            <script src="fonction.js"></script>
 
         </body>
 </html>

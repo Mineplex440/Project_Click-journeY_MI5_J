@@ -4,7 +4,7 @@ const searchResult = document.querySelector(".boitedel");
 
 let dataArray;
 
-let filteredArr;
+
 
 
 async function getVoyage() {
@@ -19,57 +19,44 @@ async function getVoyage() {
 
 }
 
-function createVoyList(VoyageList) {
+function createVoyList(VoyageList){
 
-    for (let voyageKey in VoyageList) {
+    console.log(VoyageList);
 
-        const voyage = VoyageList[voyageKey];
+    for( var voyage in VoyageList){
 
+        
+        
         const listItem = document.createElement("div");
-        listItem.classList.add("box-voy");
-
-        
-        const img = document.createElement("img");
-        img.src = voyage.image;
-        img.alt = `voyage${voyage.id}`;
-        listItem.appendChild(img);
-
-        
-        const mainList = document.createElement("ul");
+        listItem.setAttribute("class", "box-voy");
 
 
-        const titreLi = document.createElement("li");
-        const titreU = document.createElement("u");
-        titreU.textContent = voyage.titre;
-        titreLi.appendChild(titreU);
-        mainList.appendChild(titreLi);
+        var inner = `
 
-
-        const subList = document.createElement("ul");
-        for (let spec of voyage.spécificités) {
-            const li = document.createElement("li");
-            li.textContent = spec;
-            subList.appendChild(li);
+            <img src='${VoyageList[voyage]["image"]}' alt='voyage${VoyageList[voyage]["id"]}'>
+                    <ul>
+                        <li>
+                            <u>${VoyageList[voyage]["titre"]}</u>
+                        </li>
+                        <ul>
+            ` ;
+        for( var ch in VoyageList[voyage]["spécificités"]){
+            
+            inner += `<li>${VoyageList[voyage]["spécificités"][ch]}</li>` ;
         }
-        mainList.appendChild(subList);
-        listItem.appendChild(mainList);
-
+                                    
+                                    
+        inner += `</ul>
+                        </ul>
+                        <form action='Voyage.php'>
+                                <input type='submit' value='Je réserve' name=${VoyageList[voyage]["id"]} id='Voyage${VoyageList[voyage]["id"]}'>
+                        </form>` ;
         
-        const form = document.createElement("form");
-        form.action = "Voyage.php";
-
-        const input = document.createElement("input");
-        input.type = "submit";
-        input.value = "Je réserve";
-        input.name = voyage.id;
-        input.id = `Voyage${voyage.id}`;
-
-        form.appendChild(input);
-        listItem.appendChild(form);
-
-        
+        listItem.innerHTML = inner
         searchResult.appendChild(listItem);
+
     }
+
 }
 
 getVoyage();
