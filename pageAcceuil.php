@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" id="theme-style" href="style-light.css">
     <title>Exotic Birder</title>
 </head>
-<body class='Accueil'>
+
+<body class="Accueil">
+
+        
+    
+    <div class="imgbox">
+        <img class="background_image" src="img/forte.jpeg" alt="foret">
+    </div>
+
     <?php
 
         if(session_status()==PHP_SESSION_NONE){
@@ -18,6 +26,10 @@
         if(!isset($_SESSION["admin"])){
                 $_SESSION["admin"] = 0;
         }
+
+
+    
+        
     
     echo "<div class='menu-top'>
 
@@ -50,6 +62,7 @@
             </div>
             
             
+
             <div class="deroule">
                 <label for="menucheck" class="menu-lb">
                     <img class="img-menu" src="img/menu_deroulant.png" alt="bird" />
@@ -74,19 +87,29 @@
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
                         }
                         if(isset($_SESSION["panier"])){
-                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
+                            echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
+                    <li class="menu-li" id="status">
+                        <select onchange="changerStyle(this.value)">
+                            <option value="style-light.css">Clair</option>
+                            <option value="style-dark.css">Sombre</option>
+                        </select>
+                    </li>
                     
                 </ul class="menu-ul">
             </nav>
 
         </div>
+        
+        <script>
+            
+            var x = 6;
+            var div = document.getElementById("date");
+           
+        </script>
 
-
-        <div class="imgbox">
-            <img class="background_image" src="img/forte.jpeg" alt="foret">
-        </div>
+        
     
     
 
@@ -187,6 +210,7 @@
                 if(count($array) < 6){
                     foreach ($array as $voyage) {
                         
+                        echo "<label for='Voyage".$nb."'>";
                         echo "<div class='box-voy'>
                             <img src=".$voyage["image"]." alt='voyage1'>
                             <ul>
@@ -204,6 +228,7 @@
                             </form>
                             </div>
                             ";
+                        echo"</label>";
                         $nb++;
                     }
                     
@@ -211,6 +236,7 @@
                 else{
                     for($i=0; $i<6; $i++) {
                         
+                        echo "<label for='Voyage".($i+1)."'>";
                         echo "<div class='box-voy'>
                             <img src=".$array[$i]["image"]." alt='voyage1'>
                             <ul>
@@ -228,11 +254,14 @@
                             </form>
                             </div>
                             ";
+                        echo"</label>";
                     }
                     
                 }
             }
         ?>
+
+        <script src="fonction.js"></script>
 
         </div>
                

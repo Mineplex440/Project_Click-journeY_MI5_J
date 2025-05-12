@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
-
+<html>
 <title></title>
+
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' type='text/css' href='style.css'>
+    <link rel='stylesheet' type='text/css' href='style-light.css' id="theme-style">
 </head>
 
 <body class='admin'>;
@@ -27,22 +28,35 @@
         if(!isset($_SESSION["connected"]) || !isset($_SESSION["admin"])){
             header("location:transverse.php");
         }
+
+        $all_table=[];
+            $data=json_decode(file_get_contents('save.json'),true);
+            foreach($data as $file){
+                $all_table[]=array("prenom"=>$file["prenom"], "nom"=>$file["nom"],"email"=> $file["email"]);
+            }
+            for($i=0; $i<count($all_table)/5;$i++){
+                $all[$i]=array_slice($all_table,$i*5,($i+1)*5);
+            }
             
+
             
-            
-            /*if(session_status()==PHP_SESSION_NONE){
-                if(isset($_SESSION["email"])&&isset($_SESSION["password"])){    //if you changed page before
-                $table=searchjson($_SESSION["email"]);
-                if($table["password"]==$_SESSION["password"]){
-                    $connected= 1;
-                    $admin=$table["admin"];
+
+            if(isset($_GET["suivant"])){
+                if( intval($_GET["suivant"])<=count($all)-1 ){
+                    $_SESSION["admin_page"]=intval($_GET["suivant"]);
                 }
             }
-        }*/
+            elseif(isset($_GET["precedent"])){
+                if( intval($_GET["precedent"])>=0 ){
+                    $_SESSION["admin_page"]=intval($_GET["precedent"]);
+                }
+                
+            }
+            else{
+                $_SESSION["admin_page"]=0;
+            }
 
-        echo "
-
-        <div class='menu-top'>
+        echo "<div class='menu-top'>
 
             <div class='lo'>
                 <img class='logo' src='img/logo.png' alt='logo'>";
@@ -73,6 +87,7 @@
             </div>
             
             
+
             <div class="deroule">
                 <label for="menucheck" class="menu-lb">
                     <img class="img-menu" src="img/menu_deroulant.png" alt="bird" />
@@ -97,9 +112,17 @@
                             echo "<li class='menu-li'><a href='admin.php'>Page administateur</a></li>";
                         }
                         if(isset($_SESSION["panier"])){
-                            echo "<li class='menu-li'>Panier : ".$_SESSION["panier"]."€</li>";
+                            echo "<li class='menu-li'><a href='panier.php'>Panier : ".$_SESSION["panier"]."€</a></li>";
                         }
                     ?>
+
+                    <li class="menu-li" id="status">
+                        <select onchange="changerStyle(this.value)">
+                                    <option value="style-light.css">Clair</option>
+                                    <option value="style-dark.css">Sombre</option>
+                        </select>
+                    </li>
+                    
                 </ul class="menu-ul">
             </nav>
 
@@ -109,6 +132,12 @@
 
     <br/>
     <br/>
+    <br/>
+
+
+
+<?php
+    echo"
     <br/>
 
 
@@ -130,31 +159,39 @@
 
 
 
-
         <tr class='tr-admin'>
             <th id='th-admin' class='title_name'> Prenom </th>
             <th id='th-admin' class='title_first_name'> Nom </th>
             <th id='th-admin' class='title_mail'> Mail </th>
             <th id='th-admin' class='title_action'> Action </th>
-        </tr>;
-<?php                   
-        $data=json_decode(file_get_contents('save.json'),true);
-        foreach($data as $file){    //browse throught the file 
+        </tr>";
+                    
+        foreach($all[$_SESSION["admin_page"]] as $file){    //browse throught the file 
             echo "<tr class='tr-admin'>         
             <td id='td-admin' class='title_name'>".$file["prenom"].
             "</td><td id='td-admin' class='title_first_name'>".$file["nom"].
             " </td><td id='td-admin' class='title_mail'> ".$file["email"].
             "<td id='td-admin' class='button_choix_l'>
-                <button class='vip'>V.I.P</button>
-                <button class='banni'>Banni</button>
-                <button class='standard'>Standard</button>
+                <button class='vip' id='".$file["email"]."_vip' onclick=\"modif(true,'".$file["email"]."')\">V.I.P </button>
+                <button class='banni'id='".$file["email"]."_banni' onclick=\"modif(true,'".$file["email"]."')\">Banni </button>
+                <button class='standard' id='".$file["email"]."_standard' onclick=\"modif(true,'".$file["email"]."') \">Standard </button>
             </td>
         </tr>";
         }
+        echo"<tr class='tr-admin'>
+                <form action='admin.php' method='get'> <td colspan='4'align='center'> <button name='precedent' value=".strval($_SESSION["admin_page"]-1)."> precedent </button> ".$_SESSION["admin_page"]." <button name='suivant' value=".strval( ($_SESSION["admin_page"]+1) )."'1'> suivant </button></td> </form>
+            </tr>";
 
-        
 
     echo"</table>
     </body>
     </html>";
 ?>
+<script src="fonction.js">
+    
+
+</script>
+
+    </body>
+
+    </html>

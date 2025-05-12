@@ -19,13 +19,6 @@ html, body{
 
 body{
     margin: 0px;
-}
-
-body.Accueil{
-    background-color: #DAF5F6;
-}
-
-body.tout-voy{
     background-color: #DAF5F6;
 }
 
@@ -318,8 +311,8 @@ div.box-voy input{
     transition: 0.3s ease;
 }
 
-div.box-voy input:hover{
-    background-color: #928d73;
+div.box-voy:hover{
+    cursor:pointer;
 }
 
 footer.foot{
@@ -533,3 +526,103 @@ td.button_choix_l tr:hover {
     -webkit-text-stroke: 0.3px black;
     text-align: center;
 }
+
+
+/* CSS panier*/
+
+div.panier-d1{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+div.panier-d2{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: greenyellow;
+}
+
+img.panier_img{
+    margin: 10px;
+    width: 300px;
+}
+
+p.panier_p{
+    width: fit-content;
+    margin: 10px;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.panier_form{
+    width: fit-content;
+    position: absolute;
+    right: 0;
+
+    margin-right: 15px;
+
+
+}
+
+.panier_form button{
+    width: 100px;
+}
+
+
+
+div.payement{
+    display: grid;
+    grid-template-columns: auto auto;
+
+    margin: 20px;
+}
+
+div.payement p{
+    width: fit-content;
+}
+
+
+fieldset.payement{
+    height: 400px;
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #458022;
+    border-color: #010718;
+    border-radius: 30px;
+
+}
+
+legend.payement{
+    background-color: #458022;
+    border: solid 1px #010718;
+    border-radius: 15px;
+    text-align: center;
+    padding-inline: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    width: 200px;
+}
+
+input.payement[type="submit"]{
+    background-color: #70AA2A;
+    font-size: 30px;
+    border: solid #010718;
+    height: fit-content;
+    margin-left: 30px;
+    padding-inline: 8px;
+    padding-block: 5px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    
+}
+
+input.payement[type="submit"]:hover{
+    color: #DAF5F6;
+    background-color: #7F670A;
+    border: solid #DAF5F6;
+}
+
