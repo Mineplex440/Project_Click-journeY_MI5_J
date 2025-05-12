@@ -56,6 +56,6 @@
         }
 
 
-        header("location:pageacceuil.php");
+        header("location:pageAcceuil.php");
     
     ?>
