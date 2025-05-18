@@ -96,19 +96,17 @@ echo "</div>"
     include"page1.php";
 
     
-    if(isset($_GET["status"])){
+    if(isset($_POST["status"])){
 
-        $status=$_GET["status"];
+        $status=$_POST["status"];
         if($status== "denied"){
             
         }
         elseif($status== "accepted"){
             foreach($travels as $_SESSION["panier"]){
                 add_travel($_SESSION["email"],$travels["titre"]);
-            }
-            
+            }   
         }
-
     }
 
 
@@ -135,11 +133,10 @@ echo "</div>"
         foreach($_SESSION["Voyages_reserve"] as $travels){
             if(file_exists("voyage.json")){
                 $voy = json_decode(file_get_contents("voyage.json"), true);
-                echo"<div class='payement'><p>".$voy[$travels]["titre"]."</p>";
+                echo"<div class='payement'><p>".$voy[$travels]["titre"]."</p></div>";
             }
-            
         }
-        echo"<p> montant : ".$montant."</p></div>";
+        echo"<p> montant : ".$montant."</p>";
     }else{
         header("location: pageAcceuil.php");  
     }

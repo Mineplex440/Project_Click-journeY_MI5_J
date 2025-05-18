@@ -48,7 +48,21 @@
         "sex": "H",
         "Admin": "1",
         "Voyages_reserve": [
-            4
+            4,
+            1,
+            10
+        ]
+    },
+    {
+        "prenom": "j",
+        "nom": "m",
+        "email": "j@cy.fr",
+        "password": "Aa@1",
+        "date_of_birth": "2025-05-17",
+        "sex": "H",
+        "Admin": "0",
+        "Voyages_reserve": [
+            0
         ]
     }
 ]

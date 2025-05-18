@@ -101,13 +101,6 @@
             </nav>
 
         </div>
-        
-        <script>
-            
-            var x = 6;
-            var div = document.getElementById("date");
-           
-        </script>
 
         
     
@@ -126,6 +119,9 @@
                             <input type="text" name="localisation" id="localisation" maxlength="30" placeholder="Pays, région, ville, nom d'oiseaux, ..." />
                         </li>
                         <li class="recherche-li">
+                            <input type='text' name='prix' id='prix' maxlength='6' placeholder='Prix max en euros'>
+                        </li>
+                        <li class="recherche-li">
                             <input type="date" name="date" />
                         </li>
                         <li class="recherche-li">
@@ -142,10 +138,10 @@
                         <li class="recherche-li">
                             <select name="duree" id="duree">
                                 <option value="toute-duree">Peux importe la durée</option>
-                                <option value="moins-une-semaine">Moins d'une semaine</option>
-                                <option value="une-semaine">Une semaine (7 à 12 jours)</option>
-                                <option value="deux-semaine">Deux semaine (14 à 19 jours)</option>
-                                <option value="plus-long">Plus de deux semaine (plus de 20 jours)</option>
+                                <option value="7">Moins d'une semaine</option>
+                                <option value="12">Une semaine (7 à 12 jours)</option>
+                                <option value="17">Deux semaine (14 à 19 jours)</option>
+                                <option value="20">Plus de deux semaine (plus de 20 jours)</option>
                             </select>
                         </li>
                         <li class="recherche-li">
@@ -261,7 +257,7 @@
             }
         ?>
 
-        <script src="fonction.js"></script>
+        
 
         </div>
                
@@ -276,6 +272,6 @@
         </footer>
 
 
-    
+    <script src="fonction.js"></script>
 </body>
 </html>

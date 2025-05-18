@@ -341,5 +341,13 @@ window.onload = function () {
     const theme = lireCookie("theme");
     if (theme) {
         document.getElementById("theme-style").href = theme;
+        if(theme == "style-dark.css"){
+            var elm = document.getElementById("status").childNodes;
+            var color = elm[1].childNodes;
+            color[1].value = "style-dark.css";
+            color[1].innerHTML = "sombre";
+            color[3].value = "style-light.css";
+            color[3].innerHTML = "clair";
+        }
     }
 };
