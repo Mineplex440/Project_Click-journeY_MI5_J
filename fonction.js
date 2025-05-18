@@ -68,12 +68,12 @@ async function submiting(id){
         nom: nom,
         prenom: prenom,
         email: email,
-        date: date,
+        date_of_birth: date,
         sex: sex,
         password: password
     }
 
-    const response =await fetch("http://localhost:8080/profil.php",{
+    const response =await fetch("http://localhost:8080/profil_submit.php",{
         method:"POST",
         body: JSON.stringify(profil),
         headers: {
@@ -81,8 +81,29 @@ async function submiting(id){
         }
     });
     const resp =await response.text();
-    //console.log(resp);
-    console.log("oui");
+    console.log(resp);
+    let readresp=JSON.parse(resp);
+    switch(id.name){
+    case "nom_change":
+            back(id,readresp.nom);
+            break;
+        case "prenom_change":
+            back(id,readresp.prenom);
+            break;
+        case "email_change":
+            back(id,readresp.email);
+            break;
+        case "date_change":
+            back(id,readresp.date_of_birth);
+            break;
+        case "sex_change":
+            back(id,readresp.sex);
+            break;
+        case "password_change":
+            back(id,readresp.password);
+            break;
+    }
+    
 }
 function check_number(min,max,str){
     res=0
@@ -274,7 +295,9 @@ function back(id,text){
     //enable the button for the modification on the page
     let parc=document.getElementsByClassName("button-profil");
     for(let index in parc){
+        if(parc[index] instanceof HTMLElement){
         parc[index].toggleAttribute("disabled",false);
+        }
     }
 
 }
