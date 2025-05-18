@@ -585,14 +585,14 @@ p.panier_p{
     margin-top: auto;
 }
 
-.panier_form{
-    background-color: red;
-    
-}
-
 .panier_form button{
     width: 100px;
-    margin-left: 80%;
+    height: 75px;
+    border-radius: 10px;
+    background-color: #70AA2A;
+    margin-left: 87%;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 

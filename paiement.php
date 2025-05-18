@@ -19,6 +19,7 @@ if(!isset($_SESSION["admin"])){
         $_SESSION["admin"] = 0;
 }
 
+
 echo "<div class='menu-top'>
 
     <div class='lo'>
@@ -93,6 +94,7 @@ echo "</div>"
     <fieldset class="payement">
     <legend class="payement">Panier</legend>
 <?php
+
     include"page1.php";
 
     
@@ -103,9 +105,9 @@ echo "</div>"
             
         }
         elseif($status== "accepted"){
-            foreach($travels as $_SESSION["panier"]){
-                add_travel($_SESSION["email"],$travels["titre"]);
-            }   
+            add_travel2($_SESSION["email"]);
+            $_SESSION["Voyages_reserve"] = [];
+            $_SESSION["panier"] = null;
         }
     }
 
@@ -122,6 +124,10 @@ echo "</div>"
     
     
     $montant=0;
+
+    if(!isset($_SESSION["panier"])){
+        header("location: pageAcceuil.php");
+    }
 
     if(isset($_SESSION["panier"])){
         if ($_SESSION["panier"] > 0){

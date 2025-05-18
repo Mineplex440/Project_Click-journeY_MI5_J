@@ -40,20 +40,6 @@
         "Voyages_reserve": []
     },
     {
-        "prenom": "Ethann",
-        "nom": "Pencole",
-        "email": "ethann.pencole29@gmail.com",
-        "password": "Salut",
-        "date_of_birth": "2005-03-05",
-        "sex": "H",
-        "Admin": "1",
-        "Voyages_reserve": [
-            4,
-            1,
-            10
-        ]
-    },
-    {
         "prenom": "j",
         "nom": "m",
         "email": "j@cy.fr",
@@ -73,6 +59,16 @@
         "date_of_birth": "2005-03-29",
         "sex": "H",
         "Admin": "0",
+        "Voyages_reserve": []
+    },
+    {
+        "prenom": "Ethann",
+        "nom": "Pencole",
+        "email": "ethann.pencole29@gmail.com",
+        "password": "Salut",
+        "date_of_birth": "2005-03-05",
+        "sex": "H",
+        "Admin": "1",
         "Voyages_reserve": []
     }
 ]

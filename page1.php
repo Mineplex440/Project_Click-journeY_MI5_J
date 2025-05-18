@@ -101,6 +101,23 @@
         return 0;   //in case there was a problem
     }
 
+    function add_travel2($account_email){
+                $json_old_save=json_decode(file_get_contents("save.json"), true);
+                $file=[];
+                for($i = 0; $i<sizeof($json_old_save); $i++){
+                    if(!    ($json_old_save[$i]["email"]===$account_email)  ){
+                        $file[$i]=$json_old_save[$i];
+                    }
+                    else{
+                        $file[$i] = $json_old_save[$i];
+                        $file[$i]["Voyages_reserve"] = [];
+                    }
+                }
+                $json_new_save=json_encode($file, JSON_PRETTY_PRINT);
+                file_put_contents("save.json", $json_new_save);
+                return 1;
+    }
+
     function add_travel($account_email, $travel_title){
         $save=searchjson(($account_email));
         $travel=searchtravel($travel_title);
