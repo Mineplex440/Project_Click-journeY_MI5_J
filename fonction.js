@@ -97,7 +97,7 @@ async function submiting(id){
             back(id,readresp.date_of_birth);
             break;
         case "sex_change":
-            back(id,readresp.sex);
+            back(id.parentNode,readresp.sex);
             break;
         case "password_change":
             back(id,readresp.password);
@@ -211,6 +211,7 @@ function submit_button(id){
 
 function back(id,text){
     /*creat a button to go back on the input and show the information*/
+    console.log(id.parentNode);
     let elem;
     let new_text= document.createElement("th");
     new_text.setAttribute("class","th-profil");
@@ -259,6 +260,17 @@ function back(id,text){
             elem=document.getElementById("date_change");
             new_button.setAttribute("onclick",'change(\'date\')');
             new_text.setAttribute("id","date_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
+        case "sex_change":
+            console.log("oui");
+            elem=document.getElementById("sex_change");
+            new_button.setAttribute("onclick",'change_sex()');
+            new_text.setAttribute("id","sex_information");
             id.remove();
             document.getElementById("back_button").remove();
             new_text.textContent=text;
@@ -374,6 +386,8 @@ function change_sex(){
     console.log("sex");
     let elem=document.getElementById("sex_change");
     let information=document.getElementById("sex_information");
+    let id;
+    
     //deleting the old element
     document.querySelector("#sex_change button.button-profil").parentNode.remove();   
     document.querySelector("#sex_change #sex_information").remove();
@@ -381,13 +395,28 @@ function change_sex(){
     //creating the new element 
     let submit_button=document.createElement("button");
     let new_th=document.createElement("th");
+    let back_button=document.createElement("button");
 
 
-    new_th.innerHTML="<input type='radio' id='Homme' name='sex_change' value='H'/>Homme<input type='radio' id='Femme' name='sex_change' value='F'/>Femme<input type='radio' id='Autre' name='sex_change' value='A'/>Autre";
+
+    new_th.innerHTML="<select name='sex_change' id='input_change'><option value=''>--Please choose an option--</option> <option value='H'>Homme</option> <option value='F'>Femme</option> <option value='A'>Autre</option> </select>";
     elem.appendChild(new_th);
+
+    elem.appendChild(back_button);
+    back_button.textContent="back";
+    back_button.setAttribute("type","button");
+    back_button.setAttribute("onclick",'back('+"sex_change.parentNode"+',\"'+information.textContent+'\")');
+    back_button.setAttribute("id","back_button");
+
+    
     elem.appendChild(submit_button);
     submit_button.textContent="submit";
     submit_button.setAttribute("id","submit_button");
+    submit_button.setAttribute("type","button");
+    id=document.getElementById("input_change");
+    submit_button.setAttribute("onclick",'submiting('+id.name+')'); 
+
+
 
     let parc=document.getElementsByClassName("button-profil");
     for(let index in parc){
@@ -406,4 +435,62 @@ function modif(bool,email){
     if(bool===true){
     setTimeout(modif,1000,false,email);
     }
+}
+
+async function true_modif(email,value){
+    let admin= document.getElementById(email+"_admin");
+    let banni= document.getElementById(email+"_banni");
+    let standard= document.getElementById(email+"_standard");
+    admin.toggleAttribute("disabled",true);
+    banni.toggleAttribute("disabled",true);
+    standard.toggleAttribute("disabled",true);
+
+    var profil ={
+        email: email,
+        value: value
+    }
+
+    const response =await fetch("http://localhost:8080/admin_submit.php",{
+        method:"POST",
+        body: JSON.stringify(profil),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    const resp =await response.text();
+    console.log(resp);
+
+
+    admin.toggleAttribute("disabled",false);
+    banni.toggleAttribute("disabled",false);
+    standard.toggleAttribute("disabled",false);
+    console.log("fini");
+}
+
+async function supr(email) {
+    let admin= document.getElementById(email+"_admin");
+    let banni= document.getElementById(email+"_banni");
+    let standard= document.getElementById(email+"_standard");
+    admin.toggleAttribute("disabled",true);
+    banni.toggleAttribute("disabled",true);
+    standard.toggleAttribute("disabled",true);
+
+    var profil ={
+        email: email
+    }
+
+    const response =await fetch("http://localhost:8080/admin_del.php",{
+        method:"POST",
+        body: JSON.stringify(profil),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    const resp =await response.text();
+    let readresp=JSON.parse(resp);
+    console.log(resp);
+    if(readresp.message=="succes"){
+    standard.parentNode.remove();
+    }
+    
 }

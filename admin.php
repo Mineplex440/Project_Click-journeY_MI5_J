@@ -139,9 +139,9 @@
             "</td><td id='td-admin' class='title_first_name'>".$file["nom"].
             " </td><td id='td-admin' class='title_mail'> ".$file["email"].
             "<td id='td-admin' class='button_choix_l'>
-                <button class='vip' id='".$file["email"]."_vip' onclick=\"modif(true,'".$file["email"]."')\">V.I.P </button>
-                <button class='banni'id='".$file["email"]."_banni' onclick=\"modif(true,'".$file["email"]."')\">Banni </button>
-                <button class='standard' id='".$file["email"]."_standard' onclick=\"modif(true,'".$file["email"]."') \">Standard </button>
+                <button class='admin' id='".$file["email"]."_admin' onclick=\"true_modif('".$file["email"]."',1)\">Admin </button>
+                <button class='banni'id='".$file["email"]."_banni' onclick=\"supr('".$file["email"]."')\">Banni </button>
+                <button class='standard' id='".$file["email"]."_standard' onclick=\"true_modif('".$file["email"]."',0) \">Standard </button>
             </td>
         </tr>";
         }
@@ -155,6 +155,4 @@
     </html>";
 ?>
 <script src="/fonction.js">
-    
-
 </script>
