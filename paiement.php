@@ -162,4 +162,44 @@ echo"<form action='coordonne_banque.php' method='POST'>
 
 
 </body>
+
+<footer class="foot">
+
+            <br>
+
+            <div class="footer-content">
+                <h3>Exotic Birder</h3>
+                <p>Explorez le monde à travers nos voyages et expéditions dédiés à l’observation des oiseaux exotiques. Vivez des expériences uniques au cœur des plus beaux habitats naturels.</p>
+                
+                <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Liens utiles :</h4>
+                    <ul>
+                    <li><a href="L'ensemble_des_voyages.php">Destinations</a></li>
+                    <li><a href="Apropos.php">À propos</a></li>
+                    <li><a href="#top">Haut de la page</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contactez-nous :</h4>
+                    <p>Email : <a href="mailto:contact@exoticbirder.com">contact@exoticbirder.com</a></p>
+                    <p>Téléphone : +33 1 23 45 67 89</p>
+                    <p>Adresse : 12 rue des Oiseaux, 75000 Paris, France</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suivez-nous :</h4>
+                    <a href="#" aria-label="Facebook"><img src="icons/facebook.svg.png" alt="Facebook" /></a>
+                    <a href="#" aria-label="Instagram"><img src="icons/instagram.svg.png" alt="Instagram" /></a>
+                    <a href="#" aria-label="Twitter"><img src="icons/twitter.svg.png" alt="Twitter" /></a>
+                    <a href="#" aria-label="LinkedIn"><img src="icons/linkedIn.svg.png" alt="LinkedIn" /></a>
+                </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Exotic Birder. Tous droits réservés.</p>
+            </div>
+
+        </footer>
 </html>

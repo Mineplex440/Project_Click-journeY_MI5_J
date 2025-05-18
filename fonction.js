@@ -107,11 +107,15 @@ function change_mdp(id){
     }
 }
 
-async function check_condition_connexion(){
+function check_condition_connexion(){
     //elem=document.getElementsByTagNameNS("input");
     var submit=document.getElementById("submit_button");
-    if(await rightmdp(document.getElementById("code_n1").value)){
-        submit.toggleAttribute("disabled");
+    console.log(document.getElementById("code_n1").value);
+    if(rightmdp(document.getElementById("code_n1").value)){
+        submit.setAttribute("disabled", "true");
+    }
+    else{
+        submit.setAttribute("disabled", "false");
     }
     
     
@@ -146,12 +150,18 @@ function check_second_code(){
 
 }
 
-async function check_condition_inscription(){
+function check_condition_inscription(){
     var submit=document.getElementById("submit_button");
     console.log(check_second_code());
-    if( (!await check_code("password")) || check_second_code()){
-        submit.toggleAttribute("disabled");
-    }
+    check_code("password").then(result => {
+        console.log(result);
+        if(result || check_second_code()){
+            submit.setAttribute("disabled", "true");
+        }
+        else{
+            submit.removeAttribute("disabled", "true");
+        }
+    });
         
     
 }

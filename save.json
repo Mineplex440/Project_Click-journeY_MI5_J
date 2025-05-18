@@ -64,5 +64,15 @@
         "Voyages_reserve": [
             0
         ]
+    },
+    {
+        "prenom": "p",
+        "nom": "p",
+        "email": "pp@gmail.com",
+        "password": "Pa\/2",
+        "date_of_birth": "2005-03-29",
+        "sex": "H",
+        "Admin": "0",
+        "Voyages_reserve": []
     }
 ]
