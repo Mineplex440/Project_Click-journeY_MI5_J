@@ -128,10 +128,43 @@
         change_account($save);
     }
 
+    function change_rights($account_email,$admin_value){
+        $save=searchjson($account_email);
+        if(empty($save)){
+            return 0;
+        }
+        else{
+            if($admin_value){
+                $save["admin"]=1;
+                return change_account($save);
+            }
+            else{
+                $save["admin"]=0;
+                return change_account($save);
+            }
+        }
+        return 0;
+    }
+
+    function delete($email){
+        /*delete the account that has this email*/
+        $json_old_save=json_decode(file_get_contents("save.json"), true);
+        $file=[];
+        foreach($json_old_save as $data){
+                if(!($data["email"]===$email)  ){
+                    $file[]=$data;
+                }
+            }
+        $json_new_save=json_encode($file, JSON_PRETTY_PRINT);
+        file_put_contents("save.json", $json_new_save);
+        return 1;
+    }
     function create_admin(){
-        $save=array("prenom"=>"admin","nom"=> "admin","email"=> "admin@gmail.com","password"=> "1234","date_of_birth"=>date("Y-m-d"),"sex"=>"A","travel"=>[],"admin"=>1);
+        $save=array("prenom"=>"admin","nom"=> "admin","email"=> "admin@gmail.com","password"=> "Aa&1","date_of_birth"=>date("Y-m-d"),"sex"=>"A","travel"=>[],"admin"=>1);
         new_account($save);
     }
+
+    create_admin();
 
 
     //file_put_contents("save.json","[\n",FILE_APPEND);
