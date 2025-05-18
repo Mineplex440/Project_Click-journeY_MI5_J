@@ -40,6 +40,28 @@
         "Voyages_reserve": []
     },
     {
+        "prenom": "j",
+        "nom": "m",
+        "email": "j@cy.fr",
+        "password": "Aa@1",
+        "date_of_birth": "2025-05-17",
+        "sex": "H",
+        "Admin": "0",
+        "Voyages_reserve": [
+            0
+        ]
+    },
+    {
+        "prenom": "p",
+        "nom": "p",
+        "email": "pp@gmail.com",
+        "password": "Pa\/2",
+        "date_of_birth": "2005-03-29",
+        "sex": "H",
+        "Admin": "0",
+        "Voyages_reserve": []
+    },
+    {
         "prenom": "Ethann",
         "nom": "Pencole",
         "email": "ethann.pencole29@gmail.com",
@@ -47,8 +69,6 @@
         "date_of_birth": "2005-03-05",
         "sex": "H",
         "Admin": "1",
-        "Voyages_reserve": [
-            4
-        ]
+        "Voyages_reserve": []
     }
 ]

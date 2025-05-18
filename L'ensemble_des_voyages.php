@@ -101,36 +101,161 @@
             <ul class="recherche-ul">
 
                 <li class="recherche-li-loca">
-                    <input type="text" name="localisation" id="localisation" maxlength="30" placeholder="Pays, région, ville, nom d'oiseaux, ..." />
+                    <?php
+                        if(isset($_GET["localisation"])){
+                            echo "<input type='text' name='localisation' value='".$_GET["localisation"]."' id='localisation' maxlength='30' placeholder='Pays, région, ville, nom oiseaux, ...' />";
+                        }
+                        else{
+                            echo "<input type='text' name='localisation' id='localisation' maxlength='30' placeholder='Pays, région, ville, nom oiseaux, ...' />";
+                        }
+                    ?>
                 </li>
                 <li class="recherche-li">
-                    <input type="text" name="prix" id="prix" maxlength="6" placeholder="Prix max en euros">
+                    <?php 
+                        if(isset($_GET["prix"])){
+                            echo "<input type='text' name='prix' id='prix' value='".$_GET["prix"]."' maxlength='6' placeholder='Prix max en euros'>";
+                        }
+                        else{
+                            echo "<input type='text' name='prix' id='prix' maxlength='6' placeholder='Prix max en euros'>";
+                        }
+                        
+                    ?>
                 </li>
                 <li class="recherche-li">
-                    <input type="date" name="date" id="date" />
+                    <?php 
+                        if(isset($_GET["date"])){
+                            echo "<input type='date' name='date' id='date' value='".$_GET['date']."'/>";
+                        } 
+                        else{
+                            echo "<input type='date' name='date' id='date'/>";
+                        }
+                    ?>
                 </li>
                 <li class="recherche-li">
 
-                    <select name="type_sejour" id="type_sejour">
-                        <option value="tout-endroit">l'ensemble des parcours</option>
-                        <option value="foret">Principalement en forêt</option>
-                        <option value="aquatique">Principalement en zone aquatique</option>
-                        <option value="montagne">Principalement en montagne</option>
-                        <option value="special">Parcours spécial de l'aventurier</option>
-                    </select>
+                    <?php
 
+                        if(isset($_GET["type_sejour"])){
+                            if($_GET["type_sejour"] == "tout-endroit"){
+                                echo "<select name='type_sejour' id='type_sejour'>
+                                <option value='tout-endroit'>Ensemble des parcours</option>
+                                <option value='foret'>Principalement en forêt</option>
+                                <option value='aquatique'>Principalement en zone aquatique</option>
+                                <option value='montagne'>Principalement en montagne</option>
+                                <option value='special'>Parcours spécial de l'aventurier</option>
+                                </select>";
+                            }
+                            else if($_GET["type_sejour"] == "foret"){
+                                echo "<select name='type_sejour' id='type_sejour'>
+                                <option value='foret'>Principalement en forêt</option>
+                                <option value='tout-endroit'>Ensemble des parcours</option>
+                                <option value='aquatique'>Principalement en zone aquatique</option>
+                                <option value='montagne'>Principalement en montagne</option>
+                                <option value='special'>Parcours spécial de l'aventurier</option>
+                                </select>";
+                            }
+                            else if($_GET["type_sejour"] == "aquatique"){
+                                echo "<select name='type_sejour' id='type_sejour'>
+                                <option value='aquatique'>Principalement en zone aquatique</option>
+                                <option value='tout-endroit'>Ensemble des parcours</option>
+                                <option value='foret'>Principalement en forêt</option>
+                                <option value='montagne'>Principalement en montagne</option>
+                                <option value='special'>Parcours spécial de l'aventurier</option>
+                                </select>";
+                            }
+                            else if($_GET["type_sejour"] == "montagne"){
+                                echo "<select name='type_sejour' id='type_sejour'>
+                                <option value='montagne'>Principalement en montagne</option>
+                                <option value='tout-endroit'>Ensemble des parcours</option>
+                                <option value='foret'>Principalement en forêt</option>
+                                <option value='aquatique'>Principalement en zone aquatique</option>
+                                <option value='special'>Parcours spécial de l'aventurier</option>
+                                </select>";
+                            }
+                            else if ($_GET["type_sejour"] == "special") {
+                                echo "<select name='type_sejour' id='type_sejour'>
+                                    <option value='special'>Parcours spécial de l'aventurier</option>
+                                    <option value='tout-endroit'>Ensemble des parcours</option>
+                                    <option value='foret'>Principalement en forêt</option>
+                                    <option value='aquatique'>Principalement en zone aquatique</option>
+                                    <option value='montagne'>Principalement en montagne</option>
+                                </select>";
+                            }
+                        }
+                        else{
+
+                            echo "<select name='type_sejour' id='type_sejour'>
+                                <option value='tout-endroit'>Ensemble des parcours</option>
+                                <option value='foret'>Principalement en forêt</option>
+                                <option value='aquatique'>Principalement en zone aquatique</option>
+                                <option value='montagne'>Principalement en montagne</option>
+                                <option value='special'>Parcours spécial de l'aventurier</option>
+                            </select>";
+                        }
+
+                    
+                    ?>
                 </li>
                 <li class="recherche-li">
-                    <select name="duree" id="duree">
-                        <option value="toute-duree">Peux importe la durée</option>
-                        <option value="7">Moins d'une semaine</option>
-                        <option value="12">Une semaine (7 à 12 jours)</option>
-                        <option value="17">Deux semaine (14 à 19 jours)</option>
-                        <option value="20">Plus de deux semaine (plus de 20 jours)</option>
-                    </select>
-                </li>
-                <li class="recherche-li">
-                    <input type="submit" value="Rechercher" name="send" id="send" />
+                    <?php 
+                        if(isset($_GET["duree"])){
+                            if($_GET["duree"]=="toute-duree"){
+                                echo "<select name='duree' id='duree'>
+                                    <option value='toute-duree'>Peux importe la durée</option>
+                                    <option value='7'>Moins d'une semaine</option>
+                                    <option value='12'>Une semaine (7 à 12 jours)</option>
+                                    <option value='17'>Deux semaine (14 à 19 jours)</option>
+                                    <option value='20'>Plus de deux semaine (plus de 20 jours)</option>
+                                </select>";
+                            }
+                            else if($_GET["duree"]=="7"){
+                                echo "<select name='duree' id='duree'>
+                                    <option value='7'>Moins d'une semaine</option>
+                                    <option value='toute-duree'>Peux importe la durée</option>
+                                    <option value='12'>Une semaine (7 à 12 jours)</option>
+                                    <option value='17'>Deux semaine (14 à 19 jours)</option>
+                                    <option value='20'>Plus de deux semaine (plus de 20 jours)</option>
+                                </select>";
+                            }
+                            else if($_GET["duree"]=="12"){
+                                echo "<select name='duree' id='duree'>
+                                        <option value='12'>Une semaine (7 à 12 jours)</option>
+                                        <option value='toute-duree'>Peux importe la durée</option>
+                                        <option value='7'>Moins d'une semaine</option>
+                                        <option value='17'>Deux semaine (14 à 19 jours)</option>
+                                        <option value='20'>Plus de deux semaine (plus de 20 jours)</option>
+                                    </select>";
+                            }
+                            elseif($_GET["duree"]=="17"){
+                                echo "<select name='duree' id='duree'>
+                                    <option value='17'>Deux semaine (14 à 19 jours)</option>
+                                    <option value='toute-duree'>Peux importe la durée</option>
+                                    <option value='7'>Moins d'une semaine</option>
+                                    <option value='12'>Une semaine (7 à 12 jours)</option>
+                                    <option value='20'>Plus de deux semaine (plus de 20 jours)</option>
+                                </select>";
+                            }
+                            else if($_GET["duree"]=="20"){
+                                echo "<select name='duree' id='duree'>
+                                <option value='20'>Plus de deux semaine (plus de 20 jours)</option>
+                                <option value='toute-duree'>Peux importe la durée</option>
+                                <option value='7'>Moins d'une semaine</option>
+                                <option value='12'>Une semaine (7 à 12 jours)</option>
+                                <option value='17'>Deux semaine (14 à 19 jours)</option>
+                            </select>";
+                            }
+                        }
+                        else{
+                            echo "<select name='duree' id='duree'>
+                                <option value='toute-duree'>Peux importe la durée</option>
+                                <option value='7'>Moins d'une semaine</option>
+                                <option value='12'>Une semaine (7 à 12 jours)</option>
+                                <option value='17'>Deux semaine (14 à 19 jours)</option>
+                                <option value='20'>Plus de deux semaine (plus de 20 jours)</option>
+                            </select>";
+                        }
+                        
+                    ?>
                 </li>
             </ul>
 
@@ -143,261 +268,263 @@
     <div class="boitedel">
 
     
-        <?php /* 
+        <?php
+        
             if (file_exists("voyage.json")) {
-                $nb = 1;
-                $array = json_decode(file_get_contents("voyage.json"), true); 
-
-                if(!empty($array) && !isset($_GET["localisation"]) && !isset($_GET["date"]) && !isset($_GET["type_sejour"]) && !isset($_GET["duree"])){
-                    foreach ($array as $voyage) {
-                        
-                        echo "<div class='box-voy'>
-                            <img src=".$voyage["image"]." alt='voyage".$nb."'>
-                            <ul>
-                                <li><u>".$voyage["titre"]."</u></li>
-                                <ul>";
-
-                                foreach($voyage["spécificités"] as $ch){
-                                    echo "<li>".$ch."</li>";
-                                }
-                                    
-                        echo        "</ul>
-                            </ul>
-                            <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$voyage["id"]." id='Voyage".$nb."'>
-                            </form>
-                            </div>
-                            ";
-                        $nb++;
-                    }
-                }
-
-                elseif (!empty($_GET["localisation"]) || !empty($_GET["date"]) || $_GET["type_sejour"]!="tout-endroit"  || $_GET["duree"]!="toute-duree") {
-                    $valid1 = [];
-                    $valid2 = [];
-                    $valid3 = [];
-                    $valid4 = [];
-
-                    $valid = [];
-
-                    for($i=0; $i<count($array); $i++){
-                        if(!empty($_GET["localisation"])){
-                            
-                            if (in_array($_GET["localisation"], explode(" ",$array[$i]["titre"]))){
-
-                                $valid1[] = $i;
-
-                            }
-                    
-                            foreach($array[$i]["étapes"] as $etapes){
-                                if(in_array($_GET["localisation"], explode(" ",$etapes))){
-                                    if(!in_array($i, $valid1)){
-                                        $valid1[] = $i;
-                                    }
-                                }
-                            }
-
-                            foreach($array[$i]["spécificités"] as $specificites){
-                                if(in_array($_GET["localisation"], explode(" ",$specificites))){
-                                    if(!in_array($i, $valid1)){
-                                        $valid1[] = $i;
-                                    }
-                                }
-                            }
-                        }
-                        else{
-                            $valid1[] = $i;
-                        }
-
-                        if(!empty($_GET["date"])){
-                            if ($_GET["date"] == $array[$i]["dates"]["début"]){
-                                if(!in_array($i, $valid2)){
-                                    $valid2[] = $i;
-                                }
-                            }
-                        }
-                        else{
-                            $valid2[] = $i;
-                        }
-
-
-                        if(!empty($_GET["type_sejour"])){
-                            if($_GET["type_sejour"] == "tout-endroit"){
-                                if(!in_array($i,$valid3)){
-                                    $valid3[] = $i;
-                                }
-                            }
-                        }
-                        
-
-                        if(!empty($_GET["duree"])){
-                            if ($_GET["duree"] == "moins-une-semaine"){
-                                if($array[$i]["dates"]["durée"] <= 6){
-
-                                    if(!in_array($i, $valid4)){
-                                        $valid4[] = $i;
-                                    }
-                                }
-                            }
-
-                            elseif($_GET["duree"] == "toute-duree"){
-                                    if(!in_array($i, $valid4)){
-                                        $valid4[] = $i;
-                                }
-                            }
-
-                            elseif($_GET["duree"] == "une-semaine"){
-                                if($array[$i]["dates"]["durée"] > 6 && $array[$i]["dates"]["durée"] <= 12){
-                                    if(!in_array($i, $valid4)){
-                                        $valid4[] = $i;
-                                    }
-                                }
-                            }
-
-                            elseif($_GET["duree"] == "deux-semaine"){
-                                if($array[$i]["dates"]["durée"] > 12 && $array[$i]["dates"]["durée"] <= 19){
-                                    if(!in_array($i, $valid4)){
-                                        $valid4[] = $i;
-                                    }
-                                }
-                            }
-
-                            elseif($_GET["duree"] == "plus-long"){
-                                if($array[$i]["dates"]["durée"] >= 20){
-                                    if(!in_array($i, $valid4)){
-                                        $valid4[] = $i;
-                                    }
-                                }
-                            }
-                        }
-
-                        
-
-                    }
-
-                   
-                        
-                        if(empty($valid1) || empty($valid2) || empty($valid3) || empty($valid4)){
-                            $validbis = [];
-                        }
-                        else{
-                            if(!empty($valid1) && !empty($valid2)){
-                                if(count($valid1) >= count($valid2)){
-                                    foreach($valid1 as $elm){
-                                        if(in_array($elm, $valid2)){
-                                            $valid[] = $elm;
-                                        }
-                                    }
-                                }
-                                else{
-                                    foreach($valid2 as $elm){
-                                        if(in_array($elm, $valid1)){
-                                            $valid[] = $elm;
-                                        }
-                                    }
-                                }
-                            }
-    
-                        $validbisbis = [];
-    
-                            if(!empty($valid) && !empty($valid4)){
-                                if(count($valid) >= count($valid4)){
-                                    foreach($valid as $elm){
-                                        if(in_array($elm, $valid4)){
-                                            $validbisbis[] = $elm;
-                                        }
-                                    }
-                                }
-                                else{
-                                    foreach($valid4 as $elm){
-                                        if(in_array($elm, $valid)){
-                                            $validbisbis[] = $elm;
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            $validbis = [];
-
-                            if(!empty($validbisbis) && !empty($valid3)){
-                                if(count($validbisbis) >= count($valid3)){
-                                    foreach($validbisbis as $elm){
-                                        if(in_array($elm, $valid3)){
-                                            $validbis[] = $elm;
-                                        }
-                                    }
-                                }
-                                else{
-                                    foreach($valid3 as $elm){
-                                        if(in_array($elm, $validbisbis)){
-                                            $validbis[] = $elm;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        
-                    
-                        
-
-                    for($i=0; $i<count($validbis); $i++){
-
-                        echo "<div class='box-voy'>
-                            <img src=".$array[$validbis[$i]]["image"]." alt='voyage".$nb."'>
-                            <ul>
-                                <li><u>".$array[$validbis[$i]]["titre"]."</u></li>
-                                <ul>";
-
-                                foreach($array[$validbis[$i]]["spécificités"] as $ch){
-                                    echo "<li>".$ch."</li>";
-                                }
-                                    
-                        echo        "</ul>
-                            </ul>
-                            <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$array[$validbis[$i]]["id"]." id='Voyage".$nb."'>
-                            </form>
-                            </div>
-                            ";
-                        $nb++;
-
-                    }
-
-                }
-
-                else{
-                    foreach ($array as $voyage) {
-                        
-                        echo "<div class='box-voy'>
-                            <img src=".$voyage["image"]." alt='voyage".$nb."'>
-                            <ul>
-                                <li><u>".$voyage["titre"]."</u></li>
-                                <ul>";
-
-                                foreach($voyage["spécificités"] as $ch){
-                                    echo "<li>".$ch."</li>";
-                                }
-                                    
-                        echo        "</ul>
-                            </ul>
-                            <form action='Voyage.php'>
-                                <input type='submit' value='Je réserve' name=".$voyage["id"]." id='Voyage".$nb."'>
-                            </form>
-                            </div>
-                            ";
-                        $nb++;
-                    }
-                }
-                    
                 
-            }*/
+                /*
+                if(isset($_GET["type_sejour"]) && isset($_GET["duree"])){
+                    
+                    $nb = 1;
+                    $array = json_decode(file_get_contents("voyage.json"), true); 
+                    if (!empty($_GET["localisation"]) || !empty($_GET["date"]) || $_GET["type_sejour"]!="tout-endroit"  || $_GET["duree"]!="toute-duree") {
+                        $valid1 = [];
+                        $valid2 = [];
+                        $valid3 = [];
+                        $valid4 = [];
+    
+                        $valid = [];
+    
+                        for($i=0; $i<count($array); $i++){
+                            if(!empty($_GET["localisation"])){
+                                
+                                if (in_array($_GET["localisation"], explode(" ",$array[$i]["titre"]))){
+    
+                                    $valid1[] = $i;
+    
+                                }
+                        
+                                foreach($array[$i]["étapes"] as $etapes){
+                                    if(in_array($_GET["localisation"], explode(" ",$etapes))){
+                                        if(!in_array($i, $valid1)){
+                                            $valid1[] = $i;
+                                        }
+                                    }
+                                }
+    
+                                foreach($array[$i]["spécificités"] as $specificites){
+                                    if(in_array($_GET["localisation"], explode(" ",$specificites))){
+                                        if(!in_array($i, $valid1)){
+                                            $valid1[] = $i;
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                $valid1[] = $i;
+                            }
+    
+                            if(!empty($_GET["date"])){
+                                if ($_GET["date"] == $array[$i]["dates"]["début"]){
+                                    if(!in_array($i, $valid2)){
+                                        $valid2[] = $i;
+                                    }
+                                }
+                            }
+                            else{
+                                $valid2[] = $i;
+                            }
+    
+    
+                            if(!empty($_GET["type_sejour"])){
+                                if($_GET["type_sejour"] == "tout-endroit"){
+                                    if(!in_array($i,$valid3)){
+                                        $valid3[] = $i;
+                                    }
+                                }
+                            }
+                            
+    
+                            if(!empty($_GET["duree"])){
+                                if ($_GET["duree"] == "moins-une-semaine"){
+                                    if($array[$i]["dates"]["durée"] <= 6){
+    
+                                        if(!in_array($i, $valid4)){
+                                            $valid4[] = $i;
+                                        }
+                                    }
+                                }
+    
+                                elseif($_GET["duree"] == "toute-duree"){
+                                        if(!in_array($i, $valid4)){
+                                            $valid4[] = $i;
+                                    }
+                                }
+    
+                                elseif($_GET["duree"] == "une-semaine"){
+                                    if($array[$i]["dates"]["durée"] > 6 && $array[$i]["dates"]["durée"] <= 12){
+                                        if(!in_array($i, $valid4)){
+                                            $valid4[] = $i;
+                                        }
+                                    }
+                                }
+    
+                                elseif($_GET["duree"] == "deux-semaine"){
+                                    if($array[$i]["dates"]["durée"] > 12 && $array[$i]["dates"]["durée"] <= 19){
+                                        if(!in_array($i, $valid4)){
+                                            $valid4[] = $i;
+                                        }
+                                    }
+                                }
+    
+                                elseif($_GET["duree"] == "plus-long"){
+                                    if($array[$i]["dates"]["durée"] >= 20){
+                                        if(!in_array($i, $valid4)){
+                                            $valid4[] = $i;
+                                        }
+                                    }
+                                }
+                            }
+    
+                            
+    
+                        }
+    
+                       
+                            
+                            if(empty($valid1) || empty($valid2) || empty($valid3) || empty($valid4)){
+                                $validbis = [];
+                            }
+                            else{
+                                if(!empty($valid1) && !empty($valid2)){
+                                    if(count($valid1) >= count($valid2)){
+                                        foreach($valid1 as $elm){
+                                            if(in_array($elm, $valid2)){
+                                                $valid[] = $elm;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        foreach($valid2 as $elm){
+                                            if(in_array($elm, $valid1)){
+                                                $valid[] = $elm;
+                                            }
+                                        }
+                                    }
+                                }
+        
+                            $validbisbis = [];
+        
+                                if(!empty($valid) && !empty($valid4)){
+                                    if(count($valid) >= count($valid4)){
+                                        foreach($valid as $elm){
+                                            if(in_array($elm, $valid4)){
+                                                $validbisbis[] = $elm;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        foreach($valid4 as $elm){
+                                            if(in_array($elm, $valid)){
+                                                $validbisbis[] = $elm;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                $validbis = [];
+    
+                                if(!empty($validbisbis) && !empty($valid3)){
+                                    if(count($validbisbis) >= count($valid3)){
+                                        foreach($validbisbis as $elm){
+                                            if(in_array($elm, $valid3)){
+                                                $validbis[] = $elm;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        foreach($valid3 as $elm){
+                                            if(in_array($elm, $validbisbis)){
+                                                $validbis[] = $elm;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+    
+                            
+                        
+                            
+    
+                        for($i=0; $i<count($validbis); $i++){
+    
+                            echo "<div class='box-voy'>
+                                <img src=".$array[$validbis[$i]]["image"]." alt='voyage".$nb."'>
+                                <ul>
+                                    <li><u>".$array[$validbis[$i]]["titre"]."</u></li>
+                                    <ul>";
+    
+                                    foreach($array[$validbis[$i]]["spécificités"] as $ch){
+                                        echo "<li>".$ch."</li>";
+                                    }
+                                        
+                            echo        "</ul>
+                                </ul>
+                                <form action='Voyage.php'>
+                                    <input type='submit' value='Je réserve' name=".$array[$validbis[$i]]["id"]." id='Voyage".$nb."'>
+                                </form>
+                                </div>
+                                ";
+                            $nb++;
+    
+                        }
+    
+                    }
+                    else{
+                        echo "<script src='Ensemble_voyage.js'></script>";
+                    }
+                }
+                else{
+                    echo "<script src='Ensemble_voyage.js'></script>";
+                }
+                */
+                echo "<script src='Ensemble_voyage.js'></script>";
+            }
         ?>
         </div>
     
 
-
     <script src="Ensemble_voyage.js"></script>
     <script src="fonction.js"></script>
 </body>
+
+<footer class="foot">
+
+            <br>
+
+            <div class="footer-content">
+                <h3>Exotic Birder</h3>
+                <p>Explorez le monde à travers nos voyages et expéditions dédiés à l’observation des oiseaux exotiques. Vivez des expériences uniques au cœur des plus beaux habitats naturels.</p>
+                
+                <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Liens utiles :</h4>
+                    <ul>
+                    <li><a href="L'ensemble_des_voyages.php">Destinations</a></li>
+                    <li><a href="Apropos.php">À propos</a></li>
+                    <li><a href="#top">Haut de la page</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contactez-nous :</h4>
+                    <p>Email : <a href="mailto:contact@exoticbirder.com">contact@exoticbirder.com</a></p>
+                    <p>Téléphone : +33 1 23 45 67 89</p>
+                    <p>Adresse : 12 rue des Oiseaux, 75000 Paris, France</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suivez-nous :</h4>
+                    <a href="#" aria-label="Facebook"><img src="icons/facebook.svg.png" alt="Facebook" /></a>
+                    <a href="#" aria-label="Instagram"><img src="icons/instagram.svg.png" alt="Instagram" /></a>
+                    <a href="#" aria-label="Twitter"><img src="icons/twitter.svg.png" alt="Twitter" /></a>
+                    <a href="#" aria-label="LinkedIn"><img src="icons/linkedIn.svg.png" alt="LinkedIn" /></a>
+                </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Exotic Birder. Tous droits réservés.</p>
+            </div>
+
+        </footer>
 </html>

@@ -11,7 +11,8 @@
         "étapes": ["Manaus", "Réserve de Mamirauá", "Forêt primaire"],
         "spécificités": ["Observation d'aras et de toucans", "Exploration en pirogue", "Séjour en lodge écologique"],
         "participants": [],
-        "prix_total": 3200
+        "prix_total": 3200,
+        "type":"montagne"
       },
       {
         "id" : 2,
@@ -25,7 +26,8 @@
         "étapes": ["Mont Hagen", "Forêt de Varirata", "Île de New Britain"],
         "spécificités": ["Observation des oiseaux de paradis", "Photographie animalière", "Immersion dans la culture locale"],
         "participants": [],
-        "prix_total": 4500
+        "prix_total": 4500,
+        "type":"foret"
       },
       {
         "id" : 3,
@@ -39,7 +41,8 @@
         "étapes": ["Monteverde", "Parc national de Corcovado", "Tortuguero"],
         "spécificités": ["Observation des quetzals", "Exploration de la forêt tropicale", "Séjours en écolodges"],
         "participants": [],
-        "prix_total": 4800
+        "prix_total": 4800,
+        "type":"foret"
       },
       {
         "id" : 4,
@@ -53,7 +56,8 @@
         "étapes": ["Île Santa Cruz", "Île Española", "Île Genovesa"],
         "spécificités": ["Observation des fous à pieds bleus", "Croisière naturaliste", "Snorkeling avec la faune marine"],
         "participants": [],
-        "prix_total": 7200
+        "prix_total": 7200,
+        "type":"aquatique"
       },
       {
         "id" : 5,
@@ -67,7 +71,8 @@
         "étapes": ["Parc national de Ranomafana", "Forêt d'Andasibe", "Île de Nosy Be"],
         "spécificités": ["Observation des Vangas et Couas", "Randonnée en forêt tropicale", "Séjour en pleine nature"],
         "participants": [],
-        "prix_total": 8900
+        "prix_total": 8900,
+        "type":"montagne"
       },
       {
         "id" : 6,
@@ -81,7 +86,8 @@
         "étapes": ["Daintree Rainforest", "Kakadu National Park", "Tasmanie"],
         "spécificités": ["Observation des casoars et perruches", "Séjour en réserve naturelle", "Randonnée en pleine nature"],
         "participants": [],
-        "prix_total": 5100
+        "prix_total": 5100,
+        "type":"special"
       },
       {
         "id" : 7,
@@ -95,7 +101,8 @@
         "étapes": ["Kruger National Park", "Drakensberg", "Cape Town"],
         "spécificités": ["Observation des rolliers et calaos", "Safari photo", "Séjour en lodge"],
         "participants": [],
-        "prix_total": 6200
+        "prix_total": 6200,
+        "type":"special"
       },
       {
         "id" : 8,
@@ -104,12 +111,13 @@
         "dates": {
           "début": "2025-04-10",
           "fin": "2025-04-25",
-          "durée": "15 jours"
+          "durée": 15
         },
         "étapes": ["Parc national de Taman Negara", "Cameron Highlands", "Île de Langkawi"],
         "spécificités": ["Observation des calaos rhinocéros", "Exploration de mangroves", "Randonnée en jungle"],
         "participants": [],
-        "prix_total": 4700
+        "prix_total": 4700,
+        "type":"montagne"
       },
       {
         "id" : 9,
@@ -118,12 +126,13 @@
         "dates": {
           "début": "2025-03-05",
           "fin": "2025-03-20",
-          "durée": "15 jours"
+          "durée": 15
         },
         "étapes": ["Île du Sud", "Fiordland National Park", "Île de Stewart"],
         "spécificités": ["Observation des Kiwis", "Randonnée côtière", "Séjour en refuges naturels"],
         "participants": [],
-        "prix_total": 5200
+        "prix_total": 5200,
+        "type": "foret"
       },
       {
         "id" : 10,
@@ -132,12 +141,13 @@
         "dates": {
           "début": "2025-02-15",
           "fin": "2025-03-05",
-          "durée": "18 jours"
+          "durée": 5
         },
         "étapes": ["Forêt de Mindo", "Réserve de Cuyabeno", "Vallée de Tandayapa"],
         "spécificités": ["Observation des colibris et tangaras", "Randonnée en forêt de nuages", "Lodges écologiques"],
         "participants": [],
-        "prix_total": 6300
+        "prix_total": 6300,
+        "type":"foret"
       },
       {
         "id" : 11,
@@ -146,11 +156,12 @@
         "dates": {
           "début": "2025-09-10",
           "fin": "2025-09-25",
-          "durée": "15 jours"
+          "durée": 21
         },
         "étapes": ["Sulawesi", "Papouasie", "Îles Komodo"],
         "spécificités": ["Observation des paradisiers et cacatoès", "Exploration en pirogue", "Séjour en pleine nature"],
         "participants": [],
-        "prix_total": 7000
+        "prix_total": 7000,
+        "type":"aquatique"
       }
 ]

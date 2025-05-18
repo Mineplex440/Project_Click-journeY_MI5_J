@@ -58,6 +58,7 @@
 						<input type="hidden" name="vendeur" value="MI-5_J">
 						<input type="hidden" name="retour" value="http://localhost/paiement.php?session=s">
 						<input type="hidden" name="control" value="03ca2a639c26f5b41634225e2a52bfa2">
+                        <input type="hidden" name="status" value="accepted">
 						<br><div class="warning">Ce formulaire est fictif, n'utilisez pas les informations d'une vraie carte.</div><br>
 						<label for="titulaire">Titulaire de la carte : </label>
 						<input type="text" id="titulaire" name="titulaire" placeholder="Marie Curie" maxlength="19">

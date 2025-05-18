@@ -319,13 +319,40 @@ footer.foot{
     position:relative;
     z-index: 1;
     margin: 0px;
-    background-color: #010718;
-    height: 250px;
+    background-color: #06102c;
+    color: #DAF5F6;
+    height: fit-content;
     width: 100%;
+}
+
+.footer-links{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
 }
 
 p.copyright{
     color: #DAF5F6;
+}
+
+.footer-content h3{
+    text-align: center;
+}
+
+.footer-content p{
+    text-align: center;
+}
+
+.footer-section h4{
+    text-align: center;
+    text-decoration: underline;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+a[href="#"] img{
+    padding-right: 20px;
+    width: 75px;
 }
 
 
@@ -556,18 +583,14 @@ p.panier_p{
     margin-top: auto;
 }
 
-.panier_form{
-    width: fit-content;
-    position: absolute;
-    right: 0;
-
-    margin-right: 15px;
-
-
-}
-
 .panier_form button{
     width: 100px;
+    height: 75px;
+    border-radius: 10px;
+    background-color: #70AA2A;
+    margin-left: 87%;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 

@@ -7,7 +7,7 @@
     <title>Exotic Birder</title>
 </head>
 
-<body class="Accueil">
+<body class="Accueil" id="top">
 
         
     
@@ -101,13 +101,6 @@
             </nav>
 
         </div>
-        
-        <script>
-            
-            var x = 6;
-            var div = document.getElementById("date");
-           
-        </script>
 
         
     
@@ -126,6 +119,9 @@
                             <input type="text" name="localisation" id="localisation" maxlength="30" placeholder="Pays, région, ville, nom d'oiseaux, ..." />
                         </li>
                         <li class="recherche-li">
+                            <input type='text' name='prix' id='prix' maxlength='6' placeholder='Prix max en euros'>
+                        </li>
+                        <li class="recherche-li">
                             <input type="date" name="date" />
                         </li>
                         <li class="recherche-li">
@@ -142,10 +138,10 @@
                         <li class="recherche-li">
                             <select name="duree" id="duree">
                                 <option value="toute-duree">Peux importe la durée</option>
-                                <option value="moins-une-semaine">Moins d'une semaine</option>
-                                <option value="une-semaine">Une semaine (7 à 12 jours)</option>
-                                <option value="deux-semaine">Deux semaine (14 à 19 jours)</option>
-                                <option value="plus-long">Plus de deux semaine (plus de 20 jours)</option>
+                                <option value="7">Moins d'une semaine</option>
+                                <option value="12">Une semaine (7 à 12 jours)</option>
+                                <option value="17">Deux semaine (14 à 19 jours)</option>
+                                <option value="20">Plus de deux semaine (plus de 20 jours)</option>
                             </select>
                         </li>
                         <li class="recherche-li">
@@ -261,21 +257,52 @@
             }
         ?>
 
-        <script src="fonction.js"></script>
+        
 
         </div>
                
 
         <footer class="foot">
 
-            <hr>
+            <br>
 
-            <p class="copyright">Tous droits réservés</p>
-            <p class="copyright">&copy; 2025 Exotic Birder</p>
+            <div class="footer-content">
+                <h3>Exotic Birder</h3>
+                <p>Explorez le monde à travers nos voyages et expéditions dédiés à l’observation des oiseaux exotiques. Vivez des expériences uniques au cœur des plus beaux habitats naturels.</p>
+                
+                <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Liens utiles :</h4>
+                    <ul>
+                    <li><a href="L'ensemble_des_voyages.php">Destinations</a></li>
+                    <li><a href="Apropos.php">À propos</a></li>
+                    <li><a href="#top">Haut de la page</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contactez-nous :</h4>
+                    <p>Email : <a href="mailto:contact@exoticbirder.com">contact@exoticbirder.com</a></p>
+                    <p>Téléphone : +33 1 23 45 67 89</p>
+                    <p>Adresse : 12 rue des Oiseaux, 75000 Paris, France</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suivez-nous :</h4>
+                    <a href="#" aria-label="Facebook"><img src="icons/facebook.svg.png" alt="Facebook" /></a>
+                    <a href="#" aria-label="Instagram"><img src="icons/instagram.svg.png" alt="Instagram" /></a>
+                    <a href="#" aria-label="Twitter"><img src="icons/twitter.svg.png" alt="Twitter" /></a>
+                    <a href="#" aria-label="LinkedIn"><img src="icons/linkedIn.svg.png" alt="LinkedIn" /></a>
+                </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Exotic Birder. Tous droits réservés.</p>
+            </div>
 
         </footer>
 
 
-    
+    <script src="fonction.js"></script>
 </body>
 </html>

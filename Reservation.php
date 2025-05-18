@@ -43,6 +43,13 @@
                             $array1["Voyages_reserve"][] = $id;
                         }
                     }
+                    if(isset($_SESSION["Voyages_reserve"])){
+                        $_SESSION["Voyages_reserve"][] = $id;
+                    }
+                    else{
+                        $_SESSION["Voyages_reserve"] = array();
+                        $_SESSION["Voyages_reserve"][] = $id;
+                    }
                     $file[]=$array1;
                     $json_new_save=json_encode($file, JSON_PRETTY_PRINT);
                     file_put_contents("save.json", $json_new_save);
