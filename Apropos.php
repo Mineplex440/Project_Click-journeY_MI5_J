@@ -99,7 +99,11 @@
         <div class="div-apropos">
             <fieldset class="fieldset-apropos">
                 <p class="titre">A propos de nous : </p>
-                <p class="para">Nous sommes un groupe d'étudiants de CY-Tech.</p>
+                <p>
+  Nous sommes un groupe d'étudiants passionnés de l'école <strong>CY Tech</strong>, réunis autour d'un projet commun : concevoir une plateforme dédiée aux voyages d'observation d'oiseaux exotiques. <br><br>
+  Composée de <strong>Ethann</strong>, <strong>Louis</strong> et <strong>Jhoneyd</strong>, notre équipe met à profit ses compétences en informatique, en design et en gestion de projet pour proposer une expérience unique aux amateurs de nature et d'aventure. <br><br>
+  Ce site est à la fois un défi académique et une vitrine de notre engagement à offrir un contenu de qualité, centré sur la découverte de la biodiversité et la sensibilisation à sa préservation.
+</p>
             </fieldset>
         </div>
 
