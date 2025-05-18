@@ -8,12 +8,14 @@
 	</head>
     <body class="profil">
         <?php
+            
             $connected=0;   //a variable that will be equal to 1 if the users is succsfully connected
             include"page1.php";
+            session_start();
 
             if(session_status()==PHP_SESSION_NONE){
-
                 session_start();
+            }
                 if(isset($_SESSION["email"])&&isset($_SESSION["password"])){    //if you changed page before
                 $table=searchjson($_SESSION["email"]);
                 if($table["password"]==$_SESSION["password"]){
@@ -25,10 +27,12 @@
             if($connected== 1){
                 $save=searchjson($_SESSION["email"]);
             }
-
-            }
-            if(isset($_POST["change_image"])){
-                move_uploaded_file($_POST["change_image"], "/images/profil".$_SESSION["email"]);
+            if(isset($_FILES["photo_change"])){
+                $fileExt = pathinfo($_FILES["photo_change"]["name"], PATHINFO_EXTENSION);
+                //echo($_FILES["photo_change"]['tmp_name'].$fileExt);
+                move_uploaded_file($_FILES["photo_change"]['tmp_name'], __DIR__."/images/".$_SESSION["email"].".".$fileExt);
+                    //var_dump($_FILES["photo_change"]["error"]);
+                
             }
 
             if(isset($_POST["prenom_change"])){
@@ -108,7 +112,7 @@
 
 
         echo"
-        <form action='profil.php' method='post'>
+        <form action='profil.php' method='post' enctype='multipart/form-data'>
         <table class='t-profil'>
             <tr class='tr-profil'> 
                 <th colspan='3'> Profil : </th>
@@ -116,7 +120,7 @@
             
             <tr class='tr-profil' id='photo_change'>
                 <th class='th-profil'> Photo de profil : </th>
-                <th class='th-profil' id='photo_information'> <img class='img-profil' src=/images/profil".$_SESSION["email"]." alt='logo'/> </th>
+                <th class='th-profil' id='photo_information'> <img class='img-profil' src=/images/".$_SESSION["email"].".jpg"." alt='logo'/> </th>
                 <th><button class='button-profil'  type='button' onclick=\"change_photo()\"><img src='img/modif.png' alt='modifier'></button></th>
             </tr>
 
@@ -160,6 +164,7 @@
         </form>";
         ?>
         <script src="/fonction.js">
+            
         </script>
 
 
