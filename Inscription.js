@@ -1,10 +1,12 @@
 function cpt_letter(id,size){
+    /*put the number of letter in id and write this number on size the maximum size of the input */
     let elem=document.getElementById(id);
     elem.lastChild.textContent=elem.childNodes[1].value.length+"/"+size;
                 
 }   
 
 function check_condition_inscription(){
+    /*enable the button if the value entered in the inscripion form are right*/
     var submit=document.getElementById("submit_button");
     console.log(check_second_code());
     console.log(check_code("password"));
@@ -94,6 +96,7 @@ function check_code(str){
 }
 
 function check_second_code(){
+    /*check if the second code is the same as the first password  in the inscription form and write if they are not the same*/
     let code1=document.getElementById("code_n1");
     let code2=document.getElementById("code_n2");
     let elem=document.getElementById("password_error2");

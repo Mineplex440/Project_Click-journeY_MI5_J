@@ -1,10 +1,12 @@
 function cpt_letter(id,size){
+    /*put the number of letter in id and write this number on size the maximum size of the input */
     let elem=document.getElementById(id);
     elem.lastChild.textContent=elem.childNodes[1].value.length+"/"+size;
                 
 }  
 
 function check_condition_connexion(){
+    /*check the value in the password input and enable the submit button if the password is right*/
     //elem=document.getElementsByTagNameNS("input");
     var submit=document.getElementById("submit_button");
 

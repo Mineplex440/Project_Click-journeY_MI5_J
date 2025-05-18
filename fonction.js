@@ -1,3 +1,112 @@
+async function submiting(id){
+
+    let nom;
+    let prenom;
+    let email;
+    let date;
+    let sex;
+    let password;
+
+    switch(id.name){
+        case "nom_change":
+            nom=document.getElementById("input_change").value;
+
+            prenom=document.getElementById("prenom_information").textContent;
+            email=document.getElementById("email_information").textContent;
+            date=document.getElementById("date_information").textContent;
+            sex=document.getElementById("sex_information").textContent;
+            password=document.getElementById("password_information").textContent;
+            break;
+        case "prenom_change":
+            prenom=document.getElementById("input_change").value;
+            console.log(prenom);
+
+            nom=document.getElementById("nom_information").textContent;
+            email=document.getElementById("email_information").textContent;
+            date=document.getElementById("date_information").textContent;
+            sex=document.getElementById("sex_information").textContent;
+            password=document.getElementById("password_information").textContent;
+            break;
+        case "email_change":
+            email=document.getElementById("input_change").value;
+
+            nom=document.getElementById("nom_information").textContent;
+            prenom=document.getElementById("prenom_information").textContent;
+            date=document.getElementById("date_information").textContent;
+            sex=document.getElementById("sex_information").textContent;
+            password=document.getElementById("password_information").textContent;
+            break;
+        case "date_change":
+            date=document.getElementById("input_change").value;
+
+            nom=document.getElementById("nom_information").textContent;
+            prenom=document.getElementById("prenom_information").textContent;
+            email=document.getElementById("email_information").textContent;
+            sex=document.getElementById("sex_information").textContent;
+            password=document.getElementById("password_information").textContent;
+            break;
+        case "sex_change":
+            sex=document.getElementById("input_change").value;
+
+            nom=document.getElementById("nom_information").textContent;
+            prenom=document.getElementById("prenom_information").textContent;
+            email=document.getElementById("email_information").textContent;
+            date=document.getElementById("date_information").textContent; 
+            password=document.getElementById("password_information").textContent;
+            break;
+        case "password_change":
+            password=document.getElementById("input_change").value;
+
+            nom=document.getElementById("nom_information").textContent;
+            prenom=document.getElementById("prenom_information").textContent;
+            email=document.getElementById("email_information").textContent;
+            date=document.getElementById("date_information").textContent;
+            sex=document.getElementById("sex_information").textContent;
+            break;
+    }
+    var profil ={
+        nom: nom,
+        prenom: prenom,
+        email: email,
+        date_of_birth: date,
+        sex: sex,
+        password: password
+    }
+
+    const response =await fetch("http://localhost:8080/profil_submit.php",{
+        method:"POST",
+        body: JSON.stringify(profil),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    const resp =await response.text();
+    //console.log(resp);
+    console.log(resp);
+    let readresp=JSON.parse(resp);
+    switch(id.name){
+    case "nom_change":
+            back(id,readresp.nom);
+            break;
+        case "prenom_change":
+            back(id,readresp.prenom);
+            break;
+        case "email_change":
+            back(id,readresp.email);
+            break;
+        case "date_change":
+            back(id,readresp.date_of_birth);
+            break;
+        case "sex_change":
+            back(id,readresp.sex);
+            break;
+        case "password_change":
+            back(id,readresp.password);
+            break;
+    }
+    
+}
+
 function check_number(min,max,str){
     res=0
     for(const index in str){
@@ -167,20 +276,27 @@ function check_condition_inscription(){
 }
 
 function cpt_letter(id,size){
+    /*put the number of letter in id and write this number on size the maximum size of the input */
     let elem=document.getElementById(id);
     elem.lastChild.textContent=elem.childNodes[1].value.length+"/"+size;
                 
 }   
 
 function submit_button(id){
-    if( (id.hasAttribute('name'))&&id.parentNode.lastChild.textContent!='submit'){
+    /*create a submit button when an input is pressed */
+    console.log(id);
+    if( (id.hasAttribute('name'))&&id.parentNode.lastChild.textContent!='submit' ){ //check if there is already a submit button
         new_button=document.createElement('button');
         id.parentNode.appendChild(new_button);
-        new_button.textContent='submit';
+        new_button.textContent='submit';   
+        new_button.setAttribute("id","submit_button");
+        new_button.setAttribute("type","button");
+        new_button.setAttribute("onclick",'submiting('+id.name+')');    
     }
 }
 
 function back(id,text){
+    /*creat a button to go back on the input and show the information*/
     let elem;
     let new_text= document.createElement("th");
     new_text.setAttribute("class","th-profil");
@@ -245,31 +361,52 @@ function back(id,text){
             elem.appendChild(new_text);
             elem.appendChild(new_button_th);
             break;
+        case "photo_change":
+            elem=document.getElementById("photo_change");
+            new_button.setAttribute("onclick",'change(\'photo\')');
+            new_text.setAttribute("id","photo_information");
+            id.remove();
+            document.getElementById("back_button").remove();
+            new_text.textContent=text;
+            elem.appendChild(new_text);
+            elem.appendChild(new_button_th);
+            break;
 
     }
-
+    //remove the submit button if there is one 
+    let submit=document.getElementById("submit_button");
+    if(isNaN(submit)){
+        submit.remove();
+    }
+    //enable the button for the modification on the page
     let parc=document.getElementsByClassName("button-profil");
     for(let index in parc){
+        if(parc[index] instanceof HTMLElement){
         parc[index].toggleAttribute("disabled",false);
+        }
     }
 
 }
 
 function change(str){
+    /*create an input to change the information str in the profil*/
     let elem=document.getElementById(str+"_change");
-    let information=document.getElementById(str+"_information");
+    let information=document.getElementById(str+"_information");    //get the information already stocked
     //delete 
     document.querySelector("#"+str+"_change"+" button.button-profil").parentNode.remove();   
     document.querySelector("#"+str+"_change #"+str+"_information").remove();
-    //create
+    //create the new element put into the document
     let new_input=document.createElement('input');
     let back_button=document.createElement("button");
     new_input.value=information.textContent;
     
+    //set the new input in the document
     elem.appendChild(new_input);
     new_input.setAttribute('oninput','submit_button('+str+"_change"+')');
     new_input.setAttribute('name',str+"_change");
 
+    new_input.setAttribute("id","input_change");
+    //set the button to go back in the document
     elem.appendChild(back_button);
     back_button.textContent="back";
     back_button.setAttribute("type","button");
@@ -286,8 +423,11 @@ function change(str){
         case "date":
             new_input.setAttribute("type","date");
             break;
+        case"photo":
+            new_input.setAttribute("type","file");
     }
     
+    //disable all the other edit button
     let parc=document.getElementsByClassName("button-profil");
     for(let index in parc){
         parc[index].toggleAttribute("disabled",true);
@@ -295,7 +435,28 @@ function change(str){
 }
 
 function change_photo(){
-    console.log("photo");
+    /*create an input to change the profil photo*/
+
+    let elem=document.getElementById("photo_change");
+    let information=document.getElementById("photo_information");
+    //remove
+    document.querySelector("#photo_change button.button-profil").parentNode.remove();   
+    document.querySelector("#photo_change #photo_information").remove();
+    //create the new element put into the document
+    let submit_button=document.createElement("button");
+    let hid_input=document.createElement("input");
+    let new_input=document.createElement("input");
+    //set the 
+    hid_input.setAttribute("type","hidden");
+    hid_input.setAttribute("name","MAX_FILE_SIZE");
+    hid_input.setAttribute("value","30000");
+    elem.appendChild(hid_input);
+
+    new_input.setAttribute('oninput','submit_button('+"photo_change"+')');
+    new_input.setAttribute('name',"photo_change");
+    new_input.setAttribute("type","file");
+    elem.appendChild(new_input);
+
 }
 
 function change_sex(){
@@ -325,17 +486,16 @@ function change_sex(){
 }
 
 function modif(bool,email){
-    let vip= document.getElementById(email+"_vip");
+    let admin= document.getElementById(email+"_admin");
     let banni= document.getElementById(email+"_banni");
     let standard= document.getElementById(email+"_standard");
-    vip.toggleAttribute("disabled",bool);
+    admin.toggleAttribute("disabled",bool);
     banni.toggleAttribute("disabled",bool);
     standard.toggleAttribute("disabled",bool);
     if(bool===true){
     setTimeout(modif,1000,false,email);
     }
 }
-
 
 function changerStyle(feuille) {
     document.getElementById("theme-style").href = feuille;
