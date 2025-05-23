@@ -20,6 +20,16 @@ async function getVoyage() {
 
     createVoyList(dataArray);
 
+    const localisation = document.getElementById("localisation").value.toLowerCase();
+    const prix = parseInt(document.getElementById("prix").value);
+    const date = document.querySelector("input[name='date']").value;
+    const duree = document.getElementById("duree").value;
+    const type = document.getElementById("type_sejour").value;
+
+    if (localisation || !isNaN(prix) || date || duree !== "toute-duree" || type !== "tout-endroit") {
+        filterData2();
+    }
+
 }
 
 function createVoyList(VoyageList){
@@ -63,7 +73,6 @@ function createVoyList(VoyageList){
 }
 
 getVoyage();
-
 
 searchInput.addEventListener("input", filterData2);
 

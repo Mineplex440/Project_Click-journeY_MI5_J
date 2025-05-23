@@ -62,11 +62,21 @@
         "Voyages_reserve": []
     },
     {
+        "prenom": "admin",
+        "nom": "admin",
+        "email": "admin@gmail.com",
+        "password": "Aa&1",
+        "date_of_birth": "2025-05-19",
+        "sex": "A",
+        "Voyages_reserve": [],
+        "Admin": "1"
+    },
+    {
         "prenom": "Ethann",
         "nom": "Pencole",
         "email": "ethann.pencole29@gmail.com",
         "password": "Salut",
-        "date_of_birth": "2005-03-05",
+        "date_of_birth": "2005-03-29",
         "sex": "H",
         "Admin": "1",
         "Voyages_reserve": []

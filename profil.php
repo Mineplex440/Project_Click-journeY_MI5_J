@@ -33,45 +33,22 @@
                     }
                 }
             }
+            
+            
+            $fields = [
+                "prenom" => "Prénom",
+                "nom" => "Nom",
+                "email" => "Adresse Email",
+                "date_of_birth" => "Date de naissance",
+                "sex" => "Sexe",
+                "password" => "Code"
+            ];
+
             if($_SESSION["connected"] == 0){
                 header("location:pageAcceuil.php");
             }
             if($_SESSION["connected"]== 1){
                 $save=searchjson($_SESSION["email"]);
-            }
-
-            if(isset($_FILES["photo_change"])){
-                $fileExt = pathinfo($_FILES["photo_change"]["name"], PATHINFO_EXTENSION);
-                //echo($_FILES["photo_change"]['tmp_name'].$fileExt);
-                move_uploaded_file($_FILES["photo_change"]['tmp_name'], __DIR__."/images/".$_SESSION["email"].".".$fileExt);
-                    //var_dump($_FILES["photo_change"]["error"]);
-            }
-            if(isset($_POST["prenom_change"])){
-                $save["prenom"]=$_POST["prenom_change"];
-                echo $save["prenom"];
-                change_account($save);
-            }
-            if(isset($_POST["nom_change"])){
-                $save["nom"]=$_POST["nom_change"];
-                change_account($save);
-            }
-            if(isset($_POST["email_change"])){
-                $save["email"]=$_POST["email_change"];
-                change_account($save);
-                $_SESSION["email"]=$_POST["email_change"];
-            }
-            if(isset($_POST["sex_change"])){
-                $save["sex"]=$_POST["sex_change"];
-                change_account($save);
-            }
-            if(isset($_POST["date_change"])){
-                $save["date_of_birth"]=$_POST["date_change"];
-                change_account($save);
-            }
-            if(isset($_POST["password_change"])){
-                $save["password"]=$_POST["password_change"];
-                change_account($save);
-                $_SESSION["password"]=$_POST["password_change"];
             }
         
             echo "<div class='menu-top'>
@@ -147,61 +124,39 @@
         </div>
 
         <br>
+    <?php echo "<table class='t-profil'>"; ?>
+
+    <!-- <tr class='tr-profil' id='photo_change'>
+            <th class='th-profil'>Photo de profil :</th>
+            <th class='th-profil' id='photo_information'>
+                <img class='img-profil' id='photo_preview' src='images/<?php /*echo $_SESSION["email"]*/; ?>.jpg' alt='photo'>
+            </th>
+            <th>
+                <button class='button-profil' type='button' onclick="editPhoto()">
+                    <img src='img/modif.png' alt='modifier'>
+                </button>
+            </th>
+        </tr> -->
     <?php
-        echo"
-        <form action='profil.php' method='post' enctype='multipart/form-data'>
-        <table class='t-profil'>
-            <tr class='tr-profil'> 
-                <th colspan='3'> Profil : </th>
-            </tr>
-            
-            <tr class='tr-profil' id='photo_change'>
-                <th class='th-profil'> Photo de profil : </th>
-                <th class='th-profil' id='photo_information'> <img class='img-profil' src=/images/".$_SESSION["email"].".jpg"." alt='logo'/> </th>
-                <th><button class='button-profil'  type='button' onclick=\"change_photo()\"><img src='img/modif.png' alt='modifier'></button></th>
-            </tr>
+        
+        foreach ($fields as $key => $label) {
+        echo "<tr class='tr-profil' id='{$key}_change'>
+                <th class='th-profil'> {$label} : </th>
+                <th class='th-profil' id='{$key}_information'> ".htmlspecialchars($save[$key])." </th>
+                <th>
+                    <button class='button-profil' id='button-profil' type='button' onclick=\"editField('".$key."')\">
+                        <img src='img/modif.png' alt='modifier'>
+                    </button>
+                </th></tr>";
+        }
 
-            <tr class='tr-profil' id='prenom_change'>
-                <th class='th-profil'> Prenom : </th>
-                <th class='th-profil' id='prenom_information'> ".$save["prenom"]."</th>
-                <th><button class='button-profil'  type='button' onclick=\"change('prenom')\"><img src='img/modif.png' alt='modifier'></button></th>
-            </tr>
-
-            <tr class='tr-profil' id='nom_change'>
-                <th class='th-profil'> Nom : </th>
-                <th class='th-profil' id='nom_information'>".$save["nom"]."</th>
-                <th><button class='button-profil'  type='button' onclick=\"change('nom')\"><img src='img/modif.png' alt='modifier'></button></th>
-            </tr>
-            
-            <tr class='tr-profil' id='email_change'>
-                <th class='th-profil'> Adresse Email : </th>
-                <th class='th-profil' id='email_information'>".$save["email"]."</th>
-                <th><button class='button-profil' id='email_button' type='button' onclick=\"change('email')\"> <img src='img/modif.png' alt='modifier'> </button></th>
-            </tr>
-            
-            <tr class='tr-profil' id='date_change'>
-                <th class='th-profil' > Date de naissance : </th>
-                <th class='th-profil' id='date_information'>".$save["date_of_birth"]."</th>
-                <th><button class='button-profil' type='button' onclick=\"change('date')\"> <img src='img/modif.png' alt='modifier'> </button></th>
-            </tr>
-
-            <tr class='tr-profil' id='sex_change'>
-                <th class='th-profil'> Sexe : </th>
-                <th class='th-profil' id='sex_information'>".$save["sex"]."</th>
-                <th><button class='button-profil' type='button' onclick=\"change_sex()\"> <img src='img/modif.png' alt='modifier'> </button></th>
-            </tr>
-
-            <tr class='tr-profil' id='password_change'>
-                <th class='th-profil'> Code : </th>
-                <th class='th-profil' id='password_information'>".$save["password"]."</th>
-                <th><button class='button-profil'  type='button' onclick=\"change('password')\"><img src='img/modif.png' alt='modifier'></button></th>
-            </tr>
-
-        </table>
-        </form>";
+        echo "</table>";
         ?>
-        <script src="fonction.js">
-        </script>
+        
+
+<script src="fonction.js"> </script>
+<script src="profil.js"> </script>
+
 
 
 

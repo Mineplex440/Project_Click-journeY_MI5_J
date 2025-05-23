@@ -146,7 +146,8 @@
     <h1 class='titre_admin'>
          Page administrateur
     </h1>     
-     <table class='table-admin' align='center'>
+     
+    <table class='table-admin' align='center'>
         <tr class='tr-admin'>
             <td id='td-admin' align='left' colspan='4'>
                 <h2 class='title_liste_user'>
@@ -182,16 +183,11 @@
                 <form action='admin.php' method='get'> <td colspan='4'align='center'> <button name='precedent' value=".strval($_SESSION["admin_page"]-1)."> precedent </button> ".$_SESSION["admin_page"]." <button name='suivant' value=".strval( ($_SESSION["admin_page"]+1) )."'1'> suivant </button></td> </form>
             </tr>";
 
-
-    echo"</table>
-    </body>
-    </html>";
 ?>
-<script src="fonction.js">
     
-
-</script>
-
+        </table>
+        <script src="fonction.js"></script>
+        <script src="admin.js"></script>
     </body>
 
-    </html>
+</html>

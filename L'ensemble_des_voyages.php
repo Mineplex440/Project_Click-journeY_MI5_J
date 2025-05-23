@@ -484,8 +484,8 @@
         </div>
     
 
-    <script src="Ensemble_voyage.js"></script>
     <script src="fonction.js"></script>
+    
 </body>
 
 <footer class="foot">

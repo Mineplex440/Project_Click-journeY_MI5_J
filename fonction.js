@@ -73,14 +73,14 @@ async function submiting(id){
         password: password
     }
 
-    const response =await fetch("http://localhost:8080/profil_submit.php",{
+    const response = await fetch("profil_submit.php",{
         method:"POST",
         body: JSON.stringify(profil),
         headers: {
             "Content-Type": "application/json"
         }
     });
-    const resp =await response.text();
+    const resp = await response.text();
     //console.log(resp);
     console.log(resp);
     let readresp=JSON.parse(resp);
@@ -440,8 +440,9 @@ function change(str){
     
     //disable all the other edit button
     let parc=document.getElementsByClassName("button-profil");
+    console.log(parc);
     for(let index in parc){
-        parc[index].toggleAttribute("disabled",true);
+        parc[index].toggleAttribute("disabled", true);
     }
 }
 
